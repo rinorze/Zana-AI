@@ -546,11 +546,13 @@ const STRINGS: Record<Language, Dict> = {
   },
 };
 
-export function translate(language: Language, key: keyof (typeof STRINGS)["sq"]): string {
+export type TranslationKey = keyof (typeof STRINGS)["sq"];
+
+export function translate(language: Language, key: TranslationKey): string {
   return STRINGS[language][key] ?? STRINGS.sq[key] ?? String(key);
 }
 
 export function useT() {
   const language = useStore((s) => s.language);
-  return (key: keyof (typeof STRINGS)["sq"]) => translate(language, key);
+  return (key: TranslationKey) => translate(language, key);
 }

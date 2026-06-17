@@ -3,9 +3,14 @@
 import Link from "next/link";
 import { ArrowRight, BarChart3, FileSpreadsheet, FileText, FlaskConical, FolderTree, Globe } from "lucide-react";
 
-import { useT } from "@/lib/i18n";
+import { type TranslationKey, useT } from "@/lib/i18n";
 
-const TILES = [
+const TILES: Array<{
+  href: string;
+  icon: React.ComponentType<{ className?: string }>;
+  titleKey: TranslationKey;
+  subtitleKey: TranslationKey;
+}> = [
   { href: "/admin/services", icon: FolderTree, titleKey: "admin_tile_services", subtitleKey: "admin_tile_services_desc" },
   { href: "/admin/templates", icon: FileSpreadsheet, titleKey: "admin_tile_templates", subtitleKey: "admin_tile_templates_desc" },
   { href: "/admin/documents", icon: FileText, titleKey: "admin_tile_documents", subtitleKey: "admin_tile_documents_desc" },
@@ -37,8 +42,8 @@ export default function AdminHomePage() {
                 <Icon className="h-6 w-6" />
               </span>
               <div className="flex-1">
-                <p className="font-bold text-black">{t(tile.titleKey as any)}</p>
-                <p className="text-sm text-gray-500">{t(tile.subtitleKey as any)}</p>
+                <p className="font-bold text-black">{t(tile.titleKey)}</p>
+                <p className="text-sm text-gray-500">{t(tile.subtitleKey)}</p>
               </div>
               <ArrowRight className="h-4 w-4 text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity" />
             </Link>

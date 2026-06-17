@@ -191,7 +191,13 @@ export function HomeChat() {
         setState((prev) => ({ ...prev, busy: false, finished: true }));
       }
     },
-    [language, simpleMode, state.busy],
+    [
+      language,
+      simpleMode,
+      state.activeServiceId,
+      state.activeServiceName,
+      state.busy,
+    ],
   );
 
   useEffect(() => {

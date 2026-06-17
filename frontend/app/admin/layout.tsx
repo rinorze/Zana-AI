@@ -6,10 +6,14 @@ import { useEffect } from "react";
 import { BarChart3, FileSpreadsheet, FileText, FlaskConical, FolderTree, Globe, LogOut } from "lucide-react";
 
 import { clearToken, getRole, getToken } from "@/lib/api";
-import { useT } from "@/lib/i18n";
+import { type TranslationKey, useT } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
-const SECTIONS = [
+const SECTIONS: Array<{
+  href: string;
+  labelKey: TranslationKey;
+  icon: React.ComponentType<{ className?: string }>;
+}> = [
   { href: "/admin/services", labelKey: "admin_tile_services", icon: FolderTree },
   { href: "/admin/templates", labelKey: "admin_tile_templates", icon: FileSpreadsheet },
   { href: "/admin/documents", labelKey: "admin_tile_documents", icon: FileText },
@@ -21,6 +25,7 @@ const SECTIONS = [
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname() ?? "";
   const router = useRouter();
+  const t = useT();
 
   useEffect(() => {
     if (pathname.startsWith("/admin/login")) return;
@@ -35,8 +40,6 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     clearToken();
     router.replace("/admin/login");
   }
-
-  const t = useT();
 
   return (
     <div className="container py-8 grid gap-6 md:grid-cols-[240px_1fr]">
@@ -71,7 +74,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             )}
           >
             <Icon className="h-4 w-4" />
-            {t(labelKey as any)}
+            {t(labelKey)}
           </Link>
         ))}
       </aside>
