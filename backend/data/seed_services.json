@@ -1,0 +1,2842 @@
+[
+  {
+    "service_id": "pasaporta",
+    "category": "Dokumente Civile",
+    "names": {
+      "sq": "Pasaporta",
+      "en": "Passport",
+      "sr": "Pasoš"
+    },
+    "description": {
+      "sq": "Pasaporta është dokument udhëtimi që lëshohet nga Ministria e Punëve të Brendshme për shtetasit e Kosovës. Vlen për 10 vjet për të rriturit dhe 5 vjet për fëmijët nën 18 vjeç.",
+      "en": "The passport is a travel document issued by the Ministry of Internal Affairs to Kosovo citizens. It is valid for 10 years for adults and 5 years for children under 18.",
+      "sr": "Pasoš je putna isprava koju izdaje Ministarstvo unutrašnjih poslova građanima Kosova. Važi 10 godina za odrasle i 5 godina za decu mlađu od 18 godina."
+    },
+    "fee": "25 EUR (10-vjeçare) · 20 EUR (5-vjeçare) · 15 EUR (fëmijë, 5-vjeçare)",
+    "duration": "10 ditë pune",
+    "office": "Qendra për Pajisje me Dokumente (CPD) — MPB",
+    "office_locations": [
+      {
+        "city": "Prishtinë",
+        "address": "Rruga e UÇK-së, nr. 9",
+        "hours": "08:00–16:00 (E hënë–E premte)"
+      },
+      {
+        "city": "Prizren",
+        "address": "Rruga Adem Jashari, p.n.",
+        "hours": "08:00–15:30 (E hënë–E premte)"
+      },
+      {
+        "city": "Gjilan",
+        "address": "Rruga Idriz Seferi, p.n.",
+        "hours": "08:00–15:30 (E hënë–E premte)"
+      }
+    ],
+    "required_documents": [
+      "Letërnjoftim valid",
+      "Çertifikatë lindjeje (jo më e vjetër se 6 muaj)",
+      "Fletë-pagesa e tarifës",
+      "Pasaporta e vjetër (në rast rinovimi)",
+      "Pëlqim i prindit / kujdestarit ligjor (për të miturit)"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "titles": {
+          "sq": "Mblidhni dokumentet",
+          "en": "Gather the documents",
+          "sr": "Pripremite dokumente"
+        },
+        "descriptions": {
+          "sq": "Sigurohuni që letërnjoftimi është valid dhe që keni një çertifikatë lindjeje jo më të vjetër se 6 muaj.",
+          "en": "Make sure your ID is valid and that you have a birth certificate not older than 6 months.",
+          "sr": "Proverite da li je lična karta važeća i imate izvod iz matične knjige rođenih ne stariji od 6 meseci."
+        },
+        "required_items": [
+          "Letërnjoftim",
+          "Çertifikatë lindjeje"
+        ]
+      },
+      {
+        "order": 2,
+        "titles": {
+          "sq": "Rezervoni terminin",
+          "en": "Book an appointment",
+          "sr": "Zakažite termin"
+        },
+        "descriptions": {
+          "sq": "Aplikoni online në eKosova.rks-gov.net ose paraqituni në sportel për të rezervuar terminin më të afërt.",
+          "en": "Apply online at eKosova.rks-gov.net or visit a counter to book the nearest appointment.",
+          "sr": "Prijavite se onlajn na eKosova.rks-gov.net ili posetite šalter da zakažete termin."
+        },
+        "required_items": [
+          "Llogari aktive eKosova (opsionale)"
+        ]
+      },
+      {
+        "order": 3,
+        "titles": {
+          "sq": "Paguani tarifën",
+          "en": "Pay the fee",
+          "sr": "Platite taksu"
+        },
+        "descriptions": {
+          "sq": "Tarifa paguhet në sportelet e bankave të licencuara ose përmes eKosova. Ruani fletëpagesën.",
+          "en": "The fee is paid at licensed bank counters or via eKosova. Keep the payment slip.",
+          "sr": "Taksa se plaća na šalterima licenciranih banaka ili preko eKosova. Sačuvajte uplatnicu."
+        },
+        "required_items": [
+          "Fletë-pagesa"
+        ]
+      },
+      {
+        "order": 4,
+        "titles": {
+          "sq": "Bëni biometrikën",
+          "en": "Provide biometrics",
+          "sr": "Snimite biometriju"
+        },
+        "descriptions": {
+          "sq": "Në ditën e terminit paraqituni në CPD për fotografi biometrike, gjurmë gishtash dhe nënshkrim.",
+          "en": "On the appointment day, attend the CPD office for biometric photo, fingerprints, and signature.",
+          "sr": "Na dan termina dođite u CPD radi biometrijske fotografije, otisaka prstiju i potpisa."
+        },
+        "required_items": [
+          "Letërnjoftim valid",
+          "Fletë-pagesa"
+        ]
+      },
+      {
+        "order": 5,
+        "titles": {
+          "sq": "Tërheqni pasaportën",
+          "en": "Pick up your passport",
+          "sr": "Preuzmite pasoš"
+        },
+        "descriptions": {
+          "sq": "Pas 10 ditëve pune, pasaporta tërhiqet personalisht në CPD-në ku është aplikuar.",
+          "en": "After 10 business days, collect the passport in person at the same CPD office.",
+          "sr": "Posle 10 radnih dana, pasoš se podiže lično u istom CPD-u."
+        },
+        "required_items": [
+          "Letërnjoftim",
+          "Fletë konfirmuese"
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "questions": {
+          "sq": "Sa kushton pasaporta? Cilat janë të gjitha tarifat?",
+          "en": "How much does the passport cost? What are all the fees?",
+          "sr": "Koliko košta pasoš? Koje su sve naknade?"
+        },
+        "answers": {
+          "sq": "Tarifa varion sipas afatit dhe moshës: pasaporta 10-vjeçare për të rritur kushton 25 EUR; pasaporta 5-vjeçare për të rritur kushton 20 EUR; pasaporta për fëmijë nën 18 vjeç (vlen 5 vjet) kushton 15 EUR. Për procedurë të përshpejtuar mund të aplikohet tarifë shtesë. Pagesa kryhet në bankë të licencuar ose përmes eKosova. Verifiko tarifën aktuale në eKosova.rks-gov.net para aplikimit.",
+          "en": "The fee varies by validity and age: 10-year adult passport is 25 EUR; 5-year adult passport is 20 EUR; child passport (under 18, valid 5 years) is 15 EUR. An extra fee may apply for express processing. Payment is made at a licensed bank or via eKosova. Always confirm the current fee on eKosova.rks-gov.net before applying.",
+          "sr": "Naknada zavisi od roka i uzrasta: pasoš za odrasle na 10 godina košta 25 EUR; pasoš za odrasle na 5 godina košta 20 EUR; pasoš za dete (do 18 godina, važi 5 godina) košta 15 EUR. Za hitni postupak može se primeniti dodatna naknada. Plaćanje se vrši u licenciranoj banci ili preko eKosova. Proverite aktuelnu naknadu na eKosova.rks-gov.net."
+        }
+      },
+      {
+        "questions": {
+          "sq": "Sa kushton pasaporta për të rriturit?",
+          "en": "How much is the passport for adults?",
+          "sr": "Koliko košta pasoš za odrasle?"
+        },
+        "answers": {
+          "sq": "Për të rriturit: 25 EUR për pasaportë 10-vjeçare, 20 EUR për pasaportë 5-vjeçare. Tarifë shtesë për procedurë urgjente. Verifiko në eKosova përpara aplikimit.",
+          "en": "For adults: 25 EUR for a 10-year passport, 20 EUR for a 5-year passport. An extra fee applies for urgent processing. Verify on eKosova before applying.",
+          "sr": "Za odrasle: 25 EUR za pasoš na 10 godina, 20 EUR za pasoš na 5 godina. Dodatna naknada za hitni postupak. Proverite na eKosova pre prijave."
+        }
+      },
+      {
+        "questions": {
+          "sq": "Sa kushton pasaporta për fëmijë?",
+          "en": "How much is a child's passport?",
+          "sr": "Koliko košta pasoš za dete?"
+        },
+        "answers": {
+          "sq": "Për fëmijët nën 18 vjeç, pasaporta kushton 15 EUR dhe vlen 5 vjet. Kërkohet pëlqimi i të dy prindërve (ose vendimi për kujdestari).",
+          "en": "For children under 18, the passport costs 15 EUR and is valid for 5 years. Consent of both parents (or custody decision) is required.",
+          "sr": "Za decu mlađu od 18 godina, pasoš košta 15 EUR i važi 5 godina. Potrebna je saglasnost oba roditelja (ili odluka o starateljstvu)."
+        }
+      },
+      {
+        "questions": {
+          "sq": "A mund ta tërheqë dikush tjetër pasaportën në vendin tim?",
+          "en": "Can someone else pick up the passport for me?",
+          "sr": "Može li neko drugi preuzeti pasoš umesto mene?"
+        },
+        "answers": {
+          "sq": "Vetëm me autorizim të noterizuar dhe me letërnjoftim të autorizuesit. Për të miturit, marrja bëhet nga prindi/kujdestari.",
+          "en": "Only with a notarized authorization and the authorizer's ID. For minors, the parent or legal guardian collects the document.",
+          "sr": "Samo uz overeno punomoćje i ličnu kartu davaoca punomoći. Za maloletnike pasoš preuzima roditelj ili staratelj."
+        }
+      },
+      {
+        "questions": {
+          "sq": "A mund të aplikoj online?",
+          "en": "Can I apply online?",
+          "sr": "Mogu li se prijaviti onlajn?"
+        },
+        "answers": {
+          "sq": "Po, mund të rezervoni terminin dhe të paguani tarifën përmes eKosova. Biometrika kryhet detyrimisht në sportel.",
+          "en": "Yes, you can book the appointment and pay the fee through eKosova. Biometrics must be done at the counter.",
+          "sr": "Da, termin i plaćanje se obavljaju preko eKosova. Biometrija se obavezno snima na šalteru."
+        }
+      },
+      {
+        "questions": {
+          "sq": "Çfarë duhet të bëj nëse e humb pasaportën?",
+          "en": "What should I do if I lose my passport?",
+          "sr": "Šta da uradim ako izgubim pasoš?"
+        },
+        "answers": {
+          "sq": "Lajmëroni menjëherë stacionin më të afërt policor dhe merrni vërtetimin e humbjes. Pastaj aplikoni për pasaportë të re me këtë vërtetim.",
+          "en": "Report the loss immediately at the nearest police station and obtain the loss certificate. Then apply for a new passport using that certificate.",
+          "sr": "Odmah prijavite gubitak najbližoj policijskoj stanici i uzmite potvrdu o gubitku. Potom aplicirajte za novi pasoš sa tom potvrdom."
+        }
+      }
+    ],
+    "response_templates": [
+      {
+        "scenario": "first_time_application",
+        "templates": {
+          "sq": "Përshëndetje {citizen_name}. Për pasaportë për herë të parë ju duhen: {document_list}. Tarifa është {fee} dhe afati i pritjes është {duration}. Mund të aplikoni në {office}.",
+          "en": "Hello {citizen_name}. For a first-time passport you need: {document_list}. The fee is {fee} and the waiting time is {duration}. You can apply at {office}.",
+          "sr": "Pozdrav {citizen_name}. Za prvi pasoš potrebno je: {document_list}. Taksa je {fee} a rok je {duration}. Prijavu možete podneti u {office}."
+        },
+        "placeholders": [
+          "citizen_name",
+          "document_list",
+          "fee",
+          "duration",
+          "office"
+        ]
+      },
+      {
+        "scenario": "renewal",
+        "templates": {
+          "sq": "Përshëndetje {citizen_name}. Për rinovimin e pasaportës ju duhen letërnjoftimi dhe pasaporta e vjetër. Tarifa: {fee}. Koha e pritjes: {duration}.",
+          "en": "Hello {citizen_name}. For passport renewal you need your ID and the old passport. Fee: {fee}. Waiting time: {duration}.",
+          "sr": "Pozdrav {citizen_name}. Za obnovu pasoša potrebno je: lična karta i stari pasoš. Taksa: {fee}. Rok: {duration}."
+        },
+        "placeholders": [
+          "citizen_name",
+          "fee",
+          "duration"
+        ]
+      },
+      {
+        "scenario": "missing_documents",
+        "templates": {
+          "sq": "I/E nderuar {citizen_name}, na mungojnë këto dokumente për të vazhduar aplikimin: {missing_documents}. Ju lutem t'i siguroni dhe të paraqiteni përsëri në {office}.",
+          "en": "Dear {citizen_name}, we are missing these documents to continue the application: {missing_documents}. Please obtain them and return to {office}.",
+          "sr": "Poštovani/a {citizen_name}, nedostaju nam ovi dokumenti za nastavak aplikacije: {missing_documents}. Molimo da ih obezbedite i dođete ponovo u {office}."
+        },
+        "placeholders": [
+          "citizen_name",
+          "missing_documents",
+          "office"
+        ]
+      },
+      {
+        "scenario": "lost_passport",
+        "templates": {
+          "sq": "Përshëndetje {citizen_name}. Për pasaportë të humbur, paraqituni në polici për të marrë vërtetimin e humbjes, pastaj aplikoni si për pasaportë të re me tarifë {fee}.",
+          "en": "Hello {citizen_name}. For a lost passport, go to the police to get the loss certificate, then apply as for a new passport with a fee of {fee}.",
+          "sr": "Pozdrav {citizen_name}. Za izgubljen pasoš, idite u policiju da dobijete potvrdu o gubitku, zatim aplicirajte kao za novi pasoš sa taksom od {fee}."
+        },
+        "placeholders": [
+          "citizen_name",
+          "fee"
+        ]
+      }
+    ],
+    "source_urls": [
+      "https://mpb.rks-gov.net/",
+      "https://ekosova.rks-gov.net/Services"
+    ],
+    "last_verified": "2026-05-21",
+    "verification_status": "needs_verification"
+  },
+  {
+    "service_id": "leternjoftim",
+    "category": "Dokumente Civile",
+    "names": {
+      "sq": "Letërnjoftimi",
+      "en": "ID Card",
+      "sr": "Lična karta"
+    },
+    "description": {
+      "sq": "Letërnjoftimi është dokumenti themelor i identifikimit për shtetasit e Kosovës mbi 16 vjeç. Lëshohet nga MPB dhe vlen 10 vjet.",
+      "en": "The ID card is the primary identification document for Kosovo citizens over 16. It is issued by MIA and valid for 10 years.",
+      "sr": "Lična karta je osnovni identifikacioni dokument za građane Kosova starije od 16 godina. Izdaje je MUP i važi 10 godina."
+    },
+    "fee": "8 EUR (5-vjeçar) · 15 EUR (10-vjeçar) · falas për të parën në 16 vjeç",
+    "duration": "7 ditë pune",
+    "office": "Qendra për Pajisje me Dokumente (CPD) — MPB",
+    "office_locations": [
+      {
+        "city": "Prishtinë",
+        "address": "Rruga e UÇK-së, nr. 9",
+        "hours": "08:00–16:00 (E hënë–E premte)"
+      },
+      {
+        "city": "Mitrovicë",
+        "address": "Rruga Mbretëresha Teutë, p.n.",
+        "hours": "08:00–15:30 (E hënë–E premte)"
+      },
+      {
+        "city": "Pejë",
+        "address": "Rruga Mbretëresha Teutë, p.n.",
+        "hours": "08:00–15:30 (E hënë–E premte)"
+      }
+    ],
+    "required_documents": [
+      "Çertifikatë lindjeje (jo më e vjetër se 6 muaj)",
+      "Çertifikatë shtetësie",
+      "Fletë-pagesa e tarifës",
+      "Letërnjoftimi i vjetër (në rast rinovimi)"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "titles": {
+          "sq": "Përgatitni dokumentet",
+          "en": "Prepare your documents",
+          "sr": "Pripremite dokumente"
+        },
+        "descriptions": {
+          "sq": "Merrni çertifikatën e lindjes dhe çertifikatën e shtetësisë në Zyrën e Gjendjes Civile.",
+          "en": "Obtain the birth and citizenship certificates from the Civil Registry Office.",
+          "sr": "Pribavite izvod iz matične knjige rođenih i uverenje o državljanstvu u Matičnoj službi."
+        },
+        "required_items": [
+          "Çertifikatë lindjeje",
+          "Çertifikatë shtetësie"
+        ]
+      },
+      {
+        "order": 2,
+        "titles": {
+          "sq": "Paguani tarifën",
+          "en": "Pay the fee",
+          "sr": "Platite taksu"
+        },
+        "descriptions": {
+          "sq": "Tarifa prej 10 EUR paguhet në bankë ose përmes eKosova. Ruani fletëpagesën.",
+          "en": "The 10 EUR fee is paid at the bank or through eKosova. Keep the payment receipt.",
+          "sr": "Taksu od 10 EUR uplatite u banci ili preko eKosova. Sačuvajte uplatnicu."
+        },
+        "required_items": [
+          "Fletë-pagesa"
+        ]
+      },
+      {
+        "order": 3,
+        "titles": {
+          "sq": "Paraqituni në sportel",
+          "en": "Visit the counter",
+          "sr": "Posetite šalter"
+        },
+        "descriptions": {
+          "sq": "Në CPD bëhet fotografia biometrike, gjurmët e gishtave dhe nënshkrimi.",
+          "en": "At the CPD office, a biometric photo, fingerprints, and signature are recorded.",
+          "sr": "U CPD se snimaju biometrijska fotografija, otisci prstiju i potpis."
+        },
+        "required_items": [
+          "Dokumentet e listuara më lart"
+        ]
+      },
+      {
+        "order": 4,
+        "titles": {
+          "sq": "Tërhiqeni letërnjoftimin",
+          "en": "Pick up the ID card",
+          "sr": "Preuzmite ličnu kartu"
+        },
+        "descriptions": {
+          "sq": "Pas 7 ditësh pune mund ta tërhiqni letërnjoftimin në sportelin ku keni aplikuar.",
+          "en": "After 7 business days you may collect the ID card at the same counter.",
+          "sr": "Posle 7 radnih dana ličnu kartu preuzimate na istom šalteru."
+        },
+        "required_items": [
+          "Fletë konfirmuese"
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "questions": {
+          "sq": "Sa kushton letërnjoftimi?",
+          "en": "How much does the ID card cost?",
+          "sr": "Koliko košta lična karta?"
+        },
+        "answers": {
+          "sq": "Letërnjoftimi për shtetasit e Republikës së Kosovës: tarifa rregullt zakonisht është 8 EUR (afat 5-vjeçar) deri 15 EUR (afat 10-vjeçar), me tarifa shtesë për procedurë urgjente. Letërnjoftimi i parë lëshohet pa pagesë në moshën 16 vjeç. Tarifa zyrtare aktuale verifikohet në eKosova / MPB.",
+          "en": "ID card for Kosovo citizens: the standard fee is typically 8 EUR (5-year validity) to 15 EUR (10-year validity), with extra fees for urgent processing. The first ID card at age 16 is issued free of charge. Confirm the current fee on eKosova / MPB.",
+          "sr": "Lična karta za građane Kosova: redovna naknada je obično 8 EUR (5 godina) do 15 EUR (10 godina), uz dodatne naknade za hitni postupak. Prva lična karta sa 16 godina izdaje se besplatno. Aktuelnu naknadu proverite na eKosova / MPB."
+        }
+      },
+      {
+        "questions": {
+          "sq": "Kur duhet ta marr për herë të parë letërnjoftimin?",
+          "en": "When should I get my ID card for the first time?",
+          "sr": "Kada se prvi put vadi lična karta?"
+        },
+        "answers": {
+          "sq": "Letërnjoftimi i parë merret me mbushjen e moshës 16 vjeç. Pas mbushjes së 18 vjeçve, është i obligueshëm.",
+          "en": "The first ID card is issued at age 16. From age 18 it is mandatory.",
+          "sr": "Prva lična karta se vadi sa 16 godina. Od 18 godina je obavezna."
+        }
+      },
+      {
+        "questions": {
+          "sq": "A duhet të aplikoj sërish nëse e ndryshoj adresën?",
+          "en": "Do I need to reapply if I change my address?",
+          "sr": "Da li moram da podnesem nov zahtev ako promenim adresu?"
+        },
+        "answers": {
+          "sq": "Po. Çdo ndryshim adrese kërkon lëshim të letërnjoftimit të ri me të dhënat e përditësuara.",
+          "en": "Yes. Any change of address requires the issuance of a new ID card with updated details.",
+          "sr": "Da. Svaka promena adrese zahteva izdavanje nove lične karte sa ažuriranim podacima."
+        }
+      },
+      {
+        "questions": {
+          "sq": "A mund të kërkohet letërnjoftimi i përshpejtuar?",
+          "en": "Is an expedited ID card available?",
+          "sr": "Postoji li ubrzano izdavanje lične karte?"
+        },
+        "answers": {
+          "sq": "Procedura e përshpejtuar (3 ditë pune) ofrohet vetëm në raste të arsyetuara, me tarifë shtesë sipas aktit nënligjor.",
+          "en": "The expedited procedure (3 business days) is available only for justified cases, with an additional fee per regulation.",
+          "sr": "Ubrzani postupak (3 radna dana) je dostupan samo u opravdanim slučajevima, uz dodatnu taksu po propisu."
+        }
+      }
+    ],
+    "response_templates": [
+      {
+        "scenario": "first_time_application",
+        "templates": {
+          "sq": "Përshëndetje {citizen_name}. Për letërnjoftim për herë të parë ju duhen: {document_list}. Tarifa: {fee}. Koha: {duration}.",
+          "en": "Hello {citizen_name}. For a first ID card you need: {document_list}. Fee: {fee}. Time: {duration}.",
+          "sr": "Pozdrav {citizen_name}. Za prvu ličnu kartu potrebno je: {document_list}. Taksa: {fee}. Rok: {duration}."
+        },
+        "placeholders": [
+          "citizen_name",
+          "document_list",
+          "fee",
+          "duration"
+        ]
+      },
+      {
+        "scenario": "address_change",
+        "templates": {
+          "sq": "I/E nderuar {citizen_name}, për ndryshim të adresës duhet të aplikoni për letërnjoftim të ri. Sillni çertifikatën e vendbanimit dhe fletëpagesën {fee}.",
+          "en": "Dear {citizen_name}, for a change of address you must apply for a new ID. Bring the residence certificate and a {fee} payment slip.",
+          "sr": "Poštovani/a {citizen_name}, za promenu adrese morate podneti zahtev za novu ličnu kartu. Donesite uverenje o prebivalištu i uplatnicu od {fee}."
+        },
+        "placeholders": [
+          "citizen_name",
+          "fee"
+        ]
+      },
+      {
+        "scenario": "renewal",
+        "templates": {
+          "sq": "Përshëndetje {citizen_name}. Letërnjoftimi rinovohet me letërnjoftimin e vjetër dhe çertifikatë lindjeje. Tarifa: {fee}.",
+          "en": "Hello {citizen_name}. ID renewal requires the old ID and a birth certificate. Fee: {fee}.",
+          "sr": "Pozdrav {citizen_name}. Obnova lične karte zahteva staru ličnu kartu i izvod iz matične knjige rođenih. Taksa: {fee}."
+        },
+        "placeholders": [
+          "citizen_name",
+          "fee"
+        ]
+      }
+    ],
+    "source_urls": [
+      "https://mpb.rks-gov.net/",
+      "https://ekosova.rks-gov.net/Services"
+    ],
+    "last_verified": "2026-05-21",
+    "verification_status": "needs_verification"
+  },
+  {
+    "service_id": "certifikate-lindjeje",
+    "category": "Dokumente Civile",
+    "names": {
+      "sq": "Çertifikatë lindjeje",
+      "en": "Birth Certificate",
+      "sr": "Izvod iz matične knjige rođenih"
+    },
+    "description": {
+      "sq": "Çertifikata e lindjes lëshohet nga Zyra e Gjendjes Civile dhe konfirmon të dhënat e regjistrimit të lindjes së personit.",
+      "en": "The birth certificate is issued by the Civil Registry Office and confirms the registered birth details of a person.",
+      "sr": "Izvod iz matične knjige rođenih izdaje Matična služba i potvrđuje podatke o rođenju lica."
+    },
+    "fee": "1 EUR (kopje origjinale) / pa pagesë në eKosova (elektronike)",
+    "duration": "Menjëherë në sportel / disa minuta në eKosova",
+    "office": "Zyra e Gjendjes Civile (komuna ku është regjistruar lindja)",
+    "office_locations": [
+      {
+        "city": "Prishtinë",
+        "address": "Rr. Luan Haradinaj, Komuna e Prishtinës",
+        "hours": "08:00–16:00 (E hënë–E premte)"
+      },
+      {
+        "city": "Prizren",
+        "address": "Komuna e Prizrenit, kati 1",
+        "hours": "08:00–15:30 (E hënë–E premte)"
+      }
+    ],
+    "required_documents": [
+      "Letërnjoftim valid (i kërkuesit)",
+      "Fletë-pagesa e tarifës (vetëm për kopjen e shtypur)",
+      "Numri personal i personit për të cilin kërkohet certifikata"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "titles": {
+          "sq": "Identifikohuni në eKosova ose paraqituni në sportel",
+          "en": "Sign in to eKosova or visit the counter",
+          "sr": "Prijavite se na eKosova ili posetite šalter"
+        },
+        "descriptions": {
+          "sq": "Mund të kërkoni certifikatën online përmes eKosova (me llogari të verifikuar) ose në Zyrën e Gjendjes Civile.",
+          "en": "You can request the certificate online through eKosova (with a verified account) or at the Civil Registry Office.",
+          "sr": "Izvod možete tražiti onlajn preko eKosova (sa verifikovanim nalogom) ili u Matičnoj službi."
+        },
+        "required_items": [
+          "Letërnjoftim",
+          "Llogari eKosova (opsionale)"
+        ]
+      },
+      {
+        "order": 2,
+        "titles": {
+          "sq": "Kërkoni certifikatën",
+          "en": "Submit the request",
+          "sr": "Podnesite zahtev"
+        },
+        "descriptions": {
+          "sq": "Plotësoni formularin me të dhënat e personit dhe arsyen e kërkesës (psh. shkollë, punësim, pasaportë).",
+          "en": "Fill in the form with the person's details and the reason for the request (e.g. school, employment, passport).",
+          "sr": "Popunite formular sa podacima o licu i razlogom zahteva (npr. škola, zaposlenje, pasoš)."
+        },
+        "required_items": [
+          "Formulari i kërkesës"
+        ]
+      },
+      {
+        "order": 3,
+        "titles": {
+          "sq": "Merrni certifikatën",
+          "en": "Receive the certificate",
+          "sr": "Preuzmite izvod"
+        },
+        "descriptions": {
+          "sq": "Në sportel merret menjëherë. Në eKosova, certifikata elektronike mbërrin në llogari me një link verifikues.",
+          "en": "At the counter it is issued immediately. On eKosova, the electronic certificate is delivered to your account with a verification link.",
+          "sr": "Na šalteru se izdaje odmah. Preko eKosova elektronski izvod stiže u nalog sa linkom za proveru."
+        },
+        "required_items": []
+      }
+    ],
+    "faqs": [
+      {
+        "questions": {
+          "sq": "Sa kohë vlen çertifikata e lindjes?",
+          "en": "How long is the birth certificate valid?",
+          "sr": "Koliko važi izvod iz matične knjige rođenih?"
+        },
+        "answers": {
+          "sq": "Zakonisht 6 muaj për qëllime administrative, por institucioni pranues mund të kërkojë afat më të shkurtër.",
+          "en": "Typically 6 months for administrative purposes, although the receiving institution may require a shorter validity.",
+          "sr": "Obično 6 meseci za administrativne svrhe, ali institucija koja prima može zahtevati kraći rok."
+        }
+      },
+      {
+        "questions": {
+          "sq": "A pranohet certifikata elektronike nga institucionet?",
+          "en": "Is the electronic certificate accepted by institutions?",
+          "sr": "Da li institucije prihvataju elektronski izvod?"
+        },
+        "answers": {
+          "sq": "Po, certifikata elektronike nga eKosova ka vlerë të barabartë me atë të shtypur dhe verifikohet me kod QR.",
+          "en": "Yes, the eKosova electronic certificate has the same value as the printed one and is verified via QR code.",
+          "sr": "Da, elektronski izvod sa eKosova ima istu vrednost kao štampani i verifikuje se QR kodom."
+        }
+      },
+      {
+        "questions": {
+          "sq": "A mund të marr çertifikatën në një komunë tjetër?",
+          "en": "Can I obtain the certificate in another municipality?",
+          "sr": "Mogu li dobiti izvod u drugoj opštini?"
+        },
+        "answers": {
+          "sq": "Po, regjistri qendror i gjendjes civile e mundëson lëshimin në çdo komunë, pavarësisht ku është regjistruar lindja.",
+          "en": "Yes, the central civil registry allows issuance in any municipality, regardless of where the birth was registered.",
+          "sr": "Da, centralni civilni registar omogućava izdavanje u bilo kojoj opštini, bez obzira gde je rođenje upisano."
+        }
+      }
+    ],
+    "response_templates": [
+      {
+        "scenario": "online_request",
+        "templates": {
+          "sq": "Përshëndetje {citizen_name}. Çertifikatën e lindjes mund ta merrni falas në eKosova me llogari të verifikuar. Sigurohuni që keni numrin personal të personit për të cilin po kërkoni.",
+          "en": "Hello {citizen_name}. You can get the birth certificate for free on eKosova with a verified account. Make sure you have the personal number of the person.",
+          "sr": "Pozdrav {citizen_name}. Izvod iz matične knjige rođenih besplatno možete dobiti na eKosova sa verifikovanim nalogom. Pripremite lični broj osobe."
+        },
+        "placeholders": [
+          "citizen_name"
+        ]
+      },
+      {
+        "scenario": "counter_request",
+        "templates": {
+          "sq": "I/E nderuar {citizen_name}, paraqituni në Zyrën e Gjendjes Civile me letërnjoftim. Tarifa për kopje të shtypur është {fee}.",
+          "en": "Dear {citizen_name}, please visit the Civil Registry Office with your ID. The fee for a printed copy is {fee}.",
+          "sr": "Poštovani/a {citizen_name}, dođite u Matičnu službu sa ličnom kartom. Taksa za štampani izvod iznosi {fee}."
+        },
+        "placeholders": [
+          "citizen_name",
+          "fee"
+        ]
+      },
+      {
+        "scenario": "for_third_party",
+        "templates": {
+          "sq": "Përshëndetje {citizen_name}. Për të marrë çertifikatë për një familjar duhet të dëshmoni lidhjen familjare ose të sillni autorizim të noterizuar. Tarifa: {fee}.",
+          "en": "Hello {citizen_name}. To obtain a certificate for a family member, you must prove the family relation or bring a notarized authorization. Fee: {fee}.",
+          "sr": "Pozdrav {citizen_name}. Za izvod za člana porodice morate dokazati rodbinsku vezu ili doneti overeno punomoćje. Taksa: {fee}."
+        },
+        "placeholders": [
+          "citizen_name",
+          "fee"
+        ]
+      }
+    ],
+    "source_urls": [
+      "https://ekosova.rks-gov.net/341"
+    ],
+    "last_verified": "2026-05-22",
+    "verification_status": "verified"
+  },
+  {
+    "service_id": "certifikate-martese",
+    "category": "Dokumente Civile",
+    "names": {
+      "sq": "Çertifikatë martese",
+      "en": "Marriage Certificate",
+      "sr": "Izvod iz matične knjige venčanih"
+    },
+    "description": {
+      "sq": "Çertifikata e martesës konfirmon lidhjen e martesës dhe lëshohet pas regjistrimit në Zyrën e Gjendjes Civile.",
+      "en": "The marriage certificate confirms the marital union and is issued after registration at the Civil Registry Office.",
+      "sr": "Izvod iz matične knjige venčanih potvrđuje brak i izdaje se nakon upisa u Matičnoj službi."
+    },
+    "fee": "1 EUR (kopje origjinale) / pa pagesë në eKosova",
+    "duration": "Menjëherë në sportel / disa minuta në eKosova",
+    "office": "Zyra e Gjendjes Civile (komuna ku është regjistruar martesa)",
+    "office_locations": [
+      {
+        "city": "Prishtinë",
+        "address": "Rr. Luan Haradinaj, Komuna e Prishtinës",
+        "hours": "08:00–16:00 (E hënë–E premte)"
+      },
+      {
+        "city": "Ferizaj",
+        "address": "Komuna e Ferizajt, kati 2",
+        "hours": "08:00–15:30 (E hënë–E premte)"
+      }
+    ],
+    "required_documents": [
+      "Letërnjoftim valid",
+      "Numri personal i bashkëshortit/es",
+      "Fletë-pagesa (për kopjen e shtypur)"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "titles": {
+          "sq": "Plotësoni kërkesën",
+          "en": "File the request",
+          "sr": "Popunite zahtev"
+        },
+        "descriptions": {
+          "sq": "Identifikohuni në eKosova ose plotësoni formularin në sportel duke shënuar të dhënat e martesës.",
+          "en": "Log in to eKosova or fill in the counter form with the marriage details.",
+          "sr": "Prijavite se na eKosova ili popunite formular na šalteru sa podacima o braku."
+        },
+        "required_items": [
+          "Letërnjoftim"
+        ]
+      },
+      {
+        "order": 2,
+        "titles": {
+          "sq": "Paguani tarifën (nëse aplikohet)",
+          "en": "Pay the fee (if applicable)",
+          "sr": "Platite taksu (ako se zahteva)"
+        },
+        "descriptions": {
+          "sq": "Për kopje të shtypur paguani tarifën në bankë ose përmes eKosova. Versioni elektronik është falas.",
+          "en": "For a printed copy, pay the fee at the bank or via eKosova. The electronic version is free.",
+          "sr": "Za štampanu kopiju platite taksu u banci ili preko eKosova. Elektronska verzija je besplatna."
+        },
+        "required_items": [
+          "Fletë-pagesa (opsionale)"
+        ]
+      },
+      {
+        "order": 3,
+        "titles": {
+          "sq": "Merrni çertifikatën",
+          "en": "Receive the certificate",
+          "sr": "Preuzmite izvod"
+        },
+        "descriptions": {
+          "sq": "Çertifikata lëshohet menjëherë në sportel ose mbërrin si dokument elektronik në llogarinë tuaj eKosova.",
+          "en": "The certificate is issued immediately at the counter or arrives as an electronic document in your eKosova account.",
+          "sr": "Izvod se izdaje odmah na šalteru ili stiže kao elektronski dokument u vaš eKosova nalog."
+        },
+        "required_items": []
+      }
+    ],
+    "faqs": [
+      {
+        "questions": {
+          "sq": "A njihet certifikata e martesës e Kosovës jashtë vendit?",
+          "en": "Is the Kosovo marriage certificate recognized abroad?",
+          "sr": "Da li se izvod o braku iz Kosova priznaje u inostranstvu?"
+        },
+        "answers": {
+          "sq": "Po. Për shtetet që kërkojnë apostilim, certifikata mund të apostilohet në Ministrinë e Drejtësisë.",
+          "en": "Yes. For countries that require apostille, the certificate may be apostilled at the Ministry of Justice.",
+          "sr": "Da. Za zemlje koje traže apostil, izvod se može overiti apostilom u Ministarstvu pravde."
+        }
+      },
+      {
+        "questions": {
+          "sq": "Sa shpejt regjistrohet martesa pas ceremonisë?",
+          "en": "How soon is a marriage registered after the ceremony?",
+          "sr": "Koliko brzo se brak upisuje posle ceremonije?"
+        },
+        "answers": {
+          "sq": "Martesa regjistrohet menjëherë në Zyrën e Gjendjes Civile dhe certifikata mund të lëshohet që në të njëjtën ditë.",
+          "en": "The marriage is registered immediately at the Civil Registry Office and the certificate can be issued the same day.",
+          "sr": "Brak se upisuje odmah u Matičnoj službi i izvod se može izdati istog dana."
+        }
+      },
+      {
+        "questions": {
+          "sq": "Kush mund të kërkojë çertifikatën?",
+          "en": "Who can request the certificate?",
+          "sr": "Ko može da traži izvod?"
+        },
+        "answers": {
+          "sq": "Bashkëshortët, fëmijët e tyre, prindërit ose persona të autorizuar me prokurë të noterizuar.",
+          "en": "The spouses, their children, parents, or persons holding a notarized power of attorney.",
+          "sr": "Supružnici, njihova deca, roditelji ili lica sa overenim punomoćjem."
+        }
+      }
+    ],
+    "response_templates": [
+      {
+        "scenario": "general_request",
+        "templates": {
+          "sq": "Përshëndetje {citizen_name}. Çertifikatën e martesës mund ta merrni në eKosova ose në Zyrën e Gjendjes Civile. Tarifa për kopje fizike: {fee}.",
+          "en": "Hello {citizen_name}. You can obtain the marriage certificate on eKosova or at the Civil Registry Office. Physical copy fee: {fee}.",
+          "sr": "Pozdrav {citizen_name}. Izvod o braku možete dobiti na eKosova ili u Matičnoj službi. Taksa za fizičku kopiju: {fee}."
+        },
+        "placeholders": [
+          "citizen_name",
+          "fee"
+        ]
+      },
+      {
+        "scenario": "apostille",
+        "templates": {
+          "sq": "I/E nderuar {citizen_name}, për përdorim jashtë vendit ju duhet certifikata me apostilim nga Ministria e Drejtësisë. Tarifa e apostilimit mbahet veçmas.",
+          "en": "Dear {citizen_name}, for use abroad you need the certificate apostilled by the Ministry of Justice. The apostille fee is separate.",
+          "sr": "Poštovani/a {citizen_name}, za upotrebu u inostranstvu potreban je izvod sa apostilom Ministarstva pravde. Taksa za apostil naplaćuje se posebno."
+        },
+        "placeholders": [
+          "citizen_name"
+        ]
+      },
+      {
+        "scenario": "third_party",
+        "templates": {
+          "sq": "Përshëndetje {citizen_name}. Për të marrë çertifikatën për dikë tjetër ju duhet prokurë e noterizuar dhe letërnjoftim i juaji.",
+          "en": "Hello {citizen_name}. To obtain the certificate for someone else you need a notarized power of attorney and your own ID.",
+          "sr": "Pozdrav {citizen_name}. Za preuzimanje izvoda za drugu osobu potrebno je overeno punomoćje i vaša lična karta."
+        },
+        "placeholders": [
+          "citizen_name"
+        ]
+      }
+    ],
+    "source_urls": [
+      "https://ekosova.rks-gov.net/343"
+    ],
+    "last_verified": "2026-05-22",
+    "verification_status": "verified"
+  },
+  {
+    "service_id": "certifikate-vdekjeje",
+    "category": "Dokumente Civile",
+    "names": {
+      "sq": "Çertifikatë vdekjeje",
+      "en": "Death Certificate",
+      "sr": "Izvod iz matične knjige umrlih"
+    },
+    "description": {
+      "sq": "Çertifikata e vdekjes lëshohet pas regjistrimit të faktit të vdekjes në Zyrën e Gjendjes Civile dhe përdoret për procedura trashëgimore, pensione dhe sigurime.",
+      "en": "The death certificate is issued after registration of the death at the Civil Registry Office and is used for inheritance, pensions, and insurance procedures.",
+      "sr": "Izvod iz matične knjige umrlih izdaje se nakon upisa činjenice smrti u Matičnoj službi i koristi se za ostavinske, penzijske i osiguravajuće postupke."
+    },
+    "fee": "1 EUR (kopje origjinale) / pa pagesë në eKosova",
+    "duration": "Menjëherë në sportel / disa minuta në eKosova",
+    "office": "Zyra e Gjendjes Civile (komuna ku është regjistruar vdekja)",
+    "office_locations": [
+      {
+        "city": "Prishtinë",
+        "address": "Rr. Luan Haradinaj, Komuna e Prishtinës",
+        "hours": "08:00–16:00 (E hënë–E premte)"
+      },
+      {
+        "city": "Gjakovë",
+        "address": "Komuna e Gjakovës, sporteli i Gjendjes Civile",
+        "hours": "08:00–15:30 (E hënë–E premte)"
+      }
+    ],
+    "required_documents": [
+      "Letërnjoftim i kërkuesit",
+      "Raport mjekësor / fletë vdekje (për regjistrimin fillestar)",
+      "Numri personal i të ndjerit/ës"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "titles": {
+          "sq": "Regjistroni vdekjen",
+          "en": "Register the death",
+          "sr": "Upisivanje smrti"
+        },
+        "descriptions": {
+          "sq": "Familjari paraqitet në Zyrën e Gjendjes Civile me raportin mjekësor brenda 30 ditëve nga ngjarja.",
+          "en": "A family member presents the medical report at the Civil Registry Office within 30 days of the event.",
+          "sr": "Član porodice donosi lekarski izveštaj u Matičnu službu u roku od 30 dana od smrti."
+        },
+        "required_items": [
+          "Raporti mjekësor"
+        ]
+      },
+      {
+        "order": 2,
+        "titles": {
+          "sq": "Kërkoni çertifikatën",
+          "en": "Request the certificate",
+          "sr": "Tražite izvod"
+        },
+        "descriptions": {
+          "sq": "Pas regjistrimit, çertifikata kërkohet në eKosova ose në sportel duke specifikuar qëllimin e përdorimit.",
+          "en": "After registration, request the certificate on eKosova or at the counter, specifying the purpose of use.",
+          "sr": "Posle upisa, izvod tražite preko eKosova ili na šalteru, navodeći svrhu upotrebe."
+        },
+        "required_items": [
+          "Letërnjoftim i kërkuesit"
+        ]
+      },
+      {
+        "order": 3,
+        "titles": {
+          "sq": "Tërheqni dokumentin",
+          "en": "Collect the document",
+          "sr": "Preuzmite dokument"
+        },
+        "descriptions": {
+          "sq": "Çertifikata merret menjëherë në sportel ose në llogarinë eKosova si dokument elektronik me kod QR.",
+          "en": "The certificate is issued immediately at the counter or available in eKosova as an electronic document with QR code.",
+          "sr": "Izvod se preuzima odmah na šalteru ili u eKosova nalogu kao elektronski dokument sa QR kodom."
+        },
+        "required_items": []
+      }
+    ],
+    "faqs": [
+      {
+        "questions": {
+          "sq": "Brenda sa kohe duhet regjistruar vdekja?",
+          "en": "Within what time must the death be registered?",
+          "sr": "U kom roku se upisuje smrt?"
+        },
+        "answers": {
+          "sq": "Vdekja duhet regjistruar brenda 30 ditëve nga data e ndodhjes. Tejkalimi i afatit mund të kërkojë procedurë gjyqësore.",
+          "en": "The death must be registered within 30 days of the event. Exceeding this period may require a court procedure.",
+          "sr": "Smrt se upisuje u roku od 30 dana od događaja. Prekoračenje roka može zahtevati sudski postupak."
+        }
+      },
+      {
+        "questions": {
+          "sq": "A mund të marrë çertifikatën një kushëri i largët?",
+          "en": "Can a distant relative obtain the certificate?",
+          "sr": "Može li daljnji rođak dobiti izvod?"
+        },
+        "answers": {
+          "sq": "Po, por nevojitet dëshmi e interesit ligjor ose autorizim i noterizuar nga familjari i drejtpërdrejtë.",
+          "en": "Yes, but proof of legal interest or a notarized authorization from a direct family member is required.",
+          "sr": "Da, ali je potreban dokaz pravnog interesa ili overeno punomoćje od direktnog člana porodice."
+        }
+      },
+      {
+        "questions": {
+          "sq": "A duhet kjo certifikatë për procedurë trashëgimore?",
+          "en": "Is this certificate required for inheritance proceedings?",
+          "sr": "Da li je izvod neophodan za ostavinski postupak?"
+        },
+        "answers": {
+          "sq": "Po. Noteri ose gjykata e kërkojnë si dokument bazë për hapjen e procedurës trashëgimore.",
+          "en": "Yes. The notary or court requires it as a base document to open the inheritance proceedings.",
+          "sr": "Da. Notar ili sud ga zahtevaju kao osnovni dokument za otvaranje ostavinskog postupka."
+        }
+      }
+    ],
+    "response_templates": [
+      {
+        "scenario": "initial_registration",
+        "templates": {
+          "sq": "I/E nderuar {citizen_name}, ngushëllime për humbjen tuaj. Për të regjistruar vdekjen, sillni raportin mjekësor në Zyrën e Gjendjes Civile brenda 30 ditëve. Çertifikata lëshohet menjëherë pas regjistrimit.",
+          "en": "Dear {citizen_name}, our condolences. To register the death, bring the medical report to the Civil Registry Office within 30 days. The certificate is issued immediately after registration.",
+          "sr": "Poštovani/a {citizen_name}, primite saučešće. Za upis smrti, donesite lekarski izveštaj u Matičnu službu u roku od 30 dana. Izvod se izdaje odmah posle upisa."
+        },
+        "placeholders": [
+          "citizen_name"
+        ]
+      },
+      {
+        "scenario": "inheritance",
+        "templates": {
+          "sq": "Përshëndetje {citizen_name}. Për procedurë trashëgimore ju duhet çertifikata e vdekjes plus certifikatat familjare. Tarifa për çertifikatën fizike është {fee}.",
+          "en": "Hello {citizen_name}. For an inheritance procedure you need the death certificate plus family certificates. The physical certificate fee is {fee}.",
+          "sr": "Pozdrav {citizen_name}. Za ostavinski postupak potreban je izvod o smrti i porodični izvodi. Taksa za fizički izvod je {fee}."
+        },
+        "placeholders": [
+          "citizen_name",
+          "fee"
+        ]
+      },
+      {
+        "scenario": "abroad_use",
+        "templates": {
+          "sq": "I/E nderuar {citizen_name}, për të përdorur dokumentin jashtë vendit, kërkoni apostilimin në Ministrinë e Drejtësisë pas marrjes së çertifikatës.",
+          "en": "Dear {citizen_name}, to use the document abroad, request an apostille at the Ministry of Justice after obtaining the certificate.",
+          "sr": "Poštovani/a {citizen_name}, za upotrebu u inostranstvu, posle dobijanja izvoda tražite apostil u Ministarstvu pravde."
+        },
+        "placeholders": [
+          "citizen_name"
+        ]
+      }
+    ],
+    "source_urls": [
+      "https://ekosova.rks-gov.net/347"
+    ],
+    "last_verified": "2026-05-22",
+    "verification_status": "verified"
+  },
+  {
+    "service_id": "regjistrim-biznesi",
+    "category": "Biznes",
+    "names": {
+      "sq": "Regjistrim biznesi (ARBK)",
+      "en": "Business Registration (KBRA)",
+      "sr": "Registracija privrednog subjekta (KARP)"
+    },
+    "description": {
+      "sq": "Regjistrimi i biznesit kryhet pranë Agjencisë për Regjistrimin e Bizneseve të Kosovës (ARBK). Procesi përfshin zgjedhjen e formës ligjore (B.I., SH.P.K., SH.A., etj.) dhe lëshimin e certifikatës me numër fiskal.",
+      "en": "Business registration is conducted at the Kosovo Business Registration Agency (KBRA). It involves selecting a legal form (Sole Proprietorship, LLC, JSC, etc.) and issuing the certificate with a fiscal number.",
+      "sr": "Registracija privrednog subjekta vrši se u Kosovskoj agenciji za registraciju preduzeća (KARP). Postupak uključuje izbor pravne forme (preduzetnik, DOO, AD itd.) i izdavanje uverenja sa fiskalnim brojem."
+    },
+    "fee": "Pa pagesë në ARBK (noterizim 30–80 EUR për SH.P.K. / SH.A.)",
+    "duration": "1–3 ditë pune",
+    "office": "Agjencia për Regjistrimin e Bizneseve të Kosovës (ARBK)",
+    "office_locations": [
+      {
+        "city": "Prishtinë",
+        "address": "Ndërtesa e MTI-së, Rr. Muharrem Fejza",
+        "hours": "08:30–15:30 (E hënë–E premte)"
+      },
+      {
+        "city": "Pejë",
+        "address": "Komuna e Pejës, Qendra për Shërbim me Qytetarë",
+        "hours": "08:30–15:00 (E hënë–E premte)"
+      },
+      {
+        "city": "Gjilan",
+        "address": "Komuna e Gjilanit, kati 1",
+        "hours": "08:30–15:00 (E hënë–E premte)"
+      }
+    ],
+    "required_documents": [
+      "Letërnjoftim i themeluesit / themeluesve",
+      "Statuti dhe marrëveshja themeluese (për SH.P.K. / SH.A.)",
+      "Adresa e ushtrimit të veprimtarisë (kontratë qiraje ose dokument pronësie)",
+      "Përshkrimi i veprimtarisë (kodet NACE)"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "titles": {
+          "sq": "Zgjidhni formën ligjore",
+          "en": "Choose the legal form",
+          "sr": "Izaberite pravnu formu"
+        },
+        "descriptions": {
+          "sq": "Identifikoni nëse do të regjistroni Biznes Individual (B.I.), Shoqëri me Përgjegjësi të Kufizuar (SH.P.K.) ose formë tjetër.",
+          "en": "Decide whether to register as a Sole Proprietorship, LLC, or another legal form.",
+          "sr": "Odlučite da li ćete se registrovati kao preduzetnik, DOO ili u drugoj pravnoj formi."
+        },
+        "required_items": []
+      },
+      {
+        "order": 2,
+        "titles": {
+          "sq": "Përgatitni dokumentet themeluese",
+          "en": "Prepare founding documents",
+          "sr": "Pripremite osnivačka akta"
+        },
+        "descriptions": {
+          "sq": "Për SH.P.K. nevojiten statuti dhe marrëveshja themeluese të noterizuara. Për B.I. mjafton aplikimi standard.",
+          "en": "For LLCs, notarized statutes and the founding agreement are required. For sole proprietorships, the standard application suffices.",
+          "sr": "Za DOO su potrebni overeni statut i osnivački akt. Za preduzetnika dovoljna je standardna prijava."
+        },
+        "required_items": [
+          "Statut",
+          "Marrëveshje themeluese (sipas formës)"
+        ]
+      },
+      {
+        "order": 3,
+        "titles": {
+          "sq": "Aplikoni online ose në sportel",
+          "en": "Apply online or at the counter",
+          "sr": "Prijavite se onlajn ili na šalteru"
+        },
+        "descriptions": {
+          "sq": "Plotësoni aplikacionin në portalin e ARBK-së. Vendet me Qendra për Shërbim me Qytetarë pranojnë dosje fizike.",
+          "en": "Submit the application on the KBRA portal. Citizens Service Centers accept physical files.",
+          "sr": "Predajte zahtev na portalu KARP-a. Centri za usluge građanima primaju i papirne predmete."
+        },
+        "required_items": [
+          "Aplikacioni i nënshkruar",
+          "Letërnjoftim"
+        ]
+      },
+      {
+        "order": 4,
+        "titles": {
+          "sq": "Merrni certifikatën dhe numrin fiskal",
+          "en": "Collect the certificate and fiscal number",
+          "sr": "Preuzmite uverenje i fiskalni broj"
+        },
+        "descriptions": {
+          "sq": "Pas aprovimit, certifikata e regjistrimit dhe numri fiskal lëshohen elektronikisht në llogarinë e biznesit.",
+          "en": "After approval, the registration certificate and fiscal number are issued electronically to the business account.",
+          "sr": "Posle odobrenja, uverenje o registraciji i fiskalni broj se elektronski izdaju na nalog preduzeća."
+        },
+        "required_items": []
+      },
+      {
+        "order": 5,
+        "titles": {
+          "sq": "Hapni xhirollogarinë dhe regjistrohuni në ATK",
+          "en": "Open a bank account and register with TAK",
+          "sr": "Otvorite bankovni račun i prijavite se u PAK"
+        },
+        "descriptions": {
+          "sq": "Hapni xhirollogari në bankë me certifikatën e ARBK-së dhe regjistroni biznesin në Administratën Tatimore për obligime fiskale.",
+          "en": "Open a corporate bank account with the KBRA certificate and register the business at the Tax Administration for fiscal obligations.",
+          "sr": "Otvorite žiro račun u banci uz uverenje KARP-a i prijavite preduzeće u Poreskoj administraciji radi poreskih obaveza."
+        },
+        "required_items": [
+          "Certifikata e ARBK",
+          "Numri fiskal"
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "questions": {
+          "sq": "Sa kushton regjistrimi i biznesit?",
+          "en": "How much does business registration cost?",
+          "sr": "Koliko košta registracija biznisa?"
+        },
+        "answers": {
+          "sq": "Regjistrimi i biznesit individual (B.I.) në ARBK është pa pagesë. Për shoqëri tregtare (SH.P.K., SH.A.) aplikohen tarifa noterizimi dhe publikimi (zakonisht 30–80 EUR varësisht nga noteri). Procedura në ARBK është falas; tarifat dalin nga noterizimi i statutit.",
+          "en": "Registering an individual business (B.I.) with ARBK is free. For legal entities (LLC, JSC) notary and publication fees apply (usually 30–80 EUR depending on the notary). The ARBK procedure itself is free; the cost comes from notarising the statute.",
+          "sr": "Registracija individualnog biznisa (B.I.) u ARBK je besplatna. Za pravna lica (DOO, AD) primenjuju se troškovi notara i objave (obično 30–80 EUR zavisno od notara). Postupak u ARBK je besplatan; trošak je notarski."
+        }
+      },
+      {
+        "questions": {
+          "sq": "Sa kapital fillestar duhet për SH.P.K.?",
+          "en": "What is the minimum capital for an LLC?",
+          "sr": "Koliko je minimalni kapital za DOO?"
+        },
+        "answers": {
+          "sq": "Kapitali minimal për SH.P.K. është 1 EUR, sipas ligjit aktual për shoqëritë tregtare.",
+          "en": "The minimum capital for an LLC is 1 EUR according to the current Law on Business Organizations.",
+          "sr": "Minimalni kapital za DOO iznosi 1 EUR prema važećem Zakonu o privrednim društvima."
+        }
+      },
+      {
+        "questions": {
+          "sq": "A mund të regjistroj biznes nga jashtë vendit?",
+          "en": "Can I register a business from abroad?",
+          "sr": "Mogu li registrovati privredni subjekt iz inostranstva?"
+        },
+        "answers": {
+          "sq": "Po, regjistrimi online është i hapur edhe për qytetarë jashtë vendit, por nënshkrimi i akteve themeluese kërkon noter ose përfaqësues të autorizuar.",
+          "en": "Yes, online registration is open for citizens abroad, but signing the founding acts requires a notary or an authorized representative.",
+          "sr": "Da, onlajn registracija je dostupna i za građane u inostranstvu, ali potpisivanje osnivačkih akata zahteva notara ili ovlašćenog zastupnika."
+        }
+      }
+    ],
+    "response_templates": [
+      {
+        "scenario": "individual_business",
+        "templates": {
+          "sq": "Përshëndetje {citizen_name}. Për Biznes Individual aplikoni online në ARBK me letërnjoftim dhe adresën e veprimtarisë. Tarifa: {fee}. Koha: {duration}.",
+          "en": "Hello {citizen_name}. For a sole proprietorship apply online at KBRA with your ID and the business address. Fee: {fee}. Time: {duration}.",
+          "sr": "Pozdrav {citizen_name}. Za preduzetnika prijavu podnosite onlajn u KARP sa ličnom kartom i adresom poslovanja. Taksa: {fee}. Rok: {duration}."
+        },
+        "placeholders": [
+          "citizen_name",
+          "fee",
+          "duration"
+        ]
+      },
+      {
+        "scenario": "llc_registration",
+        "templates": {
+          "sq": "I/E nderuar {citizen_name}, për SH.P.K. duhet statuti, marrëveshja themeluese e noterizuar dhe të dhënat e ortakëve. Pas regjistrimit hapni xhirollogarinë dhe regjistrohuni në ATK.",
+          "en": "Dear {citizen_name}, for an LLC you need the statute, a notarized founding agreement, and the partners' data. After registration, open a bank account and register with TAK.",
+          "sr": "Poštovani/a {citizen_name}, za DOO su potrebni statut, overen osnivački akt i podaci ortaka. Posle registracije otvorite žiro račun i prijavite se u PAK."
+        },
+        "placeholders": [
+          "citizen_name"
+        ]
+      },
+      {
+        "scenario": "name_change",
+        "templates": {
+          "sq": "Përshëndetje {citizen_name}. Për ndryshim të emrit të biznesit duhet vendim i organit udhëheqës dhe aplikim në ARBK. Procesi zgjat zakonisht 3 ditë pune.",
+          "en": "Hello {citizen_name}. To change the business name you need a governing body decision and a KBRA application. The process usually takes 3 business days.",
+          "sr": "Pozdrav {citizen_name}. Za promenu naziva preduzeća potrebno je odluka organa upravljanja i prijava u KARP. Postupak obično traje 3 radna dana."
+        },
+        "placeholders": [
+          "citizen_name"
+        ]
+      }
+    ],
+    "source_urls": [
+      "https://arbk.rks-gov.net/",
+      "https://ekosova.rks-gov.net/Services"
+    ],
+    "last_verified": "2026-05-21",
+    "verification_status": "needs_verification"
+  },
+  {
+    "service_id": "patente-shoferi",
+    "category": "Transporti",
+    "names": {
+      "sq": "Patentë shoferi",
+      "en": "Driving Licence",
+      "sr": "Vozačka dozvola"
+    },
+    "description": {
+      "sq": "Patenta e shoferit lëshohet nga MPB pas kryerjes së trajnimit në një autoshkollë të licencuar dhe kalimit të provimit teorik e praktik.",
+      "en": "The driving licence is issued by the Ministry of Internal Affairs after training at a licensed driving school and passing the theory and practical exams.",
+      "sr": "Vozačka dozvola se izdaje od strane MUP-a nakon obuke u licenciranoj autoškoli i položenog teorijskog i praktičnog ispita."
+    },
+    "fee": "25 EUR (10-vjeçar) · provimet 15–20 EUR/pjesë",
+    "duration": "7 ditë pune (pas kalimit të provimeve)",
+    "office": "Qendra për Pajisje me Dokumente (CPD) — MPB",
+    "office_locations": [
+      {
+        "city": "Prishtinë",
+        "address": "Rruga e UÇK-së, nr. 9",
+        "hours": "08:00–16:00 (E hënë–E premte)"
+      },
+      {
+        "city": "Ferizaj",
+        "address": "Komuna e Ferizajt, sporteli i CPD",
+        "hours": "08:00–15:30 (E hënë–E premte)"
+      },
+      {
+        "city": "Gjakovë",
+        "address": "Komuna e Gjakovës, sporteli i CPD",
+        "hours": "08:00–15:30 (E hënë–E premte)"
+      }
+    ],
+    "required_documents": [
+      "Letërnjoftim valid",
+      "Çertifikatë mjekësore (jo më e vjetër se 6 muaj)",
+      "Vërtetim i autoshkollës për përfundimin e trajnimit",
+      "Vërtetim i provimeve të kaluara (teori + praktikë)",
+      "Fletë-pagesa e tarifës 10 EUR"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "titles": {
+          "sq": "Regjistrohuni në autoshkollë",
+          "en": "Enroll in a driving school",
+          "sr": "Upisivanje u autoškolu"
+        },
+        "descriptions": {
+          "sq": "Zgjidhni një autoshkollë të licencuar nga MI dhe ndiqni trajnimin për kategorinë përkatëse (B, A, C, D).",
+          "en": "Choose a driving school licensed by the Ministry of Infrastructure and follow training for the relevant category (B, A, C, D).",
+          "sr": "Izaberite autoškolu licenciranu od strane Ministarstva infrastrukture i pohađajte obuku za odgovarajuću kategoriju (B, A, C, D)."
+        },
+        "required_items": [
+          "Letërnjoftim",
+          "Çertifikatë mjekësore"
+        ]
+      },
+      {
+        "order": 2,
+        "titles": {
+          "sq": "Bëni provimin teorik",
+          "en": "Take the theory exam",
+          "sr": "Polaganje teorijskog ispita"
+        },
+        "descriptions": {
+          "sq": "Provimi teorik mbahet në qendrat e licencuara dhe përfshin sinjalistikën, rregullat e qarkullimit dhe ndihmën e parë.",
+          "en": "The theory exam is held at licensed centers and covers signs, traffic rules, and first aid.",
+          "sr": "Teorijski ispit se polaže u licenciranim centrima i obuhvata znakove, saobraćajna pravila i prvu pomoć."
+        },
+        "required_items": [
+          "Vërtetim i trajnimit teorik"
+        ]
+      },
+      {
+        "order": 3,
+        "titles": {
+          "sq": "Bëni provimin praktik",
+          "en": "Take the practical exam",
+          "sr": "Polaganje praktičnog ispita"
+        },
+        "descriptions": {
+          "sq": "Provimi praktik bëhet me automjetin e autoshkollës dhe vlerësohet nga inspektorë të licencuar të MPB-së.",
+          "en": "The practical exam is performed in the driving school vehicle and is graded by MIA-licensed examiners.",
+          "sr": "Praktični ispit se polaže u vozilu autoškole i ocenjuju ga ispitivači koje je licencirao MUP."
+        },
+        "required_items": [
+          "Vërtetim i provimit teorik të kaluar"
+        ]
+      },
+      {
+        "order": 4,
+        "titles": {
+          "sq": "Aplikoni për patentën",
+          "en": "Apply for the licence",
+          "sr": "Podnesite zahtev za dozvolu"
+        },
+        "descriptions": {
+          "sq": "Pas provimit, paraqituni në CPD me dokumentet dhe paguani tarifën prej 10 EUR. Bëhet fotografi biometrike.",
+          "en": "After the exam, visit the CPD with your documents and pay the 10 EUR fee. A biometric photo is taken.",
+          "sr": "Posle ispita, dođite u CPD sa dokumentima i platite taksu od 10 EUR. Snima se biometrijska fotografija."
+        },
+        "required_items": [
+          "Dokumentet e listuara më lart"
+        ]
+      },
+      {
+        "order": 5,
+        "titles": {
+          "sq": "Tërhiqni patentën",
+          "en": "Pick up the licence",
+          "sr": "Preuzmite dozvolu"
+        },
+        "descriptions": {
+          "sq": "Patenta lëshohet brenda 7 ditëve pune dhe tërhiqet personalisht në CPD ku është aplikuar.",
+          "en": "The licence is issued within 7 business days and collected in person at the CPD office.",
+          "sr": "Dozvola se izdaje u roku od 7 radnih dana i preuzima se lično u istom CPD-u."
+        },
+        "required_items": [
+          "Letërnjoftim"
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "questions": {
+          "sq": "Sa kushton patentë shoferi?",
+          "en": "How much does the driving licence cost?",
+          "sr": "Koliko košta vozačka dozvola?"
+        },
+        "answers": {
+          "sq": "Patentë shoferi kushton zakonisht 25 EUR (lëshim i parë / rinovim, afat 10-vjeçar). Kategoritë e larta (C, D) mund të kenë tarifa shtesë për kontroll teknik. Provimi praktik + teorik paguhet veçmas (zakonisht 15–20 EUR çdo pjesë). Verifiko tarifën në eKosova ose MPB.",
+          "en": "The driving licence typically costs 25 EUR (initial issue or renewal, 10-year validity). Higher categories (C, D) may carry additional fees for medical/technical checks. The theoretical and practical exams are paid separately (usually 15–20 EUR per part). Confirm the current fee on eKosova or MPB.",
+          "sr": "Vozačka dozvola obično košta 25 EUR (izdavanje ili obnova, 10 godina). Više kategorije (C, D) mogu imati dodatne naknade. Teorijski i praktični ispit plaćaju se posebno (obično 15–20 EUR po delu). Proverite naknadu na eKosova ili MPB."
+        }
+      },
+      {
+        "questions": {
+          "sq": "Sa zgjat patenta e shoferit?",
+          "en": "How long is the driving licence valid?",
+          "sr": "Koliko dugo važi vozačka dozvola?"
+        },
+        "answers": {
+          "sq": "Patenta vlen 10 vjet për shoferë nën 65 vjeç. Pas kësaj moshe rinovohet çdo 3–5 vjet me certifikatë mjekësore.",
+          "en": "The licence is valid for 10 years for drivers under 65. After this age it is renewed every 3–5 years with a medical certificate.",
+          "sr": "Dozvola važi 10 godina za vozače mlađe od 65. Posle te starosti obnavlja se svakih 3–5 godina uz lekarsko uverenje."
+        }
+      },
+      {
+        "questions": {
+          "sq": "A pranohet patenta e Kosovës jashtë vendit?",
+          "en": "Is the Kosovo driving licence accepted abroad?",
+          "sr": "Da li se kosovska vozačka dozvola priznaje u inostranstvu?"
+        },
+        "answers": {
+          "sq": "Patenta pranohet në një numër shtetesh me marrëveshje dypalëshe. Për të tjera nevojitet patenta ndërkombëtare e shoferit.",
+          "en": "The licence is accepted in countries with bilateral agreements. For others, an International Driving Permit is required.",
+          "sr": "Dozvola se priznaje u zemljama sa bilateralnim sporazumima. Za druge je potrebna međunarodna vozačka dozvola."
+        }
+      },
+      {
+        "questions": {
+          "sq": "Çfarë duhet të bëj nëse patenta më skadon?",
+          "en": "What if my licence expires?",
+          "sr": "Šta ako mi dozvola istekne?"
+        },
+        "answers": {
+          "sq": "Aplikohet rinovimi në CPD me certifikatë mjekësore të re. Nuk lejohet të drejtosh automjetin me patentë të skaduar.",
+          "en": "Apply for renewal at CPD with a new medical certificate. Driving with an expired licence is not allowed.",
+          "sr": "Obnova se podnosi u CPD-u uz novo lekarsko uverenje. Vožnja sa isteklom dozvolom nije dozvoljena."
+        }
+      }
+    ],
+    "response_templates": [
+      {
+        "scenario": "first_time_license",
+        "templates": {
+          "sq": "Përshëndetje {citizen_name}. Për patentën e parë duhet të kaloni provimin teorik dhe praktik në autoshkollë të licencuar. Tarifa për lëshim është {fee}, koha {duration}.",
+          "en": "Hello {citizen_name}. For your first licence you must pass the theory and practical exams at a licensed driving school. Issuance fee: {fee}, time: {duration}.",
+          "sr": "Pozdrav {citizen_name}. Za prvu dozvolu morate položiti teorijski i praktični ispit u licenciranoj autoškoli. Taksa za izdavanje: {fee}, rok: {duration}."
+        },
+        "placeholders": [
+          "citizen_name",
+          "fee",
+          "duration"
+        ]
+      },
+      {
+        "scenario": "renewal",
+        "templates": {
+          "sq": "I/E nderuar {citizen_name}, për rinovim sillni patentën e vjetër, certifikatë mjekësore të re dhe fletëpagesën {fee}.",
+          "en": "Dear {citizen_name}, for renewal bring the old licence, a new medical certificate, and a {fee} payment slip.",
+          "sr": "Poštovani/a {citizen_name}, za obnovu donesite staru dozvolu, novo lekarsko uverenje i uplatnicu od {fee}."
+        },
+        "placeholders": [
+          "citizen_name",
+          "fee"
+        ]
+      },
+      {
+        "scenario": "international",
+        "templates": {
+          "sq": "Përshëndetje {citizen_name}. Për patentë ndërkombëtare aplikoni në Auto Moto Klubin e Kosovës me patentën aktuale, fotografi dhe letërnjoftim.",
+          "en": "Hello {citizen_name}. For an International Driving Permit apply at the Auto Moto Club of Kosovo with your current licence, photos, and ID.",
+          "sr": "Pozdrav {citizen_name}. Za međunarodnu dozvolu prijavu podnosite u Auto Moto Klubu Kosova sa važećom dozvolom, fotografijama i ličnom kartom."
+        },
+        "placeholders": [
+          "citizen_name"
+        ]
+      }
+    ],
+    "source_urls": [
+      "https://mpb.rks-gov.net/",
+      "https://ekosova.rks-gov.net/Services"
+    ],
+    "last_verified": "2026-05-21",
+    "verification_status": "needs_verification"
+  },
+  {
+    "service_id": "ekstrakt-amze",
+    "category": "Dokumente Civile",
+    "names": {
+      "sq": "Ekstrakt amze",
+      "en": "Birth Registry Extract",
+      "sr": "Izvod iz matične evidencije"
+    },
+    "description": {
+      "sq": "Ekstrakti i amzës është dokument i zgjeruar i Zyrës së Gjendjes Civile që përmban të dhëna të hollësishme historike për një person dhe familjen e tij.",
+      "en": "The birth registry extract is an extended Civil Registry document containing detailed historical data on a person and their family.",
+      "sr": "Izvod iz matične evidencije je prošireni dokument Matične službe sa detaljnim istorijskim podacima o licu i porodici."
+    },
+    "fee": "2 EUR (kopje origjinale) / pa pagesë në eKosova",
+    "duration": "Menjëherë në sportel / disa minuta në eKosova",
+    "office": "Zyra e Gjendjes Civile (komuna ku është regjistruar lindja)",
+    "office_locations": [
+      {
+        "city": "Prishtinë",
+        "address": "Rr. Luan Haradinaj, Komuna e Prishtinës",
+        "hours": "08:00–16:00 (E hënë–E premte)"
+      },
+      {
+        "city": "Prizren",
+        "address": "Komuna e Prizrenit, kati 1",
+        "hours": "08:00–15:30 (E hënë–E premte)"
+      }
+    ],
+    "required_documents": [
+      "Letërnjoftim valid",
+      "Numri personal i personit për të cilin kërkohet ekstrakti",
+      "Fletë-pagesa (për kopjen e shtypur)"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "titles": {
+          "sq": "Identifikohuni ose paraqituni në sportel",
+          "en": "Sign in or visit the counter",
+          "sr": "Prijavite se ili posetite šalter"
+        },
+        "descriptions": {
+          "sq": "Hyni në eKosova me llogari të verifikuar ose paraqituni në Zyrën e Gjendjes Civile.",
+          "en": "Sign in to eKosova with a verified account or visit the Civil Registry Office.",
+          "sr": "Prijavite se na eKosova sa verifikovanim nalogom ili dođite u Matičnu službu."
+        },
+        "required_items": [
+          "Letërnjoftim"
+        ]
+      },
+      {
+        "order": 2,
+        "titles": {
+          "sq": "Specifikoni qëllimin e përdorimit",
+          "en": "Specify the purpose of use",
+          "sr": "Navedite svrhu korišćenja"
+        },
+        "descriptions": {
+          "sq": "Disa institucione (psh. ushtarakë, gjykata, sigurime sociale) kërkojnë ekstrakt me shënime specifike.",
+          "en": "Some institutions (e.g. military, courts, social insurance) require an extract with specific notes.",
+          "sr": "Neke institucije (npr. vojska, sudovi, socijalno osiguranje) traže izvod sa specifičnim napomenama."
+        },
+        "required_items": []
+      },
+      {
+        "order": 3,
+        "titles": {
+          "sq": "Merrni ekstraktin",
+          "en": "Receive the extract",
+          "sr": "Preuzmite izvod"
+        },
+        "descriptions": {
+          "sq": "Ekstrakti mund të printohet menjëherë ose ruhet si PDF i nënshkruar elektronikisht në llogarinë tuaj eKosova.",
+          "en": "The extract can be printed immediately or saved as a digitally signed PDF in your eKosova account.",
+          "sr": "Izvod se može odštampati odmah ili sačuvati kao elektronski potpisan PDF u vašem eKosova nalogu."
+        },
+        "required_items": []
+      }
+    ],
+    "faqs": [
+      {
+        "questions": {
+          "sq": "Çfarë ndryshimi ka ekstrakti i amzës nga çertifikata e lindjes?",
+          "en": "How is the registry extract different from a birth certificate?",
+          "sr": "Po čemu se izvod iz matične evidencije razlikuje od izvoda iz matične knjige rođenih?"
+        },
+        "answers": {
+          "sq": "Ekstrakti përmban historikun e plotë të regjistrimit (ndryshime mbiemri, status civil, vendbanim), ndërsa çertifikata jep vetëm faktin themelor të lindjes.",
+          "en": "The extract contains the full registration history (name changes, civil status, residence), while the certificate only states the basic fact of birth.",
+          "sr": "Izvod sadrži potpunu istoriju upisa (promene prezimena, bračno stanje, prebivalište), dok izvod iz knjige rođenih sadrži samo osnovne podatke o rođenju."
+        }
+      },
+      {
+        "questions": {
+          "sq": "A pranohet ekstrakti elektronik nga gjykatat?",
+          "en": "Do courts accept the electronic extract?",
+          "sr": "Da li sudovi prihvataju elektronski izvod?"
+        },
+        "answers": {
+          "sq": "Po, ekstrakti i nënshkruar elektronikisht ka të njëjtën vlerë juridike si kopja e shtypur.",
+          "en": "Yes, the electronically signed extract has the same legal value as the printed copy.",
+          "sr": "Da, elektronski potpisan izvod ima istu pravnu snagu kao štampani."
+        }
+      },
+      {
+        "questions": {
+          "sq": "Sa shpesh përditësohen të dhënat?",
+          "en": "How often is the data updated?",
+          "sr": "Koliko često se podaci ažuriraju?"
+        },
+        "answers": {
+          "sq": "Të dhënat përditësohen sapo regjistrohet një ndryshim (martesë, divorc, ndryshim mbiemri, etj.) në Zyrën e Gjendjes Civile.",
+          "en": "Data is updated as soon as a change (marriage, divorce, name change, etc.) is registered at the Civil Registry Office.",
+          "sr": "Podaci se ažuriraju čim se promena (brak, razvod, promena prezimena itd.) upiše u Matičnoj službi."
+        }
+      }
+    ],
+    "response_templates": [
+      {
+        "scenario": "online_request",
+        "templates": {
+          "sq": "Përshëndetje {citizen_name}. Ekstraktin e amzës mund ta merrni në eKosova me llogari të verifikuar dhe me numrin personal. Versioni elektronik është falas.",
+          "en": "Hello {citizen_name}. You can obtain the registry extract on eKosova with a verified account and the personal number. The electronic version is free.",
+          "sr": "Pozdrav {citizen_name}. Izvod iz matične evidencije možete dobiti na eKosova sa verifikovanim nalogom i ličnim brojem. Elektronska verzija je besplatna."
+        },
+        "placeholders": [
+          "citizen_name"
+        ]
+      },
+      {
+        "scenario": "counter_request",
+        "templates": {
+          "sq": "I/E nderuar {citizen_name}, në Zyrën e Gjendjes Civile sillni letërnjoftim dhe specifikoni qëllimin e përdorimit. Tarifa për kopjen e shtypur është {fee}.",
+          "en": "Dear {citizen_name}, at the Civil Registry Office bring your ID and specify the purpose of use. Printed copy fee is {fee}.",
+          "sr": "Poštovani/a {citizen_name}, u Matičnoj službi donesite ličnu kartu i navedite svrhu. Taksa za štampani izvod je {fee}."
+        },
+        "placeholders": [
+          "citizen_name",
+          "fee"
+        ]
+      },
+      {
+        "scenario": "judicial_use",
+        "templates": {
+          "sq": "Përshëndetje {citizen_name}. Për përdorim në procedurë gjyqësore kërkoni ekstrakt të zgjeruar me të gjitha shënimet historike.",
+          "en": "Hello {citizen_name}. For use in court proceedings request the extended extract with all historical notes.",
+          "sr": "Pozdrav {citizen_name}. Za sudski postupak tražite prošireni izvod sa svim istorijskim napomenama."
+        },
+        "placeholders": [
+          "citizen_name"
+        ]
+      }
+    ],
+    "source_urls": [
+      "https://ekosova.rks-gov.net/342"
+    ],
+    "last_verified": "2026-05-22",
+    "verification_status": "verified"
+  },
+  {
+    "service_id": "certifikate-gjendjes-martesore",
+    "category": "Dokumente Civile",
+    "names": {
+      "sq": "Çertifikatë gjendjes martesore",
+      "en": "Marital Status Certificate",
+      "sr": "Uverenje o bračnom stanju"
+    },
+    "description": {
+      "sq": "Çertifikata e gjendjes martesore konfirmon nëse personi është beqar, i martuar, i divorcuar apo i ve, dhe lëshohet nga Zyra e Gjendjes Civile.",
+      "en": "The marital status certificate confirms whether a person is single, married, divorced, or widowed, and is issued by the Civil Registry Office.",
+      "sr": "Uverenje o bračnom stanju potvrđuje da li je lice neoženjeno/neudata, oženjeno/udata, razvedeno ili udovac/udovica, i izdaje ga Matična služba."
+    },
+    "fee": "1 EUR (kopje origjinale) / pa pagesë në eKosova",
+    "duration": "Menjëherë në sportel / disa minuta në eKosova",
+    "office": "Zyra e Gjendjes Civile",
+    "office_locations": [
+      {
+        "city": "Prishtinë",
+        "address": "Rr. Luan Haradinaj, Komuna e Prishtinës",
+        "hours": "08:00–16:00 (E hënë–E premte)"
+      },
+      {
+        "city": "Mitrovicë",
+        "address": "Komuna e Mitrovicës, kati 1",
+        "hours": "08:00–15:30 (E hënë–E premte)"
+      }
+    ],
+    "required_documents": [
+      "Letërnjoftim valid",
+      "Numri personal",
+      "Fletë-pagesa (për kopjen e shtypur)"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "titles": {
+          "sq": "Plotësoni kërkesën",
+          "en": "Submit the request",
+          "sr": "Podnesite zahtev"
+        },
+        "descriptions": {
+          "sq": "Hyni në eKosova ose paraqituni në sportel. Specifikoni qëllimin (psh. lidhje martese, viza, punësim).",
+          "en": "Log in to eKosova or visit the counter. Specify the purpose (e.g. marriage, visa, employment).",
+          "sr": "Prijavite se na eKosova ili dođite na šalter. Navedite svrhu (npr. brak, viza, zaposlenje)."
+        },
+        "required_items": [
+          "Letërnjoftim"
+        ]
+      },
+      {
+        "order": 2,
+        "titles": {
+          "sq": "Paguani tarifën (nëse aplikohet)",
+          "en": "Pay the fee (if applicable)",
+          "sr": "Platite taksu (ako se zahteva)"
+        },
+        "descriptions": {
+          "sq": "Tarifa prej 1 EUR aplikohet vetëm për kopje të shtypur. Versioni elektronik nuk ka tarifë.",
+          "en": "The 1 EUR fee applies only to printed copies. The electronic version is free of charge.",
+          "sr": "Taksa od 1 EUR se naplaćuje samo za štampanu kopiju. Elektronska verzija je besplatna."
+        },
+        "required_items": [
+          "Fletë-pagesa (opsionale)"
+        ]
+      },
+      {
+        "order": 3,
+        "titles": {
+          "sq": "Tërhiqeni dokumentin",
+          "en": "Collect the document",
+          "sr": "Preuzmite dokument"
+        },
+        "descriptions": {
+          "sq": "Dokumenti merret menjëherë në sportel ose ngarkohet në llogarinë tuaj eKosova si PDF i nënshkruar elektronikisht.",
+          "en": "The document is collected immediately at the counter or uploaded to your eKosova account as a digitally signed PDF.",
+          "sr": "Dokument se preuzima odmah na šalteru ili stiže u eKosova nalog kao elektronski potpisan PDF."
+        },
+        "required_items": []
+      }
+    ],
+    "faqs": [
+      {
+        "questions": {
+          "sq": "Sa kohë vlen çertifikata e gjendjes martesore?",
+          "en": "How long is the marital status certificate valid?",
+          "sr": "Koliko važi uverenje o bračnom stanju?"
+        },
+        "answers": {
+          "sq": "Zakonisht 6 muaj, por për lidhje martese jashtë vendit institucionet mund të kërkojnë afat 3 mujor.",
+          "en": "Typically 6 months, although foreign authorities may require a 3-month validity for marriage purposes.",
+          "sr": "Obično 6 meseci, ali za brak u inostranstvu institucije mogu tražiti rok od 3 meseca."
+        }
+      },
+      {
+        "questions": {
+          "sq": "A nevojitet apostilim për përdorim jashtë vendit?",
+          "en": "Is an apostille needed for use abroad?",
+          "sr": "Da li je potreban apostil za korišćenje u inostranstvu?"
+        },
+        "answers": {
+          "sq": "Po, për shtetet nënshkruese të Konventës së Hagës, certifikata duhet apostiluar në Ministrinë e Drejtësisë.",
+          "en": "Yes, for Hague Convention countries, the certificate must be apostilled at the Ministry of Justice.",
+          "sr": "Da, za zemlje Haške konvencije izvod mora biti overen apostilom u Ministarstvu pravde."
+        }
+      },
+      {
+        "questions": {
+          "sq": "A mund të kërkojë tjetërkush certifikatën në vendin tim?",
+          "en": "Can someone else request the certificate for me?",
+          "sr": "Može li neko drugi tražiti uverenje umesto mene?"
+        },
+        "answers": {
+          "sq": "Vetëm me autorizim të noterizuar dhe me letërnjoftim të autorizuesit.",
+          "en": "Only with a notarized authorization and the requester's ID.",
+          "sr": "Samo uz overeno punomoćje i ličnu kartu davaoca punomoći."
+        }
+      }
+    ],
+    "response_templates": [
+      {
+        "scenario": "marriage_preparation",
+        "templates": {
+          "sq": "Përshëndetje {citizen_name}. Për lidhjen e martesës ju duhet certifikata e gjendjes martesore. Mund ta merrni në eKosova ose në sportel për {fee}.",
+          "en": "Hello {citizen_name}. For your marriage you need the marital status certificate. Available on eKosova or at the counter for {fee}.",
+          "sr": "Pozdrav {citizen_name}. Za sklapanje braka potrebno je uverenje o bračnom stanju. Dostupno preko eKosova ili na šalteru za {fee}."
+        },
+        "placeholders": [
+          "citizen_name",
+          "fee"
+        ]
+      },
+      {
+        "scenario": "visa_application",
+        "templates": {
+          "sq": "I/E nderuar {citizen_name}, për aplikim viza disa ambasada kërkojnë certifikatë me afat 3 mujor dhe apostilim. Kërkoni dokumentin me datë të freskët.",
+          "en": "Dear {citizen_name}, for visa applications some embassies require a certificate with a 3-month validity and apostille. Request a freshly dated document.",
+          "sr": "Poštovani/a {citizen_name}, za vizu pojedine ambasade traže uverenje sa rokom od 3 meseca i apostilom. Tražite dokument sa svežim datumom."
+        },
+        "placeholders": [
+          "citizen_name"
+        ]
+      },
+      {
+        "scenario": "employment",
+        "templates": {
+          "sq": "Përshëndetje {citizen_name}. Për punëdhënësit publikë mjafton certifikata standarde nga eKosova. Tarifa {fee} aplikohet vetëm për kopje fizike.",
+          "en": "Hello {citizen_name}. For public employers the standard eKosova certificate is sufficient. The {fee} fee applies only to physical copies.",
+          "sr": "Pozdrav {citizen_name}. Za javne poslodavce dovoljno je standardno uverenje sa eKosova. Taksa od {fee} odnosi se samo na fizičke kopije."
+        },
+        "placeholders": [
+          "citizen_name",
+          "fee"
+        ]
+      }
+    ],
+    "source_urls": [
+      "https://ekosova.rks-gov.net/625"
+    ],
+    "last_verified": "2026-05-22",
+    "verification_status": "verified"
+  },
+  {
+    "service_id": "leje-qendrimi-huaj",
+    "category": "Migracion",
+    "names": {
+      "sq": "Leje qëndrimi për të huaj",
+      "en": "Residence Permit for Foreigners",
+      "sr": "Boravišna dozvola za strance"
+    },
+    "description": {
+      "sq": "Leja e qëndrimit lëshohet nga Departamenti për Shtetësi, Azil dhe Migrim i MPB-së dhe i mundëson shtetasve të huaj qëndrim të rregullt në Kosovë për arsye pune, studimi, bashkimi familjar etj.",
+      "en": "The residence permit is issued by the Department for Citizenship, Asylum, and Migration (MIA) and allows foreign nationals to legally reside in Kosovo for work, study, family reunification, and similar purposes.",
+      "sr": "Boravišnu dozvolu izdaje Odeljenje za državljanstvo, azil i migracije (MUP) i strancima omogućava zakonit boravak na Kosovu radi rada, studija, spajanja porodice i sl."
+    },
+    "fee": "50 EUR (lëshim fillestar) / 30 EUR (rinovim)",
+    "duration": "30 ditë pune",
+    "office": "Departamenti për Shtetësi, Azil dhe Migrim — MPB",
+    "office_locations": [
+      {
+        "city": "Prishtinë",
+        "address": "Rruga Bislim Bajgora, p.n.",
+        "hours": "09:00–15:00 (E hënë–E premte)"
+      },
+      {
+        "city": "Prizren",
+        "address": "Rajoni Policor i Prizrenit, sektori i të huajve",
+        "hours": "09:00–14:00 (E hënë–E premte)"
+      }
+    ],
+    "required_documents": [
+      "Pasaportë valide (me afat minimum 6 muaj)",
+      "Vërtetim i arsyes së qëndrimit (kontratë pune, regjistrim universitar, vërtetim bashkimi familjar)",
+      "Vërtetim i sigurimit shëndetësor në Kosovë",
+      "Vërtetim i mjeteve financiare të mjaftueshme",
+      "Vërtetim nga policia për mungesë të dosjes penale (vendi i origjinës)",
+      "Fletë-pagesa e tarifës"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "titles": {
+          "sq": "Përgatitni dokumentet",
+          "en": "Prepare the documents",
+          "sr": "Pripremite dokumente"
+        },
+        "descriptions": {
+          "sq": "Përkthime të noterizuara në shqip/anglisht, apostilim nga vendi i origjinës dhe vërtetime të vlefshme.",
+          "en": "Notarized translations into Albanian/English, apostille from the country of origin, and valid certificates.",
+          "sr": "Overene prevode na albanski/engleski, apostil iz zemlje porekla i važeća uverenja."
+        },
+        "required_items": [
+          "Përkthime të noterizuara",
+          "Apostilime"
+        ]
+      },
+      {
+        "order": 2,
+        "titles": {
+          "sq": "Aplikoni në sportel",
+          "en": "Apply at the counter",
+          "sr": "Podnesite zahtev na šalteru"
+        },
+        "descriptions": {
+          "sq": "Aplikimi bëhet personalisht në Departamentin për Shtetësi, Azil dhe Migrim me të gjithë dokumentacionin.",
+          "en": "Applications are filed in person at the Department for Citizenship, Asylum, and Migration with all required documentation.",
+          "sr": "Zahtev se podnosi lično u Odeljenju za državljanstvo, azil i migracije sa kompletnom dokumentacijom."
+        },
+        "required_items": [
+          "Pasaportë",
+          "Dokumentet mbështetëse"
+        ]
+      },
+      {
+        "order": 3,
+        "titles": {
+          "sq": "Paguani tarifën",
+          "en": "Pay the fee",
+          "sr": "Platite taksu"
+        },
+        "descriptions": {
+          "sq": "Tarifa prej 50 EUR (fillestar) ose 30 EUR (rinovim) paguhet në bankë. Fletëpagesa bashkohet me dosjen.",
+          "en": "The fee of 50 EUR (initial) or 30 EUR (renewal) is paid at the bank. The payment slip is added to the file.",
+          "sr": "Taksu od 50 EUR (prva dozvola) ili 30 EUR (obnova) platite u banci. Uplatnica se prilaže u predmet."
+        },
+        "required_items": [
+          "Fletë-pagesa"
+        ]
+      },
+      {
+        "order": 4,
+        "titles": {
+          "sq": "Intervista dhe vlerësimi",
+          "en": "Interview and assessment",
+          "sr": "Razgovor i procena"
+        },
+        "descriptions": {
+          "sq": "Departamenti mund të kërkojë intervistë verifikuese dhe verifikim të kushteve të qëndrimit.",
+          "en": "The Department may conduct an interview and verify the residence conditions.",
+          "sr": "Odeljenje može zakazati razgovor i proveriti uslove boravka."
+        },
+        "required_items": []
+      },
+      {
+        "order": 5,
+        "titles": {
+          "sq": "Tërhiqni lejen",
+          "en": "Pick up the permit",
+          "sr": "Preuzmite dozvolu"
+        },
+        "descriptions": {
+          "sq": "Pas vendimit pozitiv, leja tërhiqet personalisht në Departament brenda 30 ditëve pune.",
+          "en": "After a positive decision, the permit is collected in person at the Department within 30 business days.",
+          "sr": "Posle pozitivnog rešenja, dozvola se preuzima lično u Odeljenju u roku od 30 radnih dana."
+        },
+        "required_items": [
+          "Pasaportë",
+          "Vendimi"
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "questions": {
+          "sq": "Sa zgjat leja e qëndrimit?",
+          "en": "How long is the residence permit valid?",
+          "sr": "Koliko važi boravišna dozvola?"
+        },
+        "answers": {
+          "sq": "Leja fillestare lëshohet zakonisht për 1 vit dhe mund të rinovohet. Pas 5 vitesh të qëndrimit të rregullt mund të aplikoni për qëndrim të përhershëm.",
+          "en": "The initial permit is usually issued for 1 year and can be renewed. After 5 years of regular residence you may apply for permanent residence.",
+          "sr": "Prva dozvola se obično izdaje na 1 godinu i može se obnoviti. Posle 5 godina redovnog boravka možete aplicirati za stalni boravak."
+        }
+      },
+      {
+        "questions": {
+          "sq": "A mund të punoj me lejen e qëndrimit për studim?",
+          "en": "Can I work with a study residence permit?",
+          "sr": "Mogu li raditi sa boravišnom dozvolom za studije?"
+        },
+        "answers": {
+          "sq": "Po, por vetëm me orar të kufizuar dhe me leje pune të veçantë nga Ministria e Punës.",
+          "en": "Yes, but only part-time and with a separate work permit from the Ministry of Labour.",
+          "sr": "Da, ali samo sa skraćenim radnim vremenom i posebnom radnom dozvolom Ministarstva rada."
+        }
+      },
+      {
+        "questions": {
+          "sq": "Çfarë ndodh nëse leja skadon?",
+          "en": "What happens if the permit expires?",
+          "sr": "Šta ako dozvola istekne?"
+        },
+        "answers": {
+          "sq": "Qëndrimi pa leje të vlefshme përbën shkelje administrative dhe mund të çojë në gjobë, dëbim ose ndalim hyrjeje. Aplikoni për rinovim 60 ditë para skadimit.",
+          "en": "Staying without a valid permit is an administrative violation and may lead to fines, deportation, or an entry ban. Apply for renewal 60 days before expiry.",
+          "sr": "Boravak bez važeće dozvole je administrativni prekršaj i može dovesti do novčane kazne, deportacije ili zabrane ulaska. Obnovu podnesite 60 dana pre isteka."
+        }
+      }
+    ],
+    "response_templates": [
+      {
+        "scenario": "work_permit",
+        "templates": {
+          "sq": "Përshëndetje {citizen_name}. Për leje qëndrimi për punë ju duhet kontrata e punës dhe vërtetimi i punëdhënësit. Tarifa fillestare: {fee}. Koha: {duration}.",
+          "en": "Hello {citizen_name}. For a work residence permit you need a work contract and an employer confirmation. Initial fee: {fee}. Time: {duration}.",
+          "sr": "Pozdrav {citizen_name}. Za radnu boravišnu dozvolu potreban je ugovor o radu i uverenje poslodavca. Početna taksa: {fee}. Rok: {duration}."
+        },
+        "placeholders": [
+          "citizen_name",
+          "fee",
+          "duration"
+        ]
+      },
+      {
+        "scenario": "study_permit",
+        "templates": {
+          "sq": "I/E nderuar {citizen_name}, për qëndrim studimi nevojitet regjistrim universitar, sigurim shëndetësor dhe mjete financiare. Përkthime të noterizuara janë të domosdoshme.",
+          "en": "Dear {citizen_name}, for a study residence you need university enrollment, health insurance, and financial means. Notarized translations are required.",
+          "sr": "Poštovani/a {citizen_name}, za boravak radi studija potrebno je upis na univerzitet, zdravstveno osiguranje i finansijska sredstva. Overeni prevodi su obavezni."
+        },
+        "placeholders": [
+          "citizen_name"
+        ]
+      },
+      {
+        "scenario": "family_reunification",
+        "templates": {
+          "sq": "Përshëndetje {citizen_name}. Për bashkim familjar duhet vërtetimi i lidhjes familjare, vërtetimi i banimit dhe dëshmi e mjeteve financiare të sponsorit.",
+          "en": "Hello {citizen_name}. For family reunification you need proof of family relation, proof of accommodation, and evidence of the sponsor's financial means.",
+          "sr": "Pozdrav {citizen_name}. Za spajanje porodice potrebno je uverenje o porodičnoj vezi, dokaz o smeštaju i dokaz o finansijskim sredstvima sponzora."
+        },
+        "placeholders": [
+          "citizen_name"
+        ]
+      },
+      {
+        "scenario": "renewal_reminder",
+        "templates": {
+          "sq": "I/E nderuar {citizen_name}, leja juaj skadon së shpejti. Aplikoni për rinovim 60 ditë para skadimit. Tarifa për rinovim është {fee}.",
+          "en": "Dear {citizen_name}, your permit is expiring soon. Apply for renewal 60 days before expiry. The renewal fee is {fee}.",
+          "sr": "Poštovani/a {citizen_name}, vaša dozvola uskoro ističe. Podnesite zahtev za obnovu 60 dana pre isteka. Taksa za obnovu je {fee}."
+        },
+        "placeholders": [
+          "citizen_name",
+          "fee"
+        ]
+      }
+    ],
+    "source_urls": [
+      "https://mpb.rks-gov.net/",
+      "https://ekosova.rks-gov.net/Services"
+    ],
+    "last_verified": "2026-05-21",
+    "verification_status": "needs_verification"
+  },
+  {
+    "service_id": "numri-fiskal",
+    "category": "Tatime",
+    "names": {
+      "sq": "Numri Fiskal",
+      "en": "Fiscal Number (TIN)",
+      "sr": "Fiskalni broj"
+    },
+    "description": {
+      "sq": "Numri Fiskal është identifikues unik për personat fizikë dhe juridikë në regjistrin e tatimpaguesve të ATK-së. Lëshohet nga Administrata Tatimore e Kosovës.",
+      "en": "The Fiscal Number is a unique taxpayer identifier issued by the Tax Administration of Kosovo (ATK) for individuals and legal entities.",
+      "sr": "Fiskalni broj je jedinstveni identifikator poreskih obveznika koji izdaje Poreska uprava Kosova (ATK)."
+    },
+    "fee": "Pa pagesë",
+    "duration": "1–3 ditë pune",
+    "office": "Administrata Tatimore e Kosovës (ATK)",
+    "office_locations": [
+      {
+        "city": "Prishtinë",
+        "address": "Sheshi 'Bill Klinton', Pallati i ATK-së",
+        "hours": "08:00–16:00 (E hënë–E premte)"
+      },
+      {
+        "city": "Mitrovicë",
+        "address": "Rruga Trepça, p.n.",
+        "hours": "08:00–15:30 (E hënë–E premte)"
+      }
+    ],
+    "required_documents": [
+      "Letërnjoftim valid",
+      "Çertifikatë lindjeje ose Çertifikatë e biznesit (për kompani)",
+      "Formulari i aplikimit (ATK-001)"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "titles": {
+          "sq": "Plotëso formularin",
+          "en": "Fill in the form",
+          "sr": "Popunite obrazac"
+        },
+        "descriptions": {
+          "sq": "Shkarko formularin ATK-001 nga atk-ks.org ose merre në sportel.",
+          "en": "Download form ATK-001 from atk-ks.org or pick it up at the counter.",
+          "sr": "Preuzmite obrazac ATK-001 sa atk-ks.org ili u kancelariji."
+        },
+        "required_items": [
+          "Formulari ATK-001"
+        ]
+      },
+      {
+        "order": 2,
+        "titles": {
+          "sq": "Paraqitu në ATK",
+          "en": "Visit ATK office",
+          "sr": "Posetite ATK"
+        },
+        "descriptions": {
+          "sq": "Dorëzo formularin së bashku me letërnjoftimin valid në çdo zyrë rajonale të ATK-së.",
+          "en": "Submit the form together with a valid ID at any regional ATK office.",
+          "sr": "Predajte obrazac sa važećom ličnom kartom u bilo kojoj regionalnoj ATK kancelariji."
+        },
+        "required_items": [
+          "Letërnjoftim valid"
+        ]
+      },
+      {
+        "order": 3,
+        "titles": {
+          "sq": "Merr numrin fiskal",
+          "en": "Receive the TIN",
+          "sr": "Preuzmite TIN"
+        },
+        "descriptions": {
+          "sq": "Numri fiskal lëshohet menjëherë ose brenda 3 ditësh pune dhe shfaqet në llogarinë EDI të ATK-së.",
+          "en": "The TIN is issued immediately or within 3 business days and appears in your ATK EDI account.",
+          "sr": "TIN se izdaje odmah ili u roku od 3 radna dana i pojavljuje se u ATK EDI nalogu."
+        },
+        "required_items": []
+      }
+    ],
+    "faqs": [
+      {
+        "questions": {
+          "sq": "A duhet numër fiskal për punësim?",
+          "en": "Do I need a fiscal number to be employed?",
+          "sr": "Da li mi treba fiskalni broj za zaposlenje?"
+        },
+        "answers": {
+          "sq": "Po. Punëdhënësi duhet ta deklarojë numrin tuaj fiskal për kontributet pensionale dhe tatimore.",
+          "en": "Yes. Your employer must declare your TIN for pension and tax contributions.",
+          "sr": "Da. Poslodavac mora da prijavi vaš TIN za penzijske i poreske doprinose."
+        }
+      }
+    ],
+    "source_urls": [
+      "https://www.atk-ks.org/",
+      "https://ekosova.rks-gov.net/Services"
+    ],
+    "last_verified": "2026-05-22",
+    "response_templates": [],
+    "verification_status": "needs_verification"
+  },
+  {
+    "service_id": "regjistrim-tvsh",
+    "category": "Tatime",
+    "names": {
+      "sq": "Regjistrimi për TVSH",
+      "en": "VAT Registration",
+      "sr": "Registracija za PDV"
+    },
+    "description": {
+      "sq": "Subjektet që kalojnë qarkullimin vjetor 30,000 EUR duhet të regjistrohen për TVSH pranë ATK-së dhe të deklarojnë tatimin çdo muaj.",
+      "en": "Businesses with annual turnover above EUR 30,000 must register for VAT with ATK and file monthly returns.",
+      "sr": "Pravna lica sa godišnjim prometom preko 30.000 EUR moraju se registrovati za PDV pri ATK i mesečno podnositi prijave."
+    },
+    "fee": "Pa pagesë",
+    "duration": "1–2 ditë pune",
+    "office": "Administrata Tatimore e Kosovës (ATK)",
+    "office_locations": [
+      {
+        "city": "Prishtinë",
+        "address": "Sheshi 'Bill Klinton'",
+        "hours": "08:00–16:00"
+      }
+    ],
+    "required_documents": [
+      "Certifikata e biznesit (ARBK)",
+      "Numri fiskal",
+      "Pasqyra financiare të 12 muajve të fundit",
+      "Letërnjoftim i pronarit / drejtorit ekzekutiv"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "titles": {
+          "sq": "Plotëso aplikacionin elektronik",
+          "en": "Fill electronic application",
+          "sr": "Popunite elektronsku prijavu"
+        },
+        "descriptions": {
+          "sq": "Identifikohu në EDI të ATK-së dhe zgjedh 'Aplikim për TVSH'.",
+          "en": "Log in to ATK EDI and choose 'VAT registration'.",
+          "sr": "Prijavite se na ATK EDI i izaberite 'Prijava PDV'."
+        },
+        "required_items": []
+      },
+      {
+        "order": 2,
+        "titles": {
+          "sq": "Ngarko dokumentet",
+          "en": "Upload supporting docs",
+          "sr": "Otpremite dokumente"
+        },
+        "descriptions": {
+          "sq": "Bashkëngjit certifikatën e biznesit dhe pasqyrat financiare.",
+          "en": "Attach the business certificate and financial statements.",
+          "sr": "Priložite sertifikat o registraciji i finansijske izveštaje."
+        },
+        "required_items": []
+      },
+      {
+        "order": 3,
+        "titles": {
+          "sq": "Prit konfirmimin",
+          "en": "Wait for confirmation",
+          "sr": "Sačekajte potvrdu"
+        },
+        "descriptions": {
+          "sq": "ATK lëshon Certifikatën e TVSH-së brenda 2 ditësh pune.",
+          "en": "ATK issues the VAT certificate within 2 business days.",
+          "sr": "ATK izdaje PDV sertifikat u roku od 2 radna dana."
+        },
+        "required_items": []
+      }
+    ],
+    "faqs": [
+      {
+        "questions": {
+          "sq": "A mund të aplikoj vullnetarisht për TVSH nën pragun?",
+          "en": "Can I register for VAT voluntarily below the threshold?",
+          "sr": "Mogu li dobrovoljno da se registrujem za PDV?"
+        },
+        "answers": {
+          "sq": "Po — subjektet mund të kërkojnë regjistrim vullnetar nëse parashohin tejkalimin e pragut brenda 12 muajve.",
+          "en": "Yes — businesses may apply voluntarily if they expect to exceed the threshold within 12 months.",
+          "sr": "Da — preduzeća mogu dobrovoljno da se registruju ako očekuju da pređu prag u 12 meseci."
+        }
+      }
+    ],
+    "source_urls": [
+      "https://www.atk-ks.org/sherbimet/regjistrimi-per-tvsh/"
+    ],
+    "last_verified": "2026-05-22",
+    "response_templates": [],
+    "verification_status": "needs_verification"
+  },
+  {
+    "service_id": "regjistrim-automjeti",
+    "category": "Trafiku",
+    "names": {
+      "sq": "Regjistrimi i automjetit",
+      "en": "Vehicle Registration",
+      "sr": "Registracija vozila"
+    },
+    "description": {
+      "sq": "Procedura për regjistrimin fillestar dhe ripërtëritjen e regjistrimit të automjeteve në Kosovë pranë Qendrës për Pajisje me Dokumente.",
+      "en": "Initial registration and renewal of motor vehicles in Kosovo through the Document Issuance Centre.",
+      "sr": "Postupak prve registracije i obnove registracije motornih vozila na Kosovu preko Centra za izdavanje dokumenata."
+    },
+    "fee": "Tarifa ndryshon sipas kubikazhit (50–250 EUR)",
+    "duration": "1 ditë (brenda të njëjtës ditë në shumicën e rasteve)",
+    "office": "Qendrat për Pajisje me Dokumente — MPB",
+    "office_locations": [
+      {
+        "city": "Prishtinë",
+        "address": "Aktash, Magjistralja Prishtinë–Mitrovicë",
+        "hours": "08:00–16:00"
+      },
+      {
+        "city": "Pejë",
+        "address": "Rruga Lidhja e Pejës",
+        "hours": "08:00–15:30"
+      }
+    ],
+    "required_documents": [
+      "Letërnjoftim valid",
+      "Libreza e automjetit ose Fatura e blerjes",
+      "Polica e sigurimit (TPL)",
+      "Kontrolli teknik valid",
+      "Fletë-pagesa e taksës së regjistrimit"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "titles": {
+          "sq": "Inspektim teknik",
+          "en": "Technical inspection",
+          "sr": "Tehnički pregled"
+        },
+        "descriptions": {
+          "sq": "Kryeni kontrollin teknik vjetor në një ndër qendrat e licencuara nga MI.",
+          "en": "Complete the annual technical inspection at a MoI-licensed centre.",
+          "sr": "Obavite godišnji tehnički pregled u licenciranom centru MI."
+        },
+        "required_items": []
+      },
+      {
+        "order": 2,
+        "titles": {
+          "sq": "Sigurim TPL",
+          "en": "Compulsory insurance",
+          "sr": "Obavezno osiguranje"
+        },
+        "descriptions": {
+          "sq": "Lidh policën e detyrueshme TPL me një kompani sigurimi.",
+          "en": "Buy the compulsory TPL insurance from an insurer.",
+          "sr": "Kupite obavezno TPL osiguranje od osiguravajuće kompanije."
+        },
+        "required_items": []
+      },
+      {
+        "order": 3,
+        "titles": {
+          "sq": "Paguaj taksën",
+          "en": "Pay the fee",
+          "sr": "Platite taksu"
+        },
+        "descriptions": {
+          "sq": "Paguaj taksën sipas kubikazhit në bankë ose përmes eKosova.",
+          "en": "Pay the registration fee at a bank or via eKosova.",
+          "sr": "Platite taksu u banci ili preko eKosova."
+        },
+        "required_items": []
+      },
+      {
+        "order": 4,
+        "titles": {
+          "sq": "Paraqitu në CPD",
+          "en": "Visit the CPD",
+          "sr": "Idite u CPD"
+        },
+        "descriptions": {
+          "sq": "Dorëzo dokumentet dhe merr targat / librezën e re.",
+          "en": "Submit the documents and receive new plates / registration book.",
+          "sr": "Predajte dokumente i preuzmite tablice / saobraćajnu."
+        },
+        "required_items": []
+      }
+    ],
+    "faqs": [
+      {
+        "questions": {
+          "sq": "Sa zgjat regjistrimi i automjetit?",
+          "en": "How long is a vehicle registration valid?",
+          "sr": "Koliko važi registracija vozila?"
+        },
+        "answers": {
+          "sq": "Regjistrimi është vjetor — ripërtëritet çdo 12 muaj.",
+          "en": "Registration lasts 12 months and must be renewed annually.",
+          "sr": "Registracija važi 12 meseci i obnavlja se godišnje."
+        }
+      }
+    ],
+    "source_urls": [
+      "https://mpb.rks-gov.net/sherbimet/regjistrimi-i-automjetit"
+    ],
+    "last_verified": "2026-05-22",
+    "response_templates": [],
+    "verification_status": "needs_verification"
+  },
+  {
+    "service_id": "certifikate-padenimi",
+    "category": "Dokumente Civile",
+    "names": {
+      "sq": "Çertifikatë e padënimit",
+      "en": "Criminal Record Certificate",
+      "sr": "Uverenje o nekažnjavanju"
+    },
+    "description": {
+      "sq": "Çertifikata e padënimit konfirmon se nuk ekzistojnë vendime gjyqësore aktive ndaj qytetarit. Lëshohet nga Gjykata Themelore.",
+      "en": "The criminal record certificate confirms there are no active court judgements against the citizen. Issued by the Basic Court.",
+      "sr": "Uverenje o nekažnjavanju potvrđuje da ne postoje aktivne sudske odluke protiv građanina. Izdaje Osnovni sud."
+    },
+    "fee": "2 EUR",
+    "duration": "Brenda ditës — 3 ditë pune",
+    "office": "Gjykata Themelore — Departamenti i Përgjithshëm",
+    "office_locations": [
+      {
+        "city": "Prishtinë",
+        "address": "Pallati i Drejtësisë, rr. Luan Haradinaj",
+        "hours": "08:00–15:00"
+      }
+    ],
+    "required_documents": [
+      "Letërnjoftim valid",
+      "Fletë-pagesa (2 EUR)"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "titles": {
+          "sq": "Aplikim",
+          "en": "Application",
+          "sr": "Prijava"
+        },
+        "descriptions": {
+          "sq": "Plotëso kërkesën në sportelin e Gjykatës ose përmes eKosova.",
+          "en": "Submit the request at the court counter or via eKosova.",
+          "sr": "Predajte zahtev na šalteru suda ili preko eKosova."
+        },
+        "required_items": []
+      },
+      {
+        "order": 2,
+        "titles": {
+          "sq": "Pagesa",
+          "en": "Payment",
+          "sr": "Plaćanje"
+        },
+        "descriptions": {
+          "sq": "Paguaj taksën 2 EUR në bankën e licencuar.",
+          "en": "Pay the 2 EUR fee at a licensed bank.",
+          "sr": "Platite 2 EUR taksu u licenciranoj banci."
+        },
+        "required_items": []
+      },
+      {
+        "order": 3,
+        "titles": {
+          "sq": "Merr çertifikatën",
+          "en": "Pick up the certificate",
+          "sr": "Preuzmite uverenje"
+        },
+        "descriptions": {
+          "sq": "Çertifikata tërhiqet personalisht ose dërgohet me email përmes eKosova.",
+          "en": "Collect the certificate in person or receive it by email via eKosova.",
+          "sr": "Uverenje se podiže lično ili dolazi mejlom preko eKosova."
+        },
+        "required_items": []
+      }
+    ],
+    "faqs": [
+      {
+        "questions": {
+          "sq": "Sa kohë vlen çertifikata?",
+          "en": "How long is the certificate valid?",
+          "sr": "Koliko važi uverenje?"
+        },
+        "answers": {
+          "sq": "Çertifikata zakonisht pranohet deri në 6 muaj nga data e lëshimit.",
+          "en": "The certificate is usually accepted for up to 6 months from issue.",
+          "sr": "Uverenje se obično prihvata do 6 meseci od izdavanja."
+        }
+      }
+    ],
+    "source_urls": [
+      "https://ekosova.rks-gov.net/Services"
+    ],
+    "last_verified": "2026-05-22",
+    "response_templates": [],
+    "verification_status": "needs_verification"
+  },
+  {
+    "service_id": "ekstrakti-pronesise",
+    "category": "Pronë",
+    "names": {
+      "sq": "Ekstrakti i pronësisë",
+      "en": "Property Ownership Extract",
+      "sr": "Izvod o vlasništvu"
+    },
+    "description": {
+      "sq": "Ekstrakti i pronësisë është dokument zyrtar që dëshmon të drejtën e pronësisë mbi një ngastër kadastrale. Lëshohet nga Agjencia Kadastrale e Kosovës.",
+      "en": "The ownership extract is an official document proving the right of ownership over a cadastral parcel. Issued by the Kosovo Cadastral Agency.",
+      "sr": "Izvod o vlasništvu je zvanični dokument koji dokazuje pravo vlasništva nad katastarskom parcelom. Izdaje Katastarska agencija Kosova."
+    },
+    "fee": "3 EUR (kopje fizike) / 1 EUR (kopje elektronike)",
+    "duration": "Brenda ditës",
+    "office": "Agjencia Kadastrale e Kosovës (AKK) — Komuna",
+    "office_locations": [
+      {
+        "city": "Prishtinë",
+        "address": "Komuna e Prishtinës, Drejtoria e Kadastrit",
+        "hours": "08:00–15:30"
+      }
+    ],
+    "required_documents": [
+      "Letërnjoftim valid",
+      "Numri i parcelës ose adresa e pronës",
+      "Fletë-pagesa"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "titles": {
+          "sq": "Identifikoni pronën",
+          "en": "Identify the property",
+          "sr": "Identifikujte nekretninu"
+        },
+        "descriptions": {
+          "sq": "Gjej numrin e parcelës dhe zonën kadastrale në sistemin online geoportal.rks-gov.net.",
+          "en": "Find the parcel number and cadastral zone via geoportal.rks-gov.net.",
+          "sr": "Pronađite broj parcele i katastarsku zonu preko geoportal.rks-gov.net."
+        },
+        "required_items": []
+      },
+      {
+        "order": 2,
+        "titles": {
+          "sq": "Aplikimi",
+          "en": "Application",
+          "sr": "Prijava"
+        },
+        "descriptions": {
+          "sq": "Aplikoni në sportelin e kadastrit komunal ose përmes eKosova.",
+          "en": "Apply at the municipal cadastre desk or via eKosova.",
+          "sr": "Prijavite se na opštinskom katastru ili preko eKosova."
+        },
+        "required_items": []
+      },
+      {
+        "order": 3,
+        "titles": {
+          "sq": "Pagesa & marrja",
+          "en": "Payment & pickup",
+          "sr": "Plaćanje i preuzimanje"
+        },
+        "descriptions": {
+          "sq": "Pas pagesës, ekstrakti lëshohet brenda 30 minutash.",
+          "en": "After payment the extract is issued within 30 minutes.",
+          "sr": "Posle uplate izvod se izdaje za 30 minuta."
+        },
+        "required_items": []
+      }
+    ],
+    "faqs": [
+      {
+        "questions": {
+          "sq": "A mund të lëshohet ekstrakti elektronik?",
+          "en": "Can an electronic extract be issued?",
+          "sr": "Da li može elektronski izvod?"
+        },
+        "answers": {
+          "sq": "Po. Përmes eKosova merrni një PDF të nënshkruar dixhitalisht.",
+          "en": "Yes. Via eKosova you receive a digitally signed PDF.",
+          "sr": "Da. Preko eKosova dobijate digitalno potpisan PDF."
+        }
+      }
+    ],
+    "source_urls": [
+      "https://www.kca-ks.org/sherbime/ekstrakti-i-pronesise"
+    ],
+    "last_verified": "2026-05-22",
+    "response_templates": [],
+    "verification_status": "needs_verification"
+  },
+  {
+    "service_id": "sigurim-shendetesor",
+    "category": "Shëndetësia",
+    "names": {
+      "sq": "Sigurimi shëndetësor",
+      "en": "Health Insurance",
+      "sr": "Zdravstveno osiguranje"
+    },
+    "description": {
+      "sq": "Sigurimi shëndetësor u garanton qytetarëve qasje në kujdesin publik shëndetësor. Aplikimi bëhet pranë Fondit të Sigurimit Shëndetësor.",
+      "en": "Health insurance grants citizens access to public healthcare services. Applications are submitted to the Health Insurance Fund.",
+      "sr": "Zdravstveno osiguranje obezbeđuje pristup javnim zdravstvenim uslugama. Prijave se podnose Fondu zdravstvenog osiguranja."
+    },
+    "fee": "Premia varion (3–7% e të ardhurave bruto)",
+    "duration": "Aktiv brenda 5 ditësh pune",
+    "office": "Fondi i Sigurimit Shëndetësor (FSSH)",
+    "office_locations": [
+      {
+        "city": "Prishtinë",
+        "address": "Rruga 'Zenel Salihu', p.n.",
+        "hours": "08:00–16:00"
+      }
+    ],
+    "required_documents": [
+      "Letërnjoftim valid",
+      "Çertifikatë lindjeje",
+      "Kontratë pune ose dëshmi vetëpunësimi",
+      "Numri fiskal"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "titles": {
+          "sq": "Aplikim online",
+          "en": "Online application",
+          "sr": "Onlajn prijava"
+        },
+        "descriptions": {
+          "sq": "Hyni në fssh.rks-gov.net dhe plotësoni formularin elektronik.",
+          "en": "Sign in to fssh.rks-gov.net and fill the electronic form.",
+          "sr": "Prijavite se na fssh.rks-gov.net i popunite obrazac."
+        },
+        "required_items": []
+      },
+      {
+        "order": 2,
+        "titles": {
+          "sq": "Pagesa e premies",
+          "en": "Pay the premium",
+          "sr": "Plaćanje premije"
+        },
+        "descriptions": {
+          "sq": "Pagesa bëhet mujore përmes bankës ose ndalesa në pagë.",
+          "en": "Premium is paid monthly via bank or salary deduction.",
+          "sr": "Premija se plaća mesečno preko banke ili obustave na zaradi."
+        },
+        "required_items": []
+      },
+      {
+        "order": 3,
+        "titles": {
+          "sq": "Aktivizimi i kartelës",
+          "en": "Card activation",
+          "sr": "Aktivacija kartice"
+        },
+        "descriptions": {
+          "sq": "Kartela e sigurimit aktivizohet brenda 5 ditësh pas pagesës së parë.",
+          "en": "The insurance card is activated within 5 days of the first payment.",
+          "sr": "Kartica se aktivira u roku od 5 dana posle prve uplate."
+        },
+        "required_items": []
+      }
+    ],
+    "faqs": [
+      {
+        "questions": {
+          "sq": "A janë studentët të mbuluar?",
+          "en": "Are students covered?",
+          "sr": "Da li su studenti pokriveni?"
+        },
+        "answers": {
+          "sq": "Po, studentët deri në 26 vjeç me status aktiv mund të mbulohen nga prindi i siguruar.",
+          "en": "Yes — students up to 26 with active status may be covered through an insured parent.",
+          "sr": "Da — studenti do 26 godina mogu biti pokriveni preko osiguranog roditelja."
+        }
+      }
+    ],
+    "source_urls": [
+      "https://fssh.rks-gov.net/sherbimet/aplikim"
+    ],
+    "last_verified": "2026-05-22",
+    "response_templates": [],
+    "verification_status": "needs_verification"
+  },
+  {
+    "service_id": "legalizim-diplome",
+    "category": "Arsim",
+    "names": {
+      "sq": "Legalizimi i diplomës",
+      "en": "Diploma Legalisation",
+      "sr": "Legalizacija diplome"
+    },
+    "description": {
+      "sq": "Procedura për legalizimin e diplomave të lëshuara nga institucionet kosovare, për përdorim jashtë vendit. Kryhet nga MASHTI.",
+      "en": "Legalisation of diplomas issued by Kosovo institutions for use abroad. Handled by MEST.",
+      "sr": "Postupak legalizacije diploma izdatih u kosovskim institucijama, za upotrebu u inostranstvu. Sprovodi MONT."
+    },
+    "fee": "10 EUR",
+    "duration": "5 ditë pune",
+    "office": "Ministria e Arsimit (MASHTI) — Departamenti i Diplomave",
+    "office_locations": [
+      {
+        "city": "Prishtinë",
+        "address": "Rruga 'Agim Ramadani', p.n.",
+        "hours": "09:00–15:00"
+      }
+    ],
+    "required_documents": [
+      "Diploma origjinale + kopje",
+      "Çertifikata e notave",
+      "Letërnjoftim valid",
+      "Fletë-pagesa"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "titles": {
+          "sq": "Apliko në MASHTI",
+          "en": "Apply at MEST",
+          "sr": "Prijava u MONT"
+        },
+        "descriptions": {
+          "sq": "Dorëzo dokumentet në sportelin e MASHTI-it ose përmes eKosova.",
+          "en": "Submit the documents at the MEST counter or via eKosova.",
+          "sr": "Predajte dokumente u MONT-u ili preko eKosova."
+        },
+        "required_items": []
+      },
+      {
+        "order": 2,
+        "titles": {
+          "sq": "Verifikim",
+          "en": "Verification",
+          "sr": "Verifikacija"
+        },
+        "descriptions": {
+          "sq": "MASHTI verifikon autenticitetin me universitetin lëshues.",
+          "en": "MEST verifies authenticity with the issuing university.",
+          "sr": "MONT proverava autentičnost sa univerzitetom."
+        },
+        "required_items": []
+      },
+      {
+        "order": 3,
+        "titles": {
+          "sq": "Vula apostille",
+          "en": "Apostille stamp",
+          "sr": "Apostille pečat"
+        },
+        "descriptions": {
+          "sq": "Diploma vuloset me Apostille të Hagës dhe lëshohet brenda 5 ditësh.",
+          "en": "The diploma is stamped with Hague Apostille and issued within 5 days.",
+          "sr": "Diploma se overava Haškom apostilom u roku od 5 dana."
+        },
+        "required_items": []
+      }
+    ],
+    "faqs": [
+      {
+        "questions": {
+          "sq": "A nevojitet përkthim?",
+          "en": "Is translation required?",
+          "sr": "Da li je potreban prevod?"
+        },
+        "answers": {
+          "sq": "Përkthimi zyrtar kërkohet vetëm nga vendi pranues. Apostille është neutral.",
+          "en": "Official translation is required only by the receiving country. Apostille is language-neutral.",
+          "sr": "Zvanični prevod traži samo zemlja prijema. Apostil je jezički neutralan."
+        }
+      }
+    ],
+    "source_urls": [
+      "https://masht.rks-gov.net/sherbimet/legalizim-diplome"
+    ],
+    "last_verified": "2026-05-22",
+    "response_templates": [],
+    "verification_status": "needs_verification"
+  },
+  {
+    "service_id": "aplikim-vize",
+    "category": "Punët e Jashtme",
+    "names": {
+      "sq": "Aplikim për vizë diplomatike",
+      "en": "Diplomatic Visa Application",
+      "sr": "Prijava za diplomatsku vizu"
+    },
+    "description": {
+      "sq": "Aplikim për vizë diplomatike ose zyrtare të Republikës së Kosovës. Procedura administrohet nga Ministria e Punëve të Jashtme.",
+      "en": "Application for a diplomatic or official visa of the Republic of Kosovo. Handled by the Ministry of Foreign Affairs.",
+      "sr": "Prijava za diplomatsku ili službenu vizu Republike Kosovo. Sprovodi Ministarstvo spoljnih poslova."
+    },
+    "fee": "60 EUR (vizë e thjeshtë) / 100 EUR (vizë me hyrje të shumëfishta)",
+    "duration": "10–15 ditë pune",
+    "office": "Ministria e Punëve të Jashtme (MPJ)",
+    "office_locations": [
+      {
+        "city": "Prishtinë",
+        "address": "Rruga 'Luan Haradinaj', Pallati i Qeverisë",
+        "hours": "09:00–16:00"
+      }
+    ],
+    "required_documents": [
+      "Pasaportë diplomatike / zyrtare valide",
+      "Letër mision nga organizata",
+      "Formulari i vizës",
+      "Fotografi biometrike"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "titles": {
+          "sq": "Plotëso aplikimin",
+          "en": "Fill the application",
+          "sr": "Popunite prijavu"
+        },
+        "descriptions": {
+          "sq": "Plotëso formularin online në mfa-ks.net dhe ngarko dokumentet.",
+          "en": "Fill the online form on mfa-ks.net and upload documents.",
+          "sr": "Popunite onlajn obrazac na mfa-ks.net i otpremite dokumente."
+        },
+        "required_items": []
+      },
+      {
+        "order": 2,
+        "titles": {
+          "sq": "Intervistë (opsionale)",
+          "en": "Interview (optional)",
+          "sr": "Intervju (opciono)"
+        },
+        "descriptions": {
+          "sq": "Në raste të caktuara kërkohet intervistë në ambasadën më të afërt.",
+          "en": "An interview at the nearest embassy may be required in certain cases.",
+          "sr": "U određenim slučajevima potreban je intervju u najbližoj ambasadi."
+        },
+        "required_items": []
+      },
+      {
+        "order": 3,
+        "titles": {
+          "sq": "Lëshimi i vizës",
+          "en": "Visa issuance",
+          "sr": "Izdavanje vize"
+        },
+        "descriptions": {
+          "sq": "Viza ngjitet në pasaportë brenda 10–15 ditësh nga aprovimi.",
+          "en": "The visa is affixed to the passport within 10–15 days of approval.",
+          "sr": "Viza se lepi u pasoš za 10–15 dana od odobrenja."
+        },
+        "required_items": []
+      }
+    ],
+    "faqs": [],
+    "source_urls": [
+      "https://mfa-ks.net/sherbimet/vizat"
+    ],
+    "last_verified": "2026-05-22",
+    "response_templates": [],
+    "verification_status": "needs_verification"
+  },
+  {
+    "service_id": "pension-pleqerise",
+    "category": "Mirëqenia Sociale",
+    "names": {
+      "sq": "Pensioni i pleqërisë",
+      "en": "Old-Age Pension",
+      "sr": "Starosna penzija"
+    },
+    "description": {
+      "sq": "Pensioni i pleqërisë jepet nga MPMS për qytetarët mbi 65 vjeç. Aplikohet personalisht ose përmes eKosova-s.",
+      "en": "Old-age pension is provided by the Ministry of Labour and Social Welfare for citizens over 65, applied for in person or via eKosova.",
+      "sr": "Starosnu penziju isplaćuje MRSP građanima preko 65 godina, prijava se podnosi lično ili preko eKosova."
+    },
+    "fee": "Pa pagesë",
+    "duration": "60 ditë (vendim)",
+    "office": "Ministria e Punës dhe Mirëqenies Sociale (MPMS)",
+    "office_locations": [
+      {
+        "city": "Prishtinë",
+        "address": "Rruga 'UÇK', Pallati i MPMS-së",
+        "hours": "08:00–16:00"
+      }
+    ],
+    "required_documents": [
+      "Letërnjoftim valid",
+      "Çertifikatë lindjeje (jo më e vjetër se 6 muaj)",
+      "Numri i llogarisë bankare",
+      "Çertifikatë vendbanimi"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "titles": {
+          "sq": "Aplikimi",
+          "en": "Application",
+          "sr": "Prijava"
+        },
+        "descriptions": {
+          "sq": "Dorëzo dokumentet në qendrën rajonale të MPMS-së ose përmes eKosova.",
+          "en": "Submit the documents at the regional MoLSW office or via eKosova.",
+          "sr": "Predajte dokumente u regionalnoj kancelariji MRSP ili preko eKosova."
+        },
+        "required_items": []
+      },
+      {
+        "order": 2,
+        "titles": {
+          "sq": "Vlerësimi",
+          "en": "Assessment",
+          "sr": "Procena"
+        },
+        "descriptions": {
+          "sq": "MPMS vlerëson kriteret e moshës dhe vendbanimit brenda 60 ditësh.",
+          "en": "MoLSW assesses age and residence criteria within 60 days.",
+          "sr": "MRSP procenjuje uslove starosti i prebivališta u roku od 60 dana."
+        },
+        "required_items": []
+      },
+      {
+        "order": 3,
+        "titles": {
+          "sq": "Pagesa mujore",
+          "en": "Monthly payment",
+          "sr": "Mesečna isplata"
+        },
+        "descriptions": {
+          "sq": "Pensioni mujor depozitohet drejtpërdrejt në llogarinë bankare.",
+          "en": "The monthly pension is deposited directly into the bank account.",
+          "sr": "Mesečna penzija se uplaćuje direktno na bankovni račun."
+        },
+        "required_items": []
+      }
+    ],
+    "faqs": [
+      {
+        "questions": {
+          "sq": "Sa është shuma e pensionit?",
+          "en": "How much is the pension?",
+          "sr": "Kolika je penzija?"
+        },
+        "answers": {
+          "sq": "Shuma bazë është rreth 100 EUR/muaj; pensioni i kontributpaguesve është më i lartë.",
+          "en": "The basic amount is about 100 EUR/month; contributor pension is higher.",
+          "sr": "Osnovni iznos je oko 100 EUR/mesec; doprinosna penzija je veća."
+        }
+      }
+    ],
+    "source_urls": [
+      "https://mpms.rks-gov.net/pensioni-pleqerise"
+    ],
+    "last_verified": "2026-05-22",
+    "response_templates": [],
+    "verification_status": "needs_verification"
+  },
+  {
+    "service_id": "numri-personal",
+    "category": "Dokumente Civile",
+    "names": {
+      "sq": "Numri personal",
+      "en": "Personal Identification Number",
+      "sr": "Lični broj"
+    },
+    "description": {
+      "sq": "Numri personal është identifikues unik 10-shifror i lëshuar nga Ministria e Punëve të Brendshme në momentin e regjistrimit civil të lindjes.",
+      "en": "The Personal Identification Number is a unique 10-digit identifier issued by the Ministry of Internal Affairs at civil birth registration.",
+      "sr": "Lični broj je jedinstveni desetocifreni identifikator koji izdaje Ministarstvo unutrašnjih poslova prilikom upisa rođenja."
+    },
+    "fee": "Pa pagesë (në regjistrim fillestar)",
+    "duration": "Menjëherë",
+    "office": "Zyrat e Gjendjes Civile — Komuna",
+    "office_locations": [
+      {
+        "city": "Prishtinë",
+        "address": "Komuna e Prishtinës, Zyra e Gjendjes Civile",
+        "hours": "08:00–16:00"
+      }
+    ],
+    "required_documents": [
+      "Çertifikatë lindjeje",
+      "Letërnjoftim i prindit (për të miturit)"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "titles": {
+          "sq": "Lajmërimi i lindjes",
+          "en": "Birth notification",
+          "sr": "Prijava rođenja"
+        },
+        "descriptions": {
+          "sq": "Spitali njofton zyrën e gjendjes civile brenda 30 ditësh nga lindja.",
+          "en": "The hospital notifies civil registry within 30 days of birth.",
+          "sr": "Bolnica obaveštava matičnu službu u roku od 30 dana od rođenja."
+        },
+        "required_items": []
+      },
+      {
+        "order": 2,
+        "titles": {
+          "sq": "Lëshimi i numrit",
+          "en": "Issuance of the number",
+          "sr": "Izdavanje broja"
+        },
+        "descriptions": {
+          "sq": "Numri personal lëshohet automatikisht me regjistrimin e lindjes.",
+          "en": "The personal number is issued automatically upon birth registration.",
+          "sr": "Lični broj se izdaje automatski upisom rođenja."
+        },
+        "required_items": []
+      }
+    ],
+    "faqs": [
+      {
+        "questions": {
+          "sq": "Si mund ta gjej numrin tim personal?",
+          "en": "How can I find my personal number?",
+          "sr": "Kako da nađem svoj lični broj?"
+        },
+        "answers": {
+          "sq": "Numri personal është i shtypur në letërnjoftim dhe pasaportë.",
+          "en": "The personal number is printed on the ID card and passport.",
+          "sr": "Lični broj je odštampan na ličnoj karti i pasošu."
+        }
+      }
+    ],
+    "source_urls": [
+      "https://mpb.rks-gov.net/dokumente/numri-personal"
+    ],
+    "last_verified": "2026-05-22",
+    "response_templates": [],
+    "verification_status": "needs_verification"
+  }
+]
