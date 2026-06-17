@@ -17,9 +17,21 @@ from app.routers.citizen import router as citizen_router
 settings = get_settings()
 
 
+def seed_catalogue_if_empty() -> None:
+    from app.catalogue.models import Service
+    from scripts.seed import main as seed_main
+
+    with SessionLocal() as db:
+        total = int(db.execute(select(func.count(Service.id))).scalar_one())
+    if total == 0:
+        seed_main()
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     init_db()
+    if settings.auto_seed_catalogue:
+        seed_catalogue_if_empty()
     yield
 
 

@@ -16,6 +16,8 @@ class Settings(BaseSettings):
 
     anthropic_api_key: str = ""
     openai_api_key: str = ""
+    gemini_api_key: str = ""
+    groq_api_key: str = ""
 
     jwt_secret: str = "dev-secret-do-not-use-in-production"
     jwt_algorithm: str = "HS256"
@@ -28,8 +30,12 @@ class Settings(BaseSettings):
 
     chroma_persist_dir: str = str(BACKEND_DIR / "chroma_data")
     database_url: str = f"sqlite:///{BACKEND_DIR / 'zana.db'}"
+    auto_seed_catalogue: bool = False
 
     claude_model: str = "claude-haiku-4-5-20251001"
+    gemini_model: str = "gemini-2.0-flash"
+    groq_model: str = "llama-3.1-8b-instant"
+    llm_provider_chain: str = "anthropic,gemini,groq"
     embedding_model: str = "text-embedding-3-small"
 
     frontend_url: str = "http://localhost:3000"
