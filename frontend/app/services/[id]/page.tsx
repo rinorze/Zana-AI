@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { ChevronRight, ExternalLink, FileText, MapPin, MessageSquare } from "lucide-react";
+import { Banknote, Building2, ChevronRight, ClipboardList, Clock, Compass, ExternalLink, FileText, MapPin, MessageSquare } from "lucide-react";
 
 import { PageHero } from "@/components/PageHero";
 import { GuidedWizard } from "@/components/citizen/GuidedWizard";
@@ -67,10 +67,10 @@ export default function ServiceDetailPage() {
       <div className="container py-10 space-y-8">
 
       <section className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <Stat icon="💶" value={service.fee} label={t("fee")} />
-        <Stat icon="⏱️" value={service.duration} label={t("duration")} />
-        <Stat icon="🏢" value={service.office} label={t("office")} />
-        <Stat icon="📋" value={`${service.required_documents.length}`} label={t("documents_required")} />
+        <Stat icon={<Banknote className="h-6 w-6 text-blue-600" aria-hidden="true" />} value={service.fee} label={t("fee")} />
+        <Stat icon={<Clock className="h-6 w-6 text-blue-600" aria-hidden="true" />} value={service.duration} label={t("duration")} />
+        <Stat icon={<Building2 className="h-6 w-6 text-blue-600" aria-hidden="true" />} value={service.office} label={t("office")} />
+        <Stat icon={<ClipboardList className="h-6 w-6 text-blue-600" aria-hidden="true" />} value={`${service.required_documents.length}`} label={t("documents_required")} />
       </section>
 
       {service.required_documents.length > 0 && !wizardOpen && (
@@ -79,7 +79,8 @@ export default function ServiceDetailPage() {
           onClick={() => setWizardOpen(true)}
           className="ek-cta-primary text-sm"
         >
-          🧭 Më ndihmo hap pas hapi
+          <Compass className="h-4 w-4" aria-hidden="true" />
+          Më ndihmo hap pas hapi
         </button>
       )}
 
@@ -169,10 +170,10 @@ export default function ServiceDetailPage() {
   );
 }
 
-function Stat({ icon, value, label }: { icon: string; value: string; label: string }) {
+function Stat({ icon, value, label }: { icon: React.ReactNode; value: string; label: string }) {
   return (
     <div className="ek-stat-premium flex flex-col items-start gap-1">
-      <span className="text-2xl">{icon}</span>
+      <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-blue-50">{icon}</span>
       <span className="font-bold ek-text-brand leading-tight">{value || "—"}</span>
       <span className="text-xs ek-text-muted">{label}</span>
     </div>

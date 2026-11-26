@@ -138,3 +138,64 @@ def test_admin_analytics_returns_counts(client: TestClient, admin_db):
     assert body["total_queries"] >= 2
     assert body["no_match_count"] >= 1
     assert "by_language" in body
+
+
+# ---- Demo sessions: no password, read-only admin, off unless DEMO_ACCESS is set
+@pytest.fixture
+def demo_on(monkeypatch):
+    monkeypatch.setattr(get_settings(), "demo_access", True)
+
+
+def test_demo_login_is_off_by_default(client):
+    assert client.post("/api/auth/demo", json={"role": "admin"}).status_code == 404
+
+
+def test_demo_admin_can_read_but_not_write(client, demo_on):
+    body = client.post("/api/auth/demo", json={"role": "admin"}).json()
+    headers = {"Authorization": f"Bearer {body['access_token']}"}
+    assert body["role"] == "admin" and body["demo"] is True
+    assert client.get("/api/admin/services", headers=headers).status_code == 200
+    blocked = client.delete("/api/admin/services/pasaporta", headers=headers)
+    assert blocked.status_code == 403
+    assert "read-only" in blocked.json()["detail"]
+
+
+def test_demo_agent_cannot_open_admin(client, demo_on):
+    token = client.post("/api/auth/demo", json={"role": "agent"}).json()["access_token"]
+    response = client.get("/api/admin/services", headers={"Authorization": f"Bearer {token}"})
+    assert response.status_code == 403
+
+
+def test_http_suggest_needs_a_token(client):
+    assert client.post("/api/agent/suggest", json={"input": "pasaporta"}).status_code == 401
+
+
+def test_demo_admin_sees_analytics_without_question_text(client, demo_on, admin_db):
+    from app.catalogue.models import QueryLog
+
+    with admin_db() as db:
+        db.add(QueryLog(role="citizen", query="Emri im është X, numri personal 123", language="sq", found_match=True))
+        db.commit()
+    token = client.post("/api/auth/demo", json={"role": "admin"}).json()["access_token"]
+    body = client.get("/api/admin/analytics", headers={"Authorization": f"Bearer {token}"}).json()
+    assert body["demo_redacted"] is True
+    assert all("123" not in row["query"] for row in body["top_queries"])
+
+
+def test_chat_and_agent_share_one_daily_budget(monkeypatch):
+    from app.middleware.rate_limit import limiter
+
+    monkeypatch.setattr(get_settings(), "chat_daily_cap", 3)
+    hits = [limiter.check("chat", f"10.0.0.{i}") for i in range(2)]
+    hits.append(limiter.check("agent", "10.0.1.1"))
+    assert hits == [None, None, None]
+    assert limiter.check("agent", "10.0.1.2") == "day"
+    assert limiter.check("chat", "10.0.0.9") == "day"
+
+
+def test_requests_without_a_token_do_not_count(client):
+    from app.middleware.rate_limit import limiter
+
+    for _ in range(3):
+        assert client.post("/api/agent/suggest", json={"input": "x"}).status_code == 401
+    assert not any(key[0] in ("agent", "llm") for key in limiter._counts)

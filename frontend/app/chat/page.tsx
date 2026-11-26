@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { Send, Sparkles, Trash2 } from "lucide-react";
+import { Banknote, Building2, Check, ClipboardList, Clock, Send, Sparkles, Trash2 } from "lucide-react";
 import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { Markdown } from "@/components/Markdown";
@@ -62,7 +62,7 @@ function ChatPageInner() {
           case "structured":
             return { ...turn, structured: event.structured };
           case "error":
-            return { ...turn, content: turn.content + `\n⚠️ ${event.message}` };
+            return { ...turn, content: turn.content + `\n\n${event.message}` };
           default:
             return turn;
         }
@@ -197,7 +197,8 @@ function ChatPageInner() {
           ))}
           {simpleMode && (
             <div className="rounded-lg bg-blue-50 px-3 py-2 text-xs font-bold text-blue-600 text-center">
-              ✓ {t("simple_mode")}
+              <Check className="inline h-3.5 w-3.5 mr-1" aria-hidden="true" />
+              {t("simple_mode")}
             </div>
           )}
         </aside>
@@ -240,7 +241,7 @@ function ChatBubble({ turn, simpleMode }: { turn: ChatTurn; simpleMode: boolean 
           </div>
         )}
         {!isUser && simpleMode && (
-          <span className="mt-2 inline-block rounded-full bg-blue-50 text-blue-600 px-2 py-0.5 text-xs font-bold">✓ Simple</span>
+          <span className="mt-2 inline-block rounded-full bg-blue-50 text-blue-600 px-2 py-0.5 text-xs font-bold inline-flex items-center gap-1"><Check className="h-3 w-3" aria-hidden="true" />Simple</span>
         )}
       </div>
     </div>
@@ -250,10 +251,10 @@ function ChatBubble({ turn, simpleMode }: { turn: ChatTurn; simpleMode: boolean 
 function ProcedureBlock({ structured }: { structured: StructuredProcedure }) {
   const rows = useMemo(
     () => [
-      { icon: "📋", label: "Dokumentet", value: structured.documents.join(", ") || "—" },
-      { icon: "💶", label: "Tarifa", value: structured.fee || "—" },
-      { icon: "⏱️", label: "Koha", value: structured.duration || "—" },
-      { icon: "🏢", label: "Zyra", value: structured.office || "—" },
+      { icon: <ClipboardList className="h-4 w-4 shrink-0 text-blue-600" aria-hidden="true" />, label: "Dokumentet", value: structured.documents.join(", ") || "—" },
+      { icon: <Banknote className="h-4 w-4 shrink-0 text-blue-600" aria-hidden="true" />, label: "Tarifa", value: structured.fee || "—" },
+      { icon: <Clock className="h-4 w-4 shrink-0 text-blue-600" aria-hidden="true" />, label: "Koha", value: structured.duration || "—" },
+      { icon: <Building2 className="h-4 w-4 shrink-0 text-blue-600" aria-hidden="true" />, label: "Zyra", value: structured.office || "—" },
     ],
     [structured],
   );
@@ -263,7 +264,7 @@ function ProcedureBlock({ structured }: { structured: StructuredProcedure }) {
       <p className="font-bold text-blue-700">{structured.name}</p>
       {rows.map((row) => (
         <div key={row.label} className="flex items-start gap-2">
-          <span>{row.icon}</span>
+          {row.icon}
           <span className="font-bold">{row.label}:</span>
           <span className="text-gray-500">{row.value}</span>
         </div>

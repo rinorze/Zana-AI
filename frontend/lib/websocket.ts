@@ -1,9 +1,3 @@
-/**
- * Wrapper around the agent co-pilot WebSocket.
- *
- * Handles auto-reconnect with exponential backoff and exposes a typed callback
- * surface so the UI doesn't have to deal with raw frames.
- */
 
 import { apiBase, getToken } from "@/lib/api";
 
@@ -27,68 +21,59 @@ export interface AgentSuggestSocketOptions {
   onStatus?: (status: "connecting" | "open" | "closed" | "error") => void;
 }
 
-function toWsUrl(httpBase: string): string {
-  return httpBase.replace(/^http/, "ws");
-}
-
+/**
+ * Agent co-pilot suggestions over HTTP (POST /api/agent/suggest).
+ *
+ * This used to be a WebSocket. The hosted demo runs on Vercel, whose Python
+ * functions cannot hold WebSockets, so it is plain HTTP now. The class keeps
+ * its old interface (connect / send / close) so the page did not change. A new
+ * input cancels the request still in flight; the page already debounces.
+ */
 export class AgentSuggestSocket {
-  private socket: WebSocket | null = null;
   private opts: AgentSuggestSocketOptions;
-  private attempts = 0;
-  private closedByUser = false;
-  private reconnectTimer: ReturnType<typeof setTimeout> | null = null;
+  private inFlight: AbortController | null = null;
+  private closed = false;
 
   constructor(opts: AgentSuggestSocketOptions) {
     this.opts = opts;
   }
 
   connect(): void {
-    const token = getToken();
-    if (!token) {
-      this.opts.onStatus?.("error");
-      return;
-    }
-    const url = `${toWsUrl(apiBase)}/ws/agent/suggest?token=${encodeURIComponent(token)}`;
-    this.opts.onStatus?.("connecting");
-    this.socket = new WebSocket(url);
-
-    this.socket.onopen = () => {
-      this.attempts = 0;
-      this.opts.onStatus?.("open");
-    };
-
-    this.socket.onmessage = (event) => {
-      try {
-        const payload = JSON.parse(event.data) as SuggestPayload;
-        this.opts.onMessage(payload);
-      } catch {
-        // ignore malformed frames; backend always sends JSON
-      }
-    };
-
-    this.socket.onerror = () => {
-      this.opts.onStatus?.("error");
-    };
-
-    this.socket.onclose = () => {
-      this.socket = null;
-      this.opts.onStatus?.("closed");
-      if (this.closedByUser) return;
-      this.attempts += 1;
-      const delay = Math.min(1000 * 2 ** Math.min(this.attempts, 5), 15000);
-      this.reconnectTimer = setTimeout(() => this.connect(), delay);
-    };
+    this.closed = false;
+    this.opts.onStatus?.(getToken() ? "open" : "error");
   }
 
-  send(input: string, currentService?: string): void {
-    if (!this.socket || this.socket.readyState !== WebSocket.OPEN) return;
-    this.socket.send(JSON.stringify({ input, current_service: currentService ?? null }));
+  async send(input: string, currentService?: string): Promise<void> {
+    if (this.closed) return;
+    this.inFlight?.abort();
+    const controller = new AbortController();
+    this.inFlight = controller;
+    this.opts.onStatus?.("connecting");
+    try {
+      const response = await fetch(`${apiBase}/api/agent/suggest`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${getToken() ?? ""}` },
+        body: JSON.stringify({ input, current_service: currentService ?? null }),
+        signal: controller.signal,
+      });
+      const payload = (await response.json().catch(() => ({}))) as SuggestPayload & { detail?: string };
+      if (!response.ok) {
+        this.opts.onMessage({ suggestions: [], error: payload.detail ?? `HTTP ${response.status}` });
+        this.opts.onStatus?.("error");
+        return;
+      }
+      this.opts.onMessage(payload);
+      this.opts.onStatus?.("open");
+    } catch (err) {
+      if ((err as Error).name === "AbortError") return;
+      this.opts.onMessage({ suggestions: [], error: String(err) });
+      this.opts.onStatus?.("error");
+    }
   }
 
   close(): void {
-    this.closedByUser = true;
-    if (this.reconnectTimer) clearTimeout(this.reconnectTimer);
-    this.socket?.close();
-    this.socket = null;
+    this.closed = true;
+    this.inFlight?.abort();
+    this.opts.onStatus?.("closed");
   }
 }

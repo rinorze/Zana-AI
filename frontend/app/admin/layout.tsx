@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { BarChart3, FileSpreadsheet, FileText, FlaskConical, FolderTree, Globe, LogOut } from "lucide-react";
 
-import { clearToken, getRole, getToken } from "@/lib/api";
+import { DemoBanner } from "@/components/DemoBanner";
+import { clearToken, ensureSession, getRole, getToken } from "@/lib/api";
 import { type TranslationKey, useT } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
@@ -27,14 +28,20 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const router = useRouter();
   const t = useT();
 
+  const [ready, setReady] = useState(false);
+
   useEffect(() => {
     if (pathname.startsWith("/admin/login")) return;
-    if (!getToken() || getRole() !== "admin") {
-      router.replace("/admin/login");
+    if (getToken() && getRole() === "admin") {
+      setReady(true);
+      return;
     }
+    // No login: open a read-only demo session if the backend allows it.
+    ensureSession("admin").then((ok) => (ok ? setReady(true) : router.replace("/admin/login")));
   }, [pathname, router]);
 
   if (pathname.startsWith("/admin/login")) return <>{children}</>;
+  if (!ready) return <div className="container py-8 ek-text-muted">…</div>;
 
   function logout() {
     clearToken();
@@ -78,7 +85,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </Link>
         ))}
       </aside>
-      <section>{children}</section>
+      <section className="space-y-4">
+        <DemoBanner loginHref="/admin/login" />
+        {children}
+      </section>
     </div>
   );
 }

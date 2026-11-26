@@ -43,7 +43,9 @@ def _credentials_match(username: str, password: str) -> str | None:
     return None
 
 
-def create_access_token(subject: str, role: str, expires_hours: int | None = None) -> str:
+def create_access_token(
+    subject: str, role: str, expires_hours: int | None = None, demo: bool = False
+) -> str:
     settings = get_settings()
     hours = expires_hours or settings.jwt_expiry_hours
     now = datetime.now(timezone.utc)
@@ -53,6 +55,8 @@ def create_access_token(subject: str, role: str, expires_hours: int | None = Non
         "iat": int(now.timestamp()),
         "exp": int((now + timedelta(hours=hours)).timestamp()),
     }
+    if demo:
+        payload["demo"] = True
     return jwt.encode(payload, settings.jwt_secret, algorithm=settings.jwt_algorithm)
 
 
@@ -72,7 +76,7 @@ def _principal_from_token(token: str) -> dict[str, Any]:
     role = claims.get("role")
     if role not in (ROLE_ADMIN, ROLE_AGENT):
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Unknown role")
-    return {"sub": claims.get("sub", ""), "role": role}
+    return {"sub": claims.get("sub", ""), "role": role, "demo": bool(claims.get("demo"))}
 
 
 # -------- HTTP dependencies -------------------------------------------------
@@ -90,6 +94,17 @@ def require_admin(principal: dict[str, Any] = Depends(current_principal)) -> dic
     if principal["role"] != ROLE_ADMIN:
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Admin required")
     return principal
+
+
+def forbid_demo_writes(
+    request: Request, principal: dict[str, Any] = Depends(current_principal)
+) -> None:
+    """Demo sessions may read the admin panel but not change anything."""
+    if principal.get("demo") and request.method not in ("GET", "HEAD", "OPTIONS"):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Demo mode is read-only. Log in with a real account to make changes.",
+        )
 
 
 def require_agent(principal: dict[str, Any] = Depends(current_principal)) -> dict[str, Any]:

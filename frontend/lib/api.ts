@@ -109,6 +109,39 @@ export function clearToken() {
   if (typeof window === "undefined") return;
   window.localStorage.removeItem(TOKEN_KEY);
   window.localStorage.removeItem(ROLE_KEY);
+  window.localStorage.removeItem(DEMO_KEY);
+}
+
+const DEMO_KEY = "zana.demo";
+
+export function isDemoSession(): boolean {
+  if (typeof window === "undefined") return false;
+  return window.localStorage.getItem(DEMO_KEY) === "1";
+}
+
+/**
+ * Make sure there is a session for `role`. A real login is kept; otherwise
+ * the backend's demo access (DEMO_ACCESS=true) gives a read-only session, so
+ * visitors can open the agent and admin pages without a password.
+ * Returns false when neither is available (then the page asks to log in).
+ */
+export async function ensureSession(role: "admin" | "agent"): Promise<boolean> {
+  const current = getRole();
+  if (getToken() && (current === role || current === "admin")) return true;
+  try {
+    const response = await fetch(`${API_BASE}/api/auth/demo`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ role }),
+    });
+    if (!response.ok) return false;
+    const body = (await response.json()) as { access_token: string; role: string };
+    setToken(body.access_token, body.role);
+    window.localStorage.setItem(DEMO_KEY, "1");
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 export function getRole(): string | null {
@@ -213,6 +246,7 @@ export async function login(username: string, password: string): Promise<{ acces
   });
   const body = await jsonOrThrow<{ access_token: string; role: string }>(response);
   setToken(body.access_token, body.role);
+  window.localStorage.removeItem(DEMO_KEY);
   return body;
 }
 

@@ -28,11 +28,15 @@ from app.ingestion import indexer
 from app.ingestion.docx_parser import parse_docx
 from app.ingestion.pdf_parser import parse_pdf
 from app.ingestion.scraper import scrape_url
-from app.middleware.auth import require_admin
+from app.middleware.auth import forbid_demo_writes, require_admin
 from app.rag import vectorstore
 from scripts.index_catalogue import _build_service_chunks  # noqa: PLC2701
 
-router = APIRouter(prefix="/api/admin", tags=["admin"], dependencies=[Depends(require_admin)])
+router = APIRouter(
+    prefix="/api/admin",
+    tags=["admin"],
+    dependencies=[Depends(require_admin), Depends(forbid_demo_writes)],
+)
 
 UPLOAD_DIR = Path(get_settings().chroma_persist_dir).parent / "uploads"
 UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
@@ -446,8 +450,13 @@ def admin_delete_source(source_id: int, db: Session = Depends(get_db)) -> dict[s
 # ---------------------------------------------------------------- analytics
 
 
+DEMO_HIDDEN_QUERY = "(fshehur në modalitetin demo)"
+
+
 @router.get("/analytics")
-def admin_analytics(db: Session = Depends(get_db)) -> dict[str, Any]:
+def admin_analytics(
+    db: Session = Depends(get_db), principal: dict[str, Any] = Depends(require_admin)
+) -> dict[str, Any]:
     from sqlalchemy import func, select
 
     from app.catalogue.models import QueryLog
@@ -466,6 +475,13 @@ def admin_analytics(db: Session = Depends(get_db)) -> dict[str, Any]:
         ).all()
     }
 
+    # Citizens' questions are free text and may contain personal details.
+    # Public demo sessions see the counts but not the text.
+    demo = bool(principal.get("demo"))
+
+    def shown(query: str) -> str:
+        return DEMO_HIDDEN_QUERY if demo else query
+
     by_language = {
         row[0] or "?": int(row[1])
         for row in db.execute(
@@ -480,10 +496,11 @@ def admin_analytics(db: Session = Depends(get_db)) -> dict[str, Any]:
         "by_role": by_role,
         "by_language": by_language,
         "top_queries": [
-            {"query": q, "count": n} for q, n in crud.top_queries(db, limit=20)
+            {"query": shown(q), "count": n} for q, n in crud.top_queries(db, limit=20)
         ],
         "top_no_match": [
-            {"query": q, "count": n}
+            {"query": shown(q), "count": n}
             for q, n in crud.top_queries(db, limit=10, only_no_match=True)
         ],
+        "demo_redacted": demo,
     }
