@@ -450,8 +450,13 @@ def admin_delete_source(source_id: int, db: Session = Depends(get_db)) -> dict[s
 # ---------------------------------------------------------------- analytics
 
 
+DEMO_HIDDEN_QUERY = "(fshehur në modalitetin demo)"
+
+
 @router.get("/analytics")
-def admin_analytics(db: Session = Depends(get_db)) -> dict[str, Any]:
+def admin_analytics(
+    db: Session = Depends(get_db), principal: dict[str, Any] = Depends(require_admin)
+) -> dict[str, Any]:
     from sqlalchemy import func, select
 
     from app.catalogue.models import QueryLog
@@ -470,6 +475,13 @@ def admin_analytics(db: Session = Depends(get_db)) -> dict[str, Any]:
         ).all()
     }
 
+    # Citizens' questions are free text and may contain personal details.
+    # Public demo sessions see the counts but not the text.
+    demo = bool(principal.get("demo"))
+
+    def shown(query: str) -> str:
+        return DEMO_HIDDEN_QUERY if demo else query
+
     by_language = {
         row[0] or "?": int(row[1])
         for row in db.execute(
@@ -484,10 +496,11 @@ def admin_analytics(db: Session = Depends(get_db)) -> dict[str, Any]:
         "by_role": by_role,
         "by_language": by_language,
         "top_queries": [
-            {"query": q, "count": n} for q, n in crud.top_queries(db, limit=20)
+            {"query": shown(q), "count": n} for q, n in crud.top_queries(db, limit=20)
         ],
         "top_no_match": [
-            {"query": q, "count": n}
+            {"query": shown(q), "count": n}
             for q, n in crud.top_queries(db, limit=10, only_no_match=True)
         ],
+        "demo_redacted": demo,
     }

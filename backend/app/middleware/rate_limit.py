@@ -33,17 +33,19 @@ class Limits:
     per_minute: int
     per_ip_per_day: int | None = None
     global_per_day: int | None = None
+    # Buckets with the same group share one global daily counter.
+    global_group: str | None = None
 
 
 def _limits_for(bucket: str) -> Limits:
     s = get_settings()
     table = {
-        "chat": Limits(s.chat_per_minute, s.chat_per_ip_per_day, s.chat_daily_cap),
+        "chat": Limits(s.chat_per_minute, s.chat_per_ip_per_day, s.chat_daily_cap, "llm"),
         "search": Limits(s.search_per_minute),
         "voice": Limits(s.voice_per_minute, s.voice_per_ip_per_day),
         "login": Limits(s.login_per_minute),
-        # Shares the global daily cap with chat: both spend the same LLM quota.
-        "agent": Limits(s.agent_per_minute, s.agent_per_ip_per_day, s.chat_daily_cap),
+        # Shares one global daily counter with chat: both spend the same LLM quota.
+        "agent": Limits(s.agent_per_minute, s.agent_per_ip_per_day, s.chat_daily_cap, "llm"),
     }
     return table[bucket]
 
@@ -90,7 +92,8 @@ class RateLimiter:
             if limits.per_ip_per_day is not None:
                 checks.append(((bucket, "ip", client_ip, day), limits.per_ip_per_day, "day"))
             if limits.global_per_day is not None:
-                checks.append(((bucket, "all", day), limits.global_per_day, "day"))
+                group = limits.global_group or bucket
+                checks.append(((group, "all", day), limits.global_per_day, "day"))
 
             for key, limit, kind in checks:
                 if self._counts.get(key, 0) >= limit:

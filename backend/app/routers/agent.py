@@ -157,8 +157,8 @@ class SuggestRequest(BaseModel):
     current_service: str | None = None
 
 
-@router.post("/api/agent/suggest", dependencies=[Depends(rate_limit("agent"))])
-async def agent_suggest_http(req: SuggestRequest, _: dict = Depends(require_agent)) -> dict[str, Any]:
+@router.post("/api/agent/suggest", dependencies=[Depends(require_agent), Depends(rate_limit("agent"))])
+async def agent_suggest_http(req: SuggestRequest) -> dict[str, Any]:
     """Same suggestions as the WebSocket, over plain HTTP. Serverless hosts such
     as Vercel do not support WebSockets, so the hosted demo uses this."""
     text = req.input.strip()
@@ -182,7 +182,7 @@ class TemplatePersonalizeResponse(BaseModel):
 @router.post(
     "/api/agent/template/personalize",
     response_model=TemplatePersonalizeResponse,
-    dependencies=[Depends(rate_limit("agent"))],
+    dependencies=[Depends(require_agent), Depends(rate_limit("agent"))],
 )
 async def template_personalize(
     req: TemplatePersonalizeRequest,
@@ -229,7 +229,7 @@ class SummaryResponse(BaseModel):
 @router.post(
     "/api/agent/summary",
     response_model=SummaryResponse,
-    dependencies=[Depends(rate_limit("agent"))],
+    dependencies=[Depends(require_agent), Depends(rate_limit("agent"))],
 )
 async def after_call_summary(
     req: SummaryRequest,

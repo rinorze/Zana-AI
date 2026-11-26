@@ -168,3 +168,34 @@ def test_demo_agent_cannot_open_admin(client, demo_on):
 
 def test_http_suggest_needs_a_token(client):
     assert client.post("/api/agent/suggest", json={"input": "pasaporta"}).status_code == 401
+
+
+def test_demo_admin_sees_analytics_without_question_text(client, demo_on, admin_db):
+    from app.catalogue.models import QueryLog
+
+    with admin_db() as db:
+        db.add(QueryLog(role="citizen", query="Emri im është X, numri personal 123", language="sq", found_match=True))
+        db.commit()
+    token = client.post("/api/auth/demo", json={"role": "admin"}).json()["access_token"]
+    body = client.get("/api/admin/analytics", headers={"Authorization": f"Bearer {token}"}).json()
+    assert body["demo_redacted"] is True
+    assert all("123" not in row["query"] for row in body["top_queries"])
+
+
+def test_chat_and_agent_share_one_daily_budget(monkeypatch):
+    from app.middleware.rate_limit import limiter
+
+    monkeypatch.setattr(get_settings(), "chat_daily_cap", 3)
+    hits = [limiter.check("chat", f"10.0.0.{i}") for i in range(2)]
+    hits.append(limiter.check("agent", "10.0.1.1"))
+    assert hits == [None, None, None]
+    assert limiter.check("agent", "10.0.1.2") == "day"
+    assert limiter.check("chat", "10.0.0.9") == "day"
+
+
+def test_requests_without_a_token_do_not_count(client):
+    from app.middleware.rate_limit import limiter
+
+    for _ in range(3):
+        assert client.post("/api/agent/suggest", json={"input": "x"}).status_code == 401
+    assert not any(key[0] in ("agent", "llm") for key in limiter._counts)
