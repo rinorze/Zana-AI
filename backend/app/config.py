@@ -29,6 +29,10 @@ class Settings(BaseSettings):
     agent_password: str = "changeme"
 
     chroma_persist_dir: str = str(BACKEND_DIR / "chroma_data")
+    # "chroma" (default) or "memory": an in-memory store loaded from
+    # vector_index_file, for hosts that cannot run Chroma (see memory_store.py).
+    vector_backend: str = "chroma"
+    vector_index_file: str = str(BACKEND_DIR / "vector_index.npz")
     database_url: str = f"sqlite:///{BACKEND_DIR / 'zana.db'}"
     auto_seed_catalogue: bool = False
 
