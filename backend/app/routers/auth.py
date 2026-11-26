@@ -5,10 +5,11 @@ database — this is a single-tenant tool for a hackathon, not a SaaS.
 """
 from __future__ import annotations
 
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 from pydantic import BaseModel, Field
 
 from app.middleware.auth import authenticate_credentials, create_access_token
+from app.middleware.rate_limit import rate_limit
 
 router = APIRouter(prefix="/api/auth", tags=["auth"])
 
@@ -24,7 +25,7 @@ class LoginResponse(BaseModel):
     role: str
 
 
-@router.post("/login", response_model=LoginResponse)
+@router.post("/login", response_model=LoginResponse, dependencies=[Depends(rate_limit("login"))])
 def login(req: LoginRequest) -> LoginResponse:
     role = authenticate_credentials(req.username, req.password)
     token = create_access_token(subject=req.username, role=role)

@@ -14,3 +14,13 @@ pytest_plugins = ("pytest_asyncio",)
 @pytest.fixture(scope="session")
 def anyio_backend() -> str:  # used if anyio-style tests sneak in
     return "asyncio"
+
+
+@pytest.fixture(autouse=True)
+def _reset_rate_limiter():
+    """Each test starts with empty rate-limit counters."""
+    from app.middleware.rate_limit import limiter
+
+    limiter.reset()
+    yield
+    limiter.reset()

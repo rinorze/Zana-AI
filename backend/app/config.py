@@ -40,6 +40,27 @@ class Settings(BaseSettings):
 
     frontend_url: str = "http://localhost:3000"
 
+    # "production" makes startup fail if JWT_SECRET or the demo passwords are
+    # still the development defaults, and builds the search index on boot.
+    environment: str = "development"
+    # Build the Chroma index on startup when it is empty (needs OPENAI_API_KEY).
+    auto_index_catalogue: bool = False
+
+    # Public endpoint limits. See app/middleware/rate_limit.py.
+    rate_limit_enabled: bool = True
+    trust_proxy_headers: bool = False
+    chat_per_minute: int = 6
+    chat_per_ip_per_day: int = 40
+    chat_daily_cap: int = 200
+    search_per_minute: int = 30
+    voice_per_minute: int = 3
+    voice_per_ip_per_day: int = 20
+    login_per_minute: int = 5
+
+    @property
+    def is_production(self) -> bool:
+        return self.environment.lower() == "production"
+
 
 @lru_cache
 def get_settings() -> Settings:

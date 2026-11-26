@@ -16,6 +16,7 @@ from app.db.database import get_db
 from app.llm import claude
 from app.llm.language import SUPPORTED, detect_language
 from app.llm.prompts import build_citizen_system
+from app.middleware.rate_limit import rate_limit
 from app.rag.retriever import RetrievalResult, expand_query, retrieve, retrieve_hybrid
 from app.rag.search import smart_search
 from app.voice.transcribe import transcribe_audio
@@ -353,7 +354,7 @@ def get_service(service_id: str, db: Session = Depends(get_db)) -> ServiceDetail
     return ServiceDetail(**crud.serialize_service(service))
 
 
-@router.get("/search")
+@router.get("/search", dependencies=[Depends(rate_limit("search"))])
 async def search(
     q: str = Query(..., min_length=1, max_length=200),
     language: str = Query("sq"),
@@ -364,7 +365,7 @@ async def search(
     return await smart_search(db, q, language=language)
 
 
-@router.post("/chat")
+@router.post("/chat", dependencies=[Depends(rate_limit("chat"))])
 async def chat(req: ChatRequest, db: Session = Depends(get_db)) -> StreamingResponse:
     language = (req.language or detect_language(req.message)).lower()
     if language not in SUPPORTED:
@@ -521,7 +522,7 @@ async def chat(req: ChatRequest, db: Session = Depends(get_db)) -> StreamingResp
     return StreamingResponse(event_stream(), media_type="text/event-stream", headers=headers)
 
 
-@router.post("/voice/transcribe")
+@router.post("/voice/transcribe", dependencies=[Depends(rate_limit("voice"))])
 async def voice_transcribe(
     audio: UploadFile = File(...),
     language: str | None = Form(None),
