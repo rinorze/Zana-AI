@@ -1,9 +1,11 @@
 from __future__ import annotations
 
+import re
+import unicodedata
 from collections.abc import Iterable
 from typing import Any
 
-from sqlalchemy import String, func, select
+from sqlalchemy import func, select
 from sqlalchemy.orm import Session, selectinload
 
 from app.catalogue.models import (
@@ -139,27 +141,40 @@ def delete_service(db: Session, pk: int) -> bool:
     return True
 
 
+def _fold(text: str) -> str:
+    """Lower-case without letter marks: "Letërnjoftimi" -> "leternjoftimi"."""
+    decomposed = unicodedata.normalize("NFD", text)
+    return "".join(ch for ch in decomposed if not unicodedata.combining(ch)).lower()
+
+
 def search_services_keyword(db: Session, query: str, limit: int = 10) -> list[Service]:
     """Cheap keyword fallback used alongside semantic search.
 
-    Matches against service_id, category, and the raw JSON of names/description.
+    Each word of 4+ letters is matched against the service id, category, names
+    and description, ignoring ë/ç marks. Albanian adds endings ("letërnjoftimin"),
+    so a word also matches by its first part. Services with more matching words
+    come first; a name match counts more than a description match.
+
+    This runs in Python: the JSON columns store "ë" escaped, so SQL LIKE could
+    never match it. The catalogue is small (tens of services).
     """
-    pattern = f"%{query.lower()}%"
-    stmt = (
-        select(Service)
-        .options(
-            selectinload(Service.steps),
-            selectinload(Service.faqs),
-        )
-        .where(
-            func.lower(Service.service_id).like(pattern)
-            | func.lower(Service.category).like(pattern)
-            | func.lower(func.cast(Service.names_json, String)).like(pattern)
-            | func.lower(func.cast(Service.description_json, String)).like(pattern)
-        )
-        .limit(limit)
-    )
-    return list(db.execute(stmt).scalars().all())
+    words = [w for w in re.findall(r"\w+", _fold(query)) if len(w) >= 4]
+    if not words:
+        return []
+    stems = {w[: max(4, len(w) - 2)] for w in words}
+    services = db.execute(
+        select(Service).options(selectinload(Service.steps), selectinload(Service.faqs))
+    ).scalars().all()
+
+    scored: list[tuple[int, Service]] = []
+    for svc in services:
+        title = _fold(" ".join([svc.service_id, svc.category or "", *map(str, (svc.names_json or {}).values())]))
+        body = _fold(" ".join(map(str, (svc.description_json or {}).values())))
+        score = sum(3 if stem in title else 1 if stem in body else 0 for stem in stems)
+        if score:
+            scored.append((score, svc))
+    scored.sort(key=lambda pair: -pair[0])
+    return [svc for _, svc in scored[:limit]]
 
 
 # Response templates ----------------------------------------------------------

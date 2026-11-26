@@ -199,3 +199,10 @@ def test_requests_without_a_token_do_not_count(client):
     for _ in range(3):
         assert client.post("/api/agent/suggest", json={"input": "x"}).status_code == 401
     assert not any(key[0] in ("agent", "llm") for key in limiter._counts)
+
+
+def test_keyword_search_ignores_letter_marks_and_endings(admin_db):
+    with admin_db() as db:
+        for query in ("pasaportën", "Sa kushton PASAPORTA?", "pasaporte"):
+            assert [s.service_id for s in crud.search_services_keyword(db, query)] == ["pasaporta"], query
+        assert crud.search_services_keyword(db, "sa") == []
