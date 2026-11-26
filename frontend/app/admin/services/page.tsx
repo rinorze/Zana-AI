@@ -148,7 +148,7 @@ export default function AdminServicesPage() {
                   <RefreshCw className="h-4 w-4" />
                   Riindekso
                 </Button>
-                <Button size="sm" variant="destructive" onClick={() => remove(s.service_id)} disabled={busy}>
+                <Button size="sm" variant="destructive" onClick={() => remove(s.service_id)} disabled={busy} aria-label={`Fshi ${s.names.sq || s.service_id}`} title="Fshi">
                   <Trash2 className="h-4 w-4" />
                 </Button>
               </div>

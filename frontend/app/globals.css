@@ -26,42 +26,42 @@
 
 @layer base {
   :root {
-    --brand-primary: 10, 10, 10; /* black */
-    --brand-secondary: 37, 99, 235; /* blue-600 */
-    --brand-light: 239, 246, 255; /* blue-50 */
-    --brand-soft: 219, 234, 254; /* blue-100 */
-    --top-bar: 250, 204, 21; /* yellow-400 */
-    --top-bar-text: 10, 10, 10;
-    --body-bg: 255, 255, 255;
-    --card-bg: 255, 255, 255;
-    --border: 229, 231, 235; /* gray-200 */
-    --text: 10, 10, 10;
-    --text-muted: 107, 114, 128; /* gray-500 */
+    --brand-primary: 10 10 10; /* black */
+    --brand-secondary: 37 99 235; /* blue-600 */
+    --brand-light: 239 246 255; /* blue-50 */
+    --brand-soft: 219 234 254; /* blue-100 */
+    --top-bar: 250 204 21; /* yellow-400 */
+    --top-bar-text: 10 10 10;
+    --body-bg: 255 255 255;
+    --card-bg: 255 255 255;
+    --border: 229 231 235; /* gray-200 */
+    --text: 10 10 10;
+    --text-muted: 107 114 128; /* gray-500 */
     --shadow-card: 0 4px 20px -4px rgba(37, 99, 235, 0.1);
 
-    --tile-red: 37, 99, 235;
-    --tile-orange: 250, 204, 21;
-    --tile-teal: 37, 99, 235;
-    --tile-crimson: 37, 99, 235;
-    --tile-green: 250, 204, 21;
-    --tile-pink: 37, 99, 235;
+    --tile-red: 37 99 235;
+    --tile-orange: 250 204 21;
+    --tile-teal: 37 99 235;
+    --tile-crimson: 37 99 235;
+    --tile-green: 250 204 21;
+    --tile-pink: 37 99 235;
 
-    --success: 34, 197, 94;
-    --warning: 250, 204, 21;
-    --danger: 239, 68, 68;
+    --success: 34 197 94;
+    --warning: 250 204 21;
+    --danger: 239 68 68;
   }
 
   .high-contrast {
-    --brand-primary: 255, 230, 0;
-    --brand-secondary: 255, 230, 0;
-    --brand-light: 0, 0, 0;
-    --top-bar: 0, 0, 0;
-    --top-bar-text: 255, 230, 0;
-    --body-bg: 0, 0, 0;
-    --card-bg: 0, 0, 0;
-    --border: 255, 230, 0;
-    --text: 255, 240, 200;
-    --text-muted: 255, 230, 0;
+    --brand-primary: 255 230 0;
+    --brand-secondary: 255 230 0;
+    --brand-light: 0 0 0;
+    --top-bar: 0 0 0;
+    --top-bar-text: 255 230 0;
+    --body-bg: 0 0 0;
+    --card-bg: 0 0 0;
+    --border: 255 230 0;
+    --text: 255 240 200;
+    --text-muted: 255 230 0;
   }
 }
 
@@ -123,8 +123,11 @@
     border-bottom: 1px solid rgb(var(--border));
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   }
+  /* Three columns with equal outer tracks, so the links sit in the true centre
+     whatever the width of the logo and the buttons. */
   .ek-header > .ek-header-inner {
-    @apply flex items-center justify-between w-full;
+    @apply grid items-center w-full;
+    grid-template-columns: 1fr auto 1fr;
     max-width: 1280px;
     padding: 0 1rem;
     color: rgb(var(--brand-primary));
@@ -132,14 +135,16 @@
   .ek-nav {
     display: none;
     align-items: center;
-    gap: 28px;
+    gap: 20px;
   }
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     .ek-nav {
       display: flex;
     }
-    .ek-menu-button {
-      display: none;
+  }
+  @media (min-width: 1024px) {
+    .ek-nav {
+      gap: 28px;
     }
   }
   .ek-menu-button {
@@ -159,7 +164,7 @@
   .ek-mobile-nav a.active {
     color: rgb(var(--brand-secondary));
   }
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     .ek-mobile-nav {
       display: none;
     }
