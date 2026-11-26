@@ -113,6 +113,7 @@ async def run() -> int:
     from app.db.database import SessionLocal, init_db
     from app.rag import vectorstore
     from app.rag.retriever import expand_query, retrieve_hybrid
+    from app.routers.citizen import citizen_where
 
     init_db()
     if vectorstore.count() == 0:
@@ -123,7 +124,7 @@ async def run() -> int:
     rows: list[Row] = []
     with SessionLocal() as db:
         for item in questions:
-            result = await retrieve_hybrid(db, expand_query(item["q"]), top_k=TOP_K, where={"language": item["lang"]})
+            result = await retrieve_hybrid(db, expand_query(item["q"]), top_k=TOP_K, where=citizen_where(item["lang"]))
             ranked = unique_in_order([c.service_id for c in result.chunks])[:TOP_K]
             rows.append(
                 Row(

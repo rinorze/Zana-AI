@@ -9,7 +9,6 @@ import {
   Building2,
   Car,
   FileText,
-  HeartPulse,
   IdCard,
   Languages,
   LayoutDashboard,
@@ -104,20 +103,13 @@ export default function HomePage() {
               <HomeChat />
             </div>
 
-            {/* CTAs */}
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <Link href="/chat" className="ek-cta-primary text-sm">
-                {t("ask_zana")}
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link
-                href="/services"
-                className="text-sm text-blue-600 font-bold hover:underline inline-flex items-center gap-1"
-              >
-                {t("explore_services")}
-                <ArrowRight className="h-3 w-3" />
-              </Link>
-            </div>
+            <Link
+              href="/services"
+              className="text-sm text-blue-600 font-bold hover:underline inline-flex items-center gap-1"
+            >
+              {t("explore_services")}
+              <ArrowRight className="h-3 w-3" />
+            </Link>
 
             {/* Feature pills */}
             <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
@@ -259,48 +251,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Highlight categories carousel */}
-      <section className="container py-12 space-y-5">
-        <h2 className="ek-page-title text-2xl">{t("explore_services")}</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-          <CategoryTile
-            classes="ek-tile-red"
-            icon={<FileText className="h-7 w-7" />}
-            count={`${services.filter((s) => /Dokumente/i.test(s.category)).length}+`}
-            label={t("tile_documents")}
-          />
-          <CategoryTile
-            classes="ek-tile-orange"
-            icon={<Briefcase className="h-7 w-7" />}
-            count="ARBK"
-            label={t("tile_business")}
-          />
-          <CategoryTile
-            classes="ek-tile-teal"
-            icon={<Car className="h-7 w-7" />}
-            count="MUP"
-            label={t("tile_traffic")}
-          />
-          <CategoryTile
-            classes="ek-tile-crimson"
-            icon={<HeartPulse className="h-7 w-7" />}
-            count="MShMS"
-            label={t("tile_health")}
-          />
-          <CategoryTile
-            classes="ek-tile-green"
-            icon={<Baby className="h-7 w-7" />}
-            count={`${services.filter((s) => /Civile|Familjare/i.test(s.category)).length}+`}
-            label={t("tile_family")}
-          />
-          <CategoryTile
-            classes="ek-tile-pink"
-            icon={<Users className="h-7 w-7" />}
-            count="MFA"
-            label={t("tile_residency")}
-          />
-        </div>
-      </section>
     </div>
   );
 }
@@ -381,22 +331,3 @@ function Stat({
   );
 }
 
-function CategoryTile({
-  classes,
-  icon,
-  count,
-  label,
-}: {
-  classes: string;
-  icon: React.ReactNode;
-  count: string;
-  label: string;
-}) {
-  return (
-    <div className={`ek-tile ${classes}`}>
-      <span className="tile-icon">{icon}</span>
-      <span className="tile-count">{count}</span>
-      <span className="tile-meta">{label}</span>
-    </div>
-  );
-}

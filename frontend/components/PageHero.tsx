@@ -21,7 +21,7 @@ export interface PageHeroProps {
 export function PageHero({ eyebrow, title, titleLine2, subtitle, actions, breadcrumbs }: PageHeroProps) {
   return (
     <section className="bg-gradient-to-br from-blue-50/60 via-white to-yellow-50/30 border-b border-gray-100">
-      <div className="container py-10 md:py-14 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+      <div className="container py-6 md:py-14 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
         <div className="space-y-3">
           {breadcrumbs}
           {eyebrow !== undefined && (

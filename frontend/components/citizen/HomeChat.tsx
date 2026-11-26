@@ -221,7 +221,7 @@ export function HomeChat() {
         className="flex items-center gap-2 bg-white border border-gray-200 rounded-full px-2 py-1 shadow-sm focus-within:border-blue-400 focus-within:ring-2 focus-within:ring-blue-100 transition"
       >
         <Sparkles
-          className="h-5 w-5 ml-3 text-blue-600 shrink-0"
+          className="hidden sm:block h-5 w-5 ml-3 text-blue-600 shrink-0"
           aria-hidden="true"
         />
         <input
@@ -229,7 +229,7 @@ export function HomeChat() {
           onChange={(e) => setInput(e.target.value)}
           placeholder={t("hero_search_placeholder")}
           aria-label={t("hero_search_placeholder")}
-          className="flex-1 bg-transparent py-3 outline-none text-sm md:text-base"
+          className="flex-1 min-w-0 bg-transparent py-3 pl-3 sm:pl-0 outline-none text-sm md:text-base"
         />
         <VoiceModeToggle enabled={voiceMode} onToggle={setVoiceMode} />
         <VoiceInput
@@ -240,9 +240,10 @@ export function HomeChat() {
         <button
           type="submit"
           disabled={state.busy || !input.trim()}
-          className="ek-cta-primary py-2 px-4 text-sm rounded-full disabled:opacity-50"
+          aria-label={t("ask_zana")}
+          className="ek-cta-primary shrink-0 py-2 px-3 sm:px-4 text-sm rounded-full disabled:opacity-50"
         >
-          {t("ask_zana")}
+          <span className="hidden sm:inline">{t("ask_zana")}</span>
           <ArrowRight className="h-4 w-4" />
         </button>
       </form>
