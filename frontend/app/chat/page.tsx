@@ -136,9 +136,9 @@ function ChatPageInner() {
         }
       />
 
-      <div className="container py-8 grid gap-4 md:grid-cols-[1fr_340px]">
-        <section className="ek-glass-card overflow-hidden flex flex-col h-[72vh]">
-          <div ref={scrollerRef} className="flex-1 overflow-y-auto p-5 space-y-4 bg-gray-50/50">
+      <div className="container py-4 md:py-8 grid gap-4 md:grid-cols-[1fr_340px]">
+        <section className="ek-glass-card overflow-hidden flex flex-col h-[80vh] md:h-[72vh]">
+          <div ref={scrollerRef} className="flex-1 overflow-y-auto p-3 md:p-5 space-y-4 bg-gray-50/50">
             {turns.length === 0 && (
               <div className="h-full flex flex-col items-center justify-center text-center px-6">
                 <span className="inline-flex h-16 w-16 rounded-full bg-blue-50 items-center justify-center text-blue-600">
@@ -190,7 +190,7 @@ function ChatPageInner() {
         <aside className="space-y-3">
           <h2 className="ek-page-title text-sm uppercase tracking-wide">{t("citations")}</h2>
           {allCitations.length === 0 && (
-            <p className="text-gray-500 text-xs">{turns.length === 0 ? t("chat_empty_desc") : "Asnjë citim ende."}</p>
+            <p className="text-gray-500 text-xs">{turns.length === 0 ? t("chat_empty_desc") : t("no_citations_yet")}</p>
           )}
           {allCitations.map((c, i) => (
             <CitationCard key={`${c.marker}-${i}`} citation={c} />
@@ -212,7 +212,7 @@ function ChatBubble({ turn, simpleMode }: { turn: ChatTurn; simpleMode: boolean 
     <div className={"flex " + (isUser ? "justify-end" : "justify-start")}>
       <div
         className={
-          "max-w-[85%] rounded-2xl px-4 py-3 text-sm " +
+          "max-w-[94%] md:max-w-[85%] rounded-2xl px-4 py-3 text-sm " +
           (isUser ? "bg-blue-600 text-white whitespace-pre-line shadow-md" : "bg-white border border-gray-200 shadow-sm")
         }
       >

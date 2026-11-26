@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect } from "react";
-import { MessageSquare, Phone } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Menu, Phone, X } from "lucide-react";
 
 import { AccessibilityPanel } from "@/components/AccessibilityPanel";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
@@ -23,17 +23,15 @@ const NAV_ITEMS: Array<{
   { href: "/admin", key: "admin_panel" },
 ];
 
-const TOP_LINKS: Array<{ href: string; key: "help" | "faq" | "links" }> = [
-  { href: "https://ekosova.rks-gov.net/Home/Help", key: "help" },
-  { href: "https://ekosova.rks-gov.net/Home/FAQ", key: "faq" },
-  { href: "https://ekosova.rks-gov.net/Home/Links", key: "links" },
-];
-
 export function AppShell({ children }: { children: React.ReactNode }) {
   const t = useT();
   const pathname = usePathname() ?? "/";
   const highContrast = useStore((s) => s.highContrast);
   const fontScale = useStore((s) => s.fontScale);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Close the mobile menu after navigating.
+  useEffect(() => setMenuOpen(false), [pathname]);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -49,18 +47,23 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex flex-col min-h-screen">
       <header>
-        {/* Yellow eKosova top bar */}
+        {/* Demo notice. The site borrows eKosova's colours, so say plainly
+            that it is a prototype and point to the official portal. */}
         <div className="ek-top-bar">
           <div className="ek-top-bar-inner">
-            <nav aria-label="Quick links" className="flex items-center">
-              {TOP_LINKS.map((l) => (
-                <a key={l.key} href={l.href} target="_blank" rel="noreferrer">
-                  {t(l.key)}
-                </a>
-              ))}
-              <a href="mailto:support@ekosova.rks-gov.net">Webmail</a>
-            </nav>
-            <div className="ml-auto flex items-center gap-3">
+            <p className="truncate">
+              {t("demo_notice")}{" "}
+              <a
+                href="https://ekosova.rks-gov.net"
+                target="_blank"
+                rel="noreferrer"
+                className="underline"
+              >
+                <span className="hidden sm:inline">{t("official_portal")}</span>
+                <span className="sm:hidden">eKosova</span>
+              </a>
+            </p>
+            <div className="ml-auto flex items-center gap-3 shrink-0">
               <span className="hidden sm:inline font-bold">
                 {t("language")}:
               </span>
@@ -69,15 +72,14 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           </div>
         </div>
 
-        {/* White menu row */}
         <div className="ek-header">
           <div className="ek-header-inner">
             <Link
               href="/"
-              aria-label="ZANA — eKosova"
-              className="flex items-center gap-3"
+              aria-label="ZANA"
+              className="flex items-center gap-3 shrink-0"
             >
-              <ZanaLogo height={56} className="h-14 w-auto" />
+              <ZanaLogo height={56} className="h-12 md:h-14 w-auto" />
               <span className="hidden md:inline text-[11px] ek-text-muted uppercase tracking-[0.18em] border-l ek-border pl-3">
                 eKosova AI
               </span>
@@ -95,12 +97,36 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             </nav>
             <div className="flex items-center gap-2">
               <AccessibilityPanel />
+              <button
+                type="button"
+                className="ek-menu-button"
+                aria-label={t("menu")}
+                aria-expanded={menuOpen}
+                aria-controls="mobile-nav"
+                onClick={() => setMenuOpen((open) => !open)}
+              >
+                {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              </button>
             </div>
           </div>
         </div>
+        {menuOpen && (
+          <nav id="mobile-nav" aria-label={t("menu")} className="ek-mobile-nav">
+            {NAV_ITEMS.map(({ href, key }) => (
+              <Link
+                key={href}
+                href={href}
+                className={cn(isActive(href) && "active")}
+              >
+                {t(key)}
+              </Link>
+            ))}
+          </nav>
+        )}
       </header>
 
-      <main className="flex-1">{children}</main>
+      {/* Decorative blobs sit partly off-screen; clip them so phones get no sideways scroll. */}
+      <main className="flex-1 overflow-x-clip">{children}</main>
 
       <footer className="ek-footer">
         <div className="container py-10">
@@ -110,100 +136,49 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               <p className="ek-text-muted text-xs leading-relaxed">
                 {t("footer_blurb")}
               </p>
-              <div className="flex items-center gap-2 pt-2 text-xs font-bold">
-                <a
-                  href="#"
-                  className="inline-flex h-7 w-7 rounded-full items-center justify-center bg-brand-light ek-text-brand"
-                  aria-label="Facebook"
-                >
-                  f
-                </a>
-                <a
-                  href="#"
-                  className="inline-flex h-7 w-7 rounded-full items-center justify-center bg-brand-light ek-text-brand"
-                  aria-label="X / Twitter"
-                >
-                  𝕏
-                </a>
-                <a
-                  href="#"
-                  className="inline-flex h-7 w-7 rounded-full items-center justify-center bg-brand-light ek-text-brand"
-                  aria-label="Instagram"
-                >
-                  ◎
-                </a>
-              </div>
             </div>
             <div className="space-y-2">
               <p className="font-bold ek-text-brand">{t("about_portal")}</p>
               <a
-                href="https://ekosova.rks-gov.net/Home/Privacy"
+                href="https://github.com/rinorze/Zana-AI"
                 target="_blank"
                 rel="noreferrer"
                 className="block"
               >
-                {t("privacy_policy")}
+                {t("source_code")}
               </a>
-              <Link href="/admin/login" className="block">
-                {t("admin_panel")}
-              </Link>
+              <a
+                href="https://ekosova.rks-gov.net"
+                target="_blank"
+                rel="noreferrer"
+                className="block"
+              >
+                {t("official_portal")}
+              </a>
+            </div>
+            <div className="space-y-2">
+              <p className="font-bold ek-text-brand">{t("demo_logins")}</p>
               <Link href="/agent/login" className="block">
                 {t("agent_dashboard")}
               </Link>
+              <Link href="/admin/login" className="block">
+                {t("admin_panel")}
+              </Link>
             </div>
             <div className="space-y-2">
-              <p className="font-bold ek-text-brand">{t("apps")}</p>
-              <a
-                href="https://play.google.com/"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-block"
-              >
-                <span className="inline-flex items-center gap-2 rounded-md bg-black text-white px-3 py-1.5 text-xs">
-                  ▶ Google Play
-                </span>
-              </a>
-              <a
-                href="https://www.apple.com/app-store/"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-block"
-              >
-                <span className="inline-flex items-center gap-2 rounded-md bg-black text-white px-3 py-1.5 text-xs">
-                  {" "}
-                  App Store
-                </span>
-              </a>
-            </div>
-            <div className="space-y-2">
-              <p className="font-bold ek-text-brand">{t("call_center")}</p>
-              <a
-                href="tel:03820030900"
-                className="inline-flex items-center gap-2"
-              >
+              <p className="font-bold ek-text-brand">{t("official_contacts")}</p>
+              <a href="tel:03820030900" className="flex items-center gap-2">
                 <Phone className="h-3.5 w-3.5" /> 038 200 30 900
               </a>
-              <a
-                href="tel:080030900"
-                className="inline-flex items-center gap-2"
-              >
+              <a href="tel:080030900" className="flex items-center gap-2">
                 <Phone className="h-3.5 w-3.5" /> 0800 30 900
               </a>
-              <p>support@ekosova.rks-gov.net</p>
-              <button className="ek-side-pill mt-2" type="button">
-                <span className="icon-bubble">
-                  <MessageSquare className="h-3 w-3" />
-                </span>
-                {t("live_chat")}
-              </button>
             </div>
           </div>
         </div>
         <div className="border-t ek-border">
           <div className="container py-3 flex flex-col md:flex-row items-center justify-between gap-2 text-xs ek-text-muted">
-            <span>
-              © {new Date().getFullYear()} Republika e Kosovës · ZANA prototip
-            </span>
+            <span>© {new Date().getFullYear()} Rinor Zeqiri · ZANA</span>
             <span>{t("powered_by")}</span>
           </div>
         </div>
