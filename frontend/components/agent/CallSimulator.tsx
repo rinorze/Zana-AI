@@ -1,6 +1,6 @@
 "use client";
 
-import { Pause, Play, RefreshCw, SkipForward } from "lucide-react";
+import { Check, Dot, Folder, Pause, PhoneCall, Play, RefreshCw, SkipForward, User } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 import type { ServiceListItem } from "@/lib/api";
@@ -132,7 +132,8 @@ export function CallSimulator({
         <div>
           <h3 className="font-bold ek-text-brand text-sm flex items-center gap-2">
             <span className="inline-block h-2 w-2 rounded-full bg-amber-500" aria-hidden="true" />
-            🎬 Simulim i thirrjes
+            <PhoneCall className="h-4 w-4" aria-hidden="true" />
+            Simulim i thirrjes
           </h3>
           {!active && (
             <p className="text-xs ek-text-muted mt-1">
@@ -174,8 +175,8 @@ export function CallSimulator({
               >
                 <p className="text-sm font-bold ek-text-brand">{s.title}</p>
                 <p className="text-xs ek-text-muted mt-1">
-                  👤 {s.citizen_name}
-                  {svc && <> · 📂 {svc.name || s.service_id}</>}
+                  <User className="inline h-3.5 w-3.5 align-[-2px]" aria-hidden="true" /> {s.citizen_name}
+                  {svc && <> · <Folder className="inline h-3.5 w-3.5 align-[-2px]" aria-hidden="true" /> {svc.name || s.service_id}</>}
                   <> · {s.steps.length} pyetje</>
                 </p>
               </button>
@@ -185,7 +186,7 @@ export function CallSimulator({
       ) : (
         <div className="space-y-2">
           <div className="text-xs ek-text-muted">
-            👤 <strong>{active.citizen_name}</strong> · 📂 {active.service_id ?? "—"}
+            <User className="inline h-3.5 w-3.5 align-[-2px]" aria-hidden="true" /> <strong>{active.citizen_name}</strong> · <Folder className="inline h-3.5 w-3.5 align-[-2px]" aria-hidden="true" /> {active.service_id ?? "—"}
           </div>
           <ol className="space-y-1.5">
             {active.steps.map((q, idx) => (
@@ -200,7 +201,9 @@ export function CallSimulator({
                       : "ek-text-muted")
                 }
               >
-                <span className="mt-0.5">{idx === stepIndex ? "▶" : idx < stepIndex ? "✓" : "•"}</span>
+                <span className="mt-0.5" aria-hidden="true">
+                  {idx === stepIndex ? <Play className="h-3 w-3" /> : idx < stepIndex ? <Check className="h-3 w-3" /> : <Dot className="h-3 w-3" />}
+                </span>
                 <span>{q}</span>
               </li>
             ))}

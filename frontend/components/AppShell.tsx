@@ -5,11 +5,9 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, Phone, X } from "lucide-react";
 
-import { AccessibilityPanel } from "@/components/AccessibilityPanel";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { ZanaLogo } from "@/components/ZanaLogo";
 import { useT } from "@/lib/i18n";
-import { useStore } from "@/lib/store";
 import { cn } from "@/lib/utils";
 
 const NAV_ITEMS: Array<{
@@ -26,18 +24,10 @@ const NAV_ITEMS: Array<{
 export function AppShell({ children }: { children: React.ReactNode }) {
   const t = useT();
   const pathname = usePathname() ?? "/";
-  const highContrast = useStore((s) => s.highContrast);
-  const fontScale = useStore((s) => s.fontScale);
   const [menuOpen, setMenuOpen] = useState(false);
 
   // Close the mobile menu after navigating.
   useEffect(() => setMenuOpen(false), [pathname]);
-
-  useEffect(() => {
-    const root = document.documentElement;
-    root.classList.toggle("high-contrast", highContrast);
-    root.style.fontSize = `${Math.round(fontScale * 16)}px`;
-  }, [highContrast, fontScale]);
 
   function isActive(href: string) {
     if (href === "/") return pathname === "/";
@@ -63,7 +53,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             <Link
               href="/"
               aria-label="ZANA"
-              className="flex items-center gap-3 shrink-0 justify-self-start"
+              className="flex items-center gap-3 shrink-0 mr-auto"
             >
               <ZanaLogo height={56} className="h-12 md:h-14 w-auto" />
               <span className="hidden lg:inline text-[11px] ek-text-muted uppercase tracking-[0.18em] border-l ek-border pl-3">
@@ -81,11 +71,10 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                 </Link>
               ))}
             </nav>
-            <div className="flex items-center gap-2 justify-self-end">
-              <AccessibilityPanel />
+            <div className="flex items-center gap-2 md:hidden">
               <button
                 type="button"
-                className="ek-menu-button md:hidden"
+                className="ek-menu-button"
                 aria-label={t("menu")}
                 aria-expanded={menuOpen}
                 aria-controls="mobile-nav"

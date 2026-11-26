@@ -134,7 +134,7 @@ export function GuidedWizard({ service, onClose }: { service: ServiceDetail; onC
             </div>
           ) : (
             <div className="rounded-md bg-emerald-50 p-3 text-sm">
-              <p className="font-bold text-emerald-900">✓ Ke gjithçka për të aplikuar!</p>
+              <p className="font-bold text-emerald-900 flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4" aria-hidden="true" />Ke gjithçka për të aplikuar!</p>
               <p className="text-xs ek-text mt-1">
                 Mund të vazhdosh me hapat e procedurës ose të aplikosh online në eKosova.
               </p>

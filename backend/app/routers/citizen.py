@@ -555,7 +555,7 @@ async def voice_transcribe(
 
 @router.post("/feedback")
 def submit_feedback(req: FeedbackRequest, db: Session = Depends(get_db)) -> dict[str, bool]:
-    """Log a citizen 👍/👎 against an assistant answer.
+    """Log a citizen thumbs-up/down against an assistant answer.
 
     Lives next to the chat endpoint and feeds the same QueryLog table so the
     admin analytics surface honest "did this actually help" numbers in addition

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Sparkles, ExternalLink, Send } from "lucide-react";
+import { AlertTriangle, ArrowRight, Banknote, Building2, Check, Clock, ExternalLink, Folder, Globe, HelpCircle, Send, Sparkles } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import { Markdown } from "@/components/Markdown";
@@ -175,7 +175,7 @@ export function HomeChat() {
               case "error":
                 return {
                   ...prev,
-                  answer: prev.answer + `\n⚠️ ${event.message}`,
+                  answer: prev.answer + `\n\n${event.message}`,
                 };
               default:
                 return prev;
@@ -185,7 +185,7 @@ export function HomeChat() {
       } catch (err) {
         setState((prev) => ({
           ...prev,
-          answer: prev.answer + `\n⚠️ ${String(err)}`,
+          answer: prev.answer + `\n\n${String(err)}`,
         }));
       } finally {
         setState((prev) => ({ ...prev, busy: false, finished: true }));
@@ -281,23 +281,23 @@ export function HomeChat() {
                   title={`Auto-detected ${state.language.toUpperCase()} — click to switch UI`}
                   className="inline-flex items-center gap-1 rounded-full bg-yellow-50 text-yellow-900 px-2 py-0.5 text-[10px] font-bold border border-yellow-200 hover:bg-yellow-100"
                 >
-                  🌐 Auto: {state.language.toUpperCase()} → kalo në{" "}
+                  <Globe className="h-3 w-3" aria-hidden="true" /> Auto: {state.language.toUpperCase()} → kalo në{" "}
                   {state.language.toUpperCase()}
                 </button>
               )}
               {state.grounded === true && (
                 <span className="inline-flex items-center gap-1 rounded-full bg-blue-50 text-blue-700 px-2 py-0.5 text-[10px] font-bold">
-                  ✓ {Math.round((state.confidence ?? 0) * 100)}% i bazuar
+                  <Check className="h-3 w-3" aria-hidden="true" /> {Math.round((state.confidence ?? 0) * 100)}% i bazuar
                 </span>
               )}
               {state.grounded === false && (
                 <span className="inline-flex items-center gap-1 rounded-full bg-yellow-50 text-yellow-800 px-2 py-0.5 text-[10px] font-bold">
-                  ⚠ Verifiko në eKosova
+                  <AlertTriangle className="h-3 w-3" aria-hidden="true" /> Verifiko në eKosova
                 </span>
               )}
               {state.activeServiceName && (
                 <span className="inline-flex items-center gap-1 rounded-full bg-blue-50 text-blue-700 px-2 py-0.5 text-[10px] font-bold">
-                  📂 {state.activeServiceName}
+                  <Folder className="h-3 w-3" aria-hidden="true" /> {state.activeServiceName}
                 </span>
               )}
             </div>
@@ -324,8 +324,8 @@ export function HomeChat() {
 
           {state.clarification && (
             <div className="rounded-lg bg-yellow-50 border border-yellow-200 p-3 text-xs space-y-2">
-              <p className="font-bold text-yellow-900">
-                🤔 {state.clarification.prompt}
+              <p className="font-bold text-yellow-900 flex items-center gap-1.5">
+                <HelpCircle className="h-3 w-3" aria-hidden="true" /> {state.clarification.prompt}
               </p>
               <div className="flex flex-wrap gap-2">
                 {state.clarification.candidates.map((c) => (
@@ -360,11 +360,11 @@ export function HomeChat() {
                 <p className="font-bold text-blue-700">
                   {state.structured.name}
                 </p>
-                {state.structured.fee && <p>💶 {state.structured.fee}</p>}
+                {state.structured.fee && <p className="flex items-center gap-1.5"><Banknote className="h-3.5 w-3.5 shrink-0 text-blue-600" aria-hidden="true" /> {state.structured.fee}</p>}
                 {state.structured.duration && (
-                  <p>⏱️ {state.structured.duration}</p>
+                  <p className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5 shrink-0 text-blue-600" aria-hidden="true" /> {state.structured.duration}</p>
                 )}
-                {state.structured.office && <p>🏢 {state.structured.office}</p>}
+                {state.structured.office && <p className="flex items-center gap-1.5"><Building2 className="h-3.5 w-3.5 shrink-0 text-blue-600" aria-hidden="true" /> {state.structured.office}</p>}
               </div>
               <QuickActions structured={state.structured} />
             </div>
