@@ -88,6 +88,16 @@ class FeedbackRequest(BaseModel):
 # ---------------------------------------------------------------- helpers
 
 
+def citizen_where(language: str, service_id: str | None = None) -> dict[str, Any]:
+    """Chunks a citizen answer may use. Agent reply templates are indexed too
+    (for the agent dashboard), but they contain placeholders such as
+    {citizen_name} and must not be cited to citizens."""
+    clauses: list[dict[str, Any]] = [{"language": language}, {"type": {"$ne": "template"}}]
+    if service_id:
+        clauses.append({"service_id": service_id})
+    return {"$and": clauses}
+
+
 def _localized(payload: dict[str, str], language: str) -> str:
     if not isinstance(payload, dict):
         return ""
@@ -380,11 +390,7 @@ async def chat(req: ChatRequest, db: Session = Depends(get_db)) -> StreamingResp
     if not anchor_service_id and req.active_service_id and _looks_like_followup(req.message):
         anchor_service_id = req.active_service_id
 
-    where_filter: dict[str, Any] | None = {"language": language}
-    if anchor_service_id:
-        where_filter = {
-            "$and": [{"language": language}, {"service_id": anchor_service_id}]
-        }
+    where_filter = citizen_where(language, anchor_service_id)
 
     # If the citizen is already on a service page, prepend the service summary
     # to give the LLM a stable anchor regardless of which chunks come back.

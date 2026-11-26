@@ -5,7 +5,7 @@
     "off_topic": 4,
     "hit@1": 0.923,
     "hit@5": 1.0,
-    "mrr": 0.952,
+    "mrr": 0.955,
     "grounded": 1.0,
     "refusal": 1.0
   },
@@ -15,7 +15,8 @@
       "lang": "sq",
       "expected": "pasaporta",
       "ranked_services": [
-        "pasaporta"
+        "pasaporta",
+        "leternjoftim"
       ],
       "rank": 1,
       "grounded": true,
@@ -41,8 +42,8 @@
       "expected": "leternjoftim",
       "ranked_services": [
         "leternjoftim",
-        "patente-shoferi",
-        "numri-personal"
+        "numri-personal",
+        "patente-shoferi"
       ],
       "rank": 1,
       "grounded": true,
@@ -54,12 +55,13 @@
       "lang": "sq",
       "expected": "certifikate-lindjeje",
       "ranked_services": [
-        "certifikate-lindjeje"
+        "certifikate-lindjeje",
+        "leternjoftim"
       ],
       "rank": 1,
       "grounded": true,
-      "confidence": 0.837,
-      "best_distance": 0.163
+      "confidence": 0.823,
+      "best_distance": 0.177
     },
     {
       "q": "Më duhet certifikata e martesës për vizë, ku aplikoj?",
@@ -104,9 +106,10 @@
       "expected": "certifikate-padenimi",
       "ranked_services": [
         "certifikate-padenimi",
-        "leje-qendrimi-huaj",
-        "certifikate-gjendjes-martesore",
-        "ekstrakt-amze"
+        "numri-fiskal",
+        "certifikate-lindjeje",
+        "certifikate-vdekjeje",
+        "certifikate-gjendjes-martesore"
       ],
       "rank": 1,
       "grounded": true,
@@ -146,9 +149,10 @@
       "expected": "legalizim-diplome",
       "ranked_services": [
         "legalizim-diplome",
-        "certifikate-vdekjeje",
         "certifikate-gjendjes-martesore",
-        "certifikate-martese"
+        "certifikate-martese",
+        "regjistrim-biznesi",
+        "patente-shoferi"
       ],
       "rank": 1,
       "grounded": true,
@@ -161,11 +165,10 @@
       "expected": "regjistrim-automjeti",
       "ranked_services": [
         "regjistrim-biznesi",
-        "certifikate-vdekjeje",
         "patente-shoferi",
         "regjistrim-automjeti"
       ],
-      "rank": 4,
+      "rank": 3,
       "grounded": true,
       "confidence": 0.705,
       "best_distance": 0.295
@@ -326,12 +329,13 @@
       "lang": "sr",
       "expected": "patente-shoferi",
       "ranked_services": [
-        "patente-shoferi"
+        "patente-shoferi",
+        "numri-personal"
       ],
       "rank": 1,
       "grounded": true,
-      "confidence": 0.755,
-      "best_distance": 0.245
+      "confidence": 0.716,
+      "best_distance": 0.284
     },
     {
       "q": "Kako da registrujem firmu?",
@@ -353,8 +357,8 @@
       "ranked_services": [],
       "rank": null,
       "grounded": false,
-      "confidence": 0.595,
-      "best_distance": 0.405
+      "confidence": 0.592,
+      "best_distance": 0.408
     },
     {
       "q": "What is the best restaurant in Prizren?",

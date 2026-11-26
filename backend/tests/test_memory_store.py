@@ -25,6 +25,7 @@ def test_where_filters_including_and():
     both = {"$and": [{"language": "sq"}, {"service_id": "y"}]}
     assert store.query([[1, 0]], 5, where=both)["ids"] == [["c"]]
     assert store.query([[1, 0]], 5, where={"language": "de"})["ids"] == [[]]
+    assert store.query([[1, 0]], 5, where={"language": {"$ne": "sq"}})["ids"] == [["b"]]
 
 
 def test_upsert_replaces_and_delete_removes(tmp_path):

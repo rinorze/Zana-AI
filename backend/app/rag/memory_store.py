@@ -18,12 +18,19 @@ import numpy as np
 
 
 def _matches(metadata: dict[str, Any], where: dict[str, Any] | None) -> bool:
-    """Supports the filters ZANA uses: {"key": value} and {"$and": [...]}."""
+    """Supports the filters ZANA uses: {"key": value}, {"key": {"$ne": value}}
+    and {"$and": [...]}."""
     if not where:
         return True
     if "$and" in where:
         return all(_matches(metadata, clause) for clause in where["$and"])
-    return all(metadata.get(key) == value for key, value in where.items())
+    for key, value in where.items():
+        if isinstance(value, dict) and "$ne" in value:
+            if metadata.get(key) == value["$ne"]:
+                return False
+        elif metadata.get(key) != value:
+            return False
+    return True
 
 
 class MemoryCollection:
