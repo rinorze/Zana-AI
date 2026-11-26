@@ -76,6 +76,11 @@ def summarize(rows: list[Row]) -> dict[str, float | int]:
     }
 
 
+def _settings():
+    from app.config import get_settings
+    return get_settings()
+
+
 def write_report(rows: list[Row], summary: dict, path: Path) -> None:
     lines = [
         "# ZANA retrieval evaluation",
@@ -85,6 +90,10 @@ def write_report(rows: list[Row], summary: dict, path: Path) -> None:
         "",
         "The questions are hand-written test questions (SQ/EN/SR) about the 20 seeded services, "
         "not real user logs.",
+        "",
+        f"Embeddings: `{_settings().embedding_model}` · relevance threshold "
+        f"(max cosine distance): {_settings().relevant_distance_max}. The threshold was chosen "
+        "from this same question set, so treat the refusal score as optimistic.",
         "",
         "| Metric | Value |",
         "|---|---|",

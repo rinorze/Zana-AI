@@ -418,7 +418,9 @@ async def chat(req: ChatRequest, db: Session = Depends(get_db)) -> StreamingResp
             structured_service = crud.get_service_by_service_id(db, first_sid)
     structured = _structured_procedure(structured_service, language)
 
-    system_prompt = build_citizen_system(context, simple_mode=req.simple_mode)
+    system_prompt = build_citizen_system(
+        context, simple_mode=req.simple_mode, language=language
+    )
     messages: list[dict[str, Any]] = [
         {"role": m.role, "content": m.content} for m in req.history
     ]

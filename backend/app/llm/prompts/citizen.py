@@ -35,9 +35,25 @@ RREGULL SHTESË (SIMPLE MODE AKTIV):
 """
 
 
-def build_citizen_system(context: str, simple_mode: bool = False) -> str:
-    """Substitute context into the system prompt; optionally append simple-mode rules."""
+LANGUAGE_NAMES = {"sq": "Albanian (shqip)", "en": "English", "sr": "Serbian (srpski)"}
+
+# The prompt and the sources are in Albanian, so "answer in the question's
+# language" alone was not enough: English questions got Albanian answers.
+# The route already knows the language, so state it explicitly, last.
+ANSWER_LANGUAGE_RULE = """
+ANSWER LANGUAGE: {name}. Write the whole answer in {name}, including the
+structured block and the verification line; translate them from the sources.
+"""
+
+
+def build_citizen_system(
+    context: str, simple_mode: bool = False, language: str | None = None
+) -> str:
+    """Substitute context into the system prompt; optionally append simple-mode
+    rules and the answer language."""
     prompt = CITIZEN_SYSTEM_PROMPT.format(context=context)
     if simple_mode:
         prompt = prompt + SIMPLE_MODE_ADDITION
+    if language in LANGUAGE_NAMES:
+        prompt = prompt + ANSWER_LANGUAGE_RULE.format(name=LANGUAGE_NAMES[language])
     return prompt

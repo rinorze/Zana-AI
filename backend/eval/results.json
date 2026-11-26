@@ -1,0 +1,390 @@
+{
+  "summary": {
+    "questions": 30,
+    "in_scope": 26,
+    "off_topic": 4,
+    "hit@1": 0.923,
+    "hit@5": 1.0,
+    "mrr": 0.952,
+    "grounded": 1.0,
+    "refusal": 1.0
+  },
+  "rows": [
+    {
+      "q": "Sa kushton pasaporta për të rritur?",
+      "lang": "sq",
+      "expected": "pasaporta",
+      "ranked_services": [
+        "pasaporta"
+      ],
+      "rank": 1,
+      "grounded": true,
+      "confidence": 0.842,
+      "best_distance": 0.158
+    },
+    {
+      "q": "Çfarë dokumentesh më duhen për pasaportë për fëmijën?",
+      "lang": "sq",
+      "expected": "pasaporta",
+      "ranked_services": [
+        "pasaporta",
+        "leje-qendrimi-huaj"
+      ],
+      "rank": 1,
+      "grounded": true,
+      "confidence": 0.838,
+      "best_distance": 0.162
+    },
+    {
+      "q": "Ku mund ta nxjerr letërnjoftimin e parë kur mbush 16 vjeç?",
+      "lang": "sq",
+      "expected": "leternjoftim",
+      "ranked_services": [
+        "leternjoftim",
+        "patente-shoferi",
+        "numri-personal"
+      ],
+      "rank": 1,
+      "grounded": true,
+      "confidence": 0.904,
+      "best_distance": 0.096
+    },
+    {
+      "q": "Si ta marr certifikatën e lindjes online?",
+      "lang": "sq",
+      "expected": "certifikate-lindjeje",
+      "ranked_services": [
+        "certifikate-lindjeje"
+      ],
+      "rank": 1,
+      "grounded": true,
+      "confidence": 0.837,
+      "best_distance": 0.163
+    },
+    {
+      "q": "Më duhet certifikata e martesës për vizë, ku aplikoj?",
+      "lang": "sq",
+      "expected": "certifikate-martese",
+      "ranked_services": [
+        "certifikate-martese",
+        "certifikate-gjendjes-martesore"
+      ],
+      "rank": 1,
+      "grounded": true,
+      "confidence": 0.812,
+      "best_distance": 0.188
+    },
+    {
+      "q": "Si regjistrohet një SH.P.K. në ARBK?",
+      "lang": "sq",
+      "expected": "regjistrim-biznesi",
+      "ranked_services": [
+        "regjistrim-biznesi"
+      ],
+      "rank": 1,
+      "grounded": true,
+      "confidence": 0.843,
+      "best_distance": 0.157
+    },
+    {
+      "q": "Sa kushtojnë provimet për patentë shoferi?",
+      "lang": "sq",
+      "expected": "patente-shoferi",
+      "ranked_services": [
+        "patente-shoferi"
+      ],
+      "rank": 1,
+      "grounded": true,
+      "confidence": 0.876,
+      "best_distance": 0.124
+    },
+    {
+      "q": "Më duhet vërtetim që nuk jam i dënuar për punë",
+      "lang": "sq",
+      "expected": "certifikate-padenimi",
+      "ranked_services": [
+        "certifikate-padenimi",
+        "leje-qendrimi-huaj",
+        "certifikate-gjendjes-martesore",
+        "ekstrakt-amze"
+      ],
+      "rank": 1,
+      "grounded": true,
+      "confidence": 0.817,
+      "best_distance": 0.183
+    },
+    {
+      "q": "Si e marr ekstraktin e pronësisë për shtëpinë?",
+      "lang": "sq",
+      "expected": "ekstrakti-pronesise",
+      "ranked_services": [
+        "ekstrakti-pronesise",
+        "ekstrakt-amze"
+      ],
+      "rank": 1,
+      "grounded": true,
+      "confidence": 0.813,
+      "best_distance": 0.187
+    },
+    {
+      "q": "Kur kam të drejtë për pension pleqërie?",
+      "lang": "sq",
+      "expected": "pension-pleqerise",
+      "ranked_services": [
+        "pension-pleqerise",
+        "leternjoftim",
+        "patente-shoferi"
+      ],
+      "rank": 1,
+      "grounded": true,
+      "confidence": 0.809,
+      "best_distance": 0.191
+    },
+    {
+      "q": "Si ta legalizoj diplomën e marrë jashtë vendit?",
+      "lang": "sq",
+      "expected": "legalizim-diplome",
+      "ranked_services": [
+        "legalizim-diplome",
+        "certifikate-vdekjeje",
+        "certifikate-gjendjes-martesore",
+        "certifikate-martese"
+      ],
+      "rank": 1,
+      "grounded": true,
+      "confidence": 0.85,
+      "best_distance": 0.15
+    },
+    {
+      "q": "Si e regjistroj veturën e blerë nga jashtë?",
+      "lang": "sq",
+      "expected": "regjistrim-automjeti",
+      "ranked_services": [
+        "regjistrim-biznesi",
+        "certifikate-vdekjeje",
+        "patente-shoferi",
+        "regjistrim-automjeti"
+      ],
+      "rank": 4,
+      "grounded": true,
+      "confidence": 0.705,
+      "best_distance": 0.295
+    },
+    {
+      "q": "Si e marr numrin fiskal për biznes të ri?",
+      "lang": "sq",
+      "expected": "numri-fiskal",
+      "ranked_services": [
+        "numri-fiskal",
+        "regjistrim-biznesi"
+      ],
+      "rank": 1,
+      "grounded": true,
+      "confidence": 0.831,
+      "best_distance": 0.169
+    },
+    {
+      "q": "Kur duhet të regjistrohem për TVSH?",
+      "lang": "sq",
+      "expected": "regjistrim-tvsh",
+      "ranked_services": [
+        "regjistrim-tvsh",
+        "regjistrim-biznesi"
+      ],
+      "rank": 1,
+      "grounded": true,
+      "confidence": 0.858,
+      "best_distance": 0.142
+    },
+    {
+      "q": "How much does a passport cost in Kosovo?",
+      "lang": "en",
+      "expected": "pasaporta",
+      "ranked_services": [
+        "pasaporta",
+        "leternjoftim",
+        "patente-shoferi"
+      ],
+      "rank": 1,
+      "grounded": true,
+      "confidence": 0.843,
+      "best_distance": 0.157
+    },
+    {
+      "q": "What do I need to renew my ID card?",
+      "lang": "en",
+      "expected": "leternjoftim",
+      "ranked_services": [
+        "leternjoftim"
+      ],
+      "rank": 1,
+      "grounded": true,
+      "confidence": 0.744,
+      "best_distance": 0.256
+    },
+    {
+      "q": "How do I get a death certificate for a family member?",
+      "lang": "en",
+      "expected": "certifikate-vdekjeje",
+      "ranked_services": [
+        "certifikate-vdekjeje",
+        "certifikate-martese"
+      ],
+      "rank": 1,
+      "grounded": true,
+      "confidence": 0.724,
+      "best_distance": 0.276
+    },
+    {
+      "q": "I am a foreigner, how do I get a residence permit?",
+      "lang": "en",
+      "expected": "leje-qendrimi-huaj",
+      "ranked_services": [
+        "leje-qendrimi-huaj"
+      ],
+      "rank": 1,
+      "grounded": true,
+      "confidence": 0.786,
+      "best_distance": 0.214
+    },
+    {
+      "q": "How do I prove I am not married?",
+      "lang": "en",
+      "expected": "certifikate-gjendjes-martesore",
+      "ranked_services": [
+        "certifikate-gjendjes-martesore"
+      ],
+      "rank": 1,
+      "grounded": true,
+      "confidence": 0.748,
+      "best_distance": 0.252
+    },
+    {
+      "q": "Where do I get a birth registry extract?",
+      "lang": "en",
+      "expected": "ekstrakt-amze",
+      "ranked_services": [
+        "ekstrakt-amze",
+        "certifikate-lindjeje"
+      ],
+      "rank": 1,
+      "grounded": true,
+      "confidence": 0.829,
+      "best_distance": 0.171
+    },
+    {
+      "q": "How do I register for health insurance?",
+      "lang": "en",
+      "expected": "sigurim-shendetesor",
+      "ranked_services": [
+        "sigurim-shendetesor"
+      ],
+      "rank": 1,
+      "grounded": true,
+      "confidence": 0.725,
+      "best_distance": 0.275
+    },
+    {
+      "q": "How do I apply for a diplomatic visa?",
+      "lang": "en",
+      "expected": "aplikim-vize",
+      "ranked_services": [
+        "aplikim-vize"
+      ],
+      "rank": 1,
+      "grounded": true,
+      "confidence": 0.756,
+      "best_distance": 0.244
+    },
+    {
+      "q": "Where do I get my personal identification number?",
+      "lang": "en",
+      "expected": "numri-personal",
+      "ranked_services": [
+        "numri-personal"
+      ],
+      "rank": 1,
+      "grounded": true,
+      "confidence": 0.771,
+      "best_distance": 0.229
+    },
+    {
+      "q": "Koliko košta pasoš?",
+      "lang": "sr",
+      "expected": "pasaporta",
+      "ranked_services": [
+        "pasaporta",
+        "leternjoftim"
+      ],
+      "rank": 1,
+      "grounded": true,
+      "confidence": 0.841,
+      "best_distance": 0.159
+    },
+    {
+      "q": "Kako da dobijem vozačku dozvolu?",
+      "lang": "sr",
+      "expected": "patente-shoferi",
+      "ranked_services": [
+        "patente-shoferi"
+      ],
+      "rank": 1,
+      "grounded": true,
+      "confidence": 0.755,
+      "best_distance": 0.245
+    },
+    {
+      "q": "Kako da registrujem firmu?",
+      "lang": "sr",
+      "expected": "regjistrim-biznesi",
+      "ranked_services": [
+        "regjistrim-tvsh",
+        "regjistrim-biznesi"
+      ],
+      "rank": 2,
+      "grounded": true,
+      "confidence": 0.672,
+      "best_distance": 0.328
+    },
+    {
+      "q": "Ku mund të blej bileta për ndeshjen e futbollit?",
+      "lang": "sq",
+      "expected": null,
+      "ranked_services": [],
+      "rank": null,
+      "grounded": false,
+      "confidence": 0.595,
+      "best_distance": 0.405
+    },
+    {
+      "q": "What is the best restaurant in Prizren?",
+      "lang": "en",
+      "expected": null,
+      "ranked_services": [],
+      "rank": null,
+      "grounded": false,
+      "confidence": 0.616,
+      "best_distance": 0.384
+    },
+    {
+      "q": "Si ta gatuaj flijen?",
+      "lang": "sq",
+      "expected": null,
+      "ranked_services": [],
+      "rank": null,
+      "grounded": false,
+      "confidence": 0.56,
+      "best_distance": 0.44
+    },
+    {
+      "q": "Who won the 2022 World Cup?",
+      "lang": "en",
+      "expected": null,
+      "ranked_services": [],
+      "rank": null,
+      "grounded": false,
+      "confidence": 0.507,
+      "best_distance": 0.493
+    }
+  ]
+}
