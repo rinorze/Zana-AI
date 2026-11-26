@@ -47,22 +47,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex flex-col min-h-screen">
       <header>
-        {/* Demo notice. The site borrows eKosova's colours, so say plainly
-            that it is a prototype and point to the official portal. */}
         <div className="ek-top-bar">
           <div className="ek-top-bar-inner">
-            <p className="truncate">
-              {t("demo_notice")}{" "}
-              <a
-                href="https://ekosova.rks-gov.net"
-                target="_blank"
-                rel="noreferrer"
-                className="underline"
-              >
-                <span className="hidden sm:inline">{t("official_portal")}</span>
-                <span className="sm:hidden">eKosova</span>
-              </a>
-            </p>
             <div className="ml-auto flex items-center gap-3 shrink-0">
               <span className="hidden sm:inline font-bold">
                 {t("language")}:
@@ -77,10 +63,10 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             <Link
               href="/"
               aria-label="ZANA"
-              className="flex items-center gap-3 shrink-0"
+              className="flex items-center gap-3 shrink-0 justify-self-start"
             >
               <ZanaLogo height={56} className="h-12 md:h-14 w-auto" />
-              <span className="hidden md:inline text-[11px] ek-text-muted uppercase tracking-[0.18em] border-l ek-border pl-3">
+              <span className="hidden lg:inline text-[11px] ek-text-muted uppercase tracking-[0.18em] border-l ek-border pl-3">
                 eKosova AI
               </span>
             </Link>
@@ -95,11 +81,11 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                 </Link>
               ))}
             </nav>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 justify-self-end">
               <AccessibilityPanel />
               <button
                 type="button"
-                className="ek-menu-button"
+                className="ek-menu-button md:hidden"
                 aria-label={t("menu")}
                 aria-expanded={menuOpen}
                 aria-controls="mobile-nav"
