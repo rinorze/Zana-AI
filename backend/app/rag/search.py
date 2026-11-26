@@ -63,7 +63,9 @@ async def smart_search(
 
     semantic_chunks = []
     try:
-        semantic_chunks = await retrieve(query, top_k=top_k_semantic)
+        # Same filter as the chat: this language only, no agent templates.
+        where = {"$and": [{"language": language}, {"type": {"$ne": "template"}}]}
+        semantic_chunks = await retrieve(query, top_k=top_k_semantic, where=where)
     except Exception as exc:  # pragma: no cover — surfaced as part of result
         semantic_chunks = []
         semantic_error = str(exc)

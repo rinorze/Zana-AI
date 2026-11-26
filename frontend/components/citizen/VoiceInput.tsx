@@ -9,7 +9,9 @@ import { cn } from "@/lib/utils";
 type Status = "idle" | "asking" | "recording" | "uploading" | "error";
 
 const MAX_SECONDS = 20;
-const HINT_OK: Record<string, boolean> = { en: true }; // sq/sr -> let Whisper auto-detect
+// Always tell Whisper the page language. Left to detect it alone, Whisper
+// heard most Albanian questions as Romanian or Catalan.
+const HINT_OK: Record<string, boolean> = { sq: true, en: true, sr: true };
 
 export function VoiceInput({
   onTranscript,

@@ -208,7 +208,7 @@ export default function HomePage() {
                     {s.name || s.service_id}
                   </span>
                   {s.category && (
-                    <span className="text-[10px] ek-text-muted uppercase tracking-wider">
+                    <span className="text-xs ek-text-muted uppercase tracking-wider">
                       {s.category}
                     </span>
                   )}

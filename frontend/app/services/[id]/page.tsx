@@ -28,7 +28,18 @@ export default function ServiceDetailPage() {
       .catch((err) => setError(String(err)));
   }, [params?.id]);
 
-  if (error) return <div className="container py-8 text-ek-danger">{error}</div>;
+  if (error) {
+    const notFound = error.includes("404");
+    return (
+      <div className="container py-16 max-w-xl space-y-4">
+        <h1 className="ek-page-title text-2xl">{t(notFound ? "service_not_found" : "service_load_failed")}</h1>
+        <p className="ek-text-muted">{t(notFound ? "service_not_found_body" : "service_load_failed_body")}</p>
+        <Link href="/services" className="ek-cta-primary text-sm inline-flex">
+          {t("back_to_services")}
+        </Link>
+      </div>
+    );
+  }
   if (!service) return <div className="container py-8 ek-text-muted">Loading…</div>;
 
   const name = pickLocalized(service.names, language) || service.service_id;

@@ -74,12 +74,13 @@ export default function ServicesPage() {
       if (audience === "paid" && !s.fee) return false;
       if (audience === "citizen" && /(biznes|business)/i.test(s.category)) return false;
       if (!query) return true;
-      const q = query.toLowerCase();
-      return (
-        s.name.toLowerCase().includes(q) ||
-        s.service_id.toLowerCase().includes(q) ||
-        s.description.toLowerCase().includes(q)
-      );
+      const haystack = fold(`${s.name} ${s.service_id} ${s.description}`);
+      // Every word must appear. Albanian adds endings ("pasaportën",
+      // "pasaporte"), so a word matches by its first part.
+      return fold(query)
+        .split(/\s+/)
+        .filter(Boolean)
+        .every((word) => haystack.includes(word.length > 4 ? word.slice(0, -2) : word));
     });
   }, [services, query, audience, category]);
 
@@ -186,7 +187,7 @@ export default function ServicesPage() {
                   <Icon className="h-6 w-6" />
                 </span>
                 <span className="font-bold ek-text-secondary text-sm">{s.name || s.service_id}</span>
-                {s.category && <span className="text-[10px] ek-text-muted uppercase tracking-wider">{s.category}</span>}
+                {s.category && <span className="text-xs ek-text-muted uppercase tracking-wider">{s.category}</span>}
               </Link>
             );
           })}
@@ -209,4 +210,10 @@ export default function ServicesPage() {
       </div>
     </div>
   );
+}
+
+/** Lower-case and drop letter marks, so "leternjoftim" finds "Letërnjoftimi"
+ *  and "certifikate" finds "Çertifikatë". Many people type without ë and ç. */
+function fold(text: string): string {
+  return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 }

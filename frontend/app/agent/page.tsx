@@ -24,6 +24,7 @@ export default function AgentDashboardPage() {
   const [query, setQuery] = useState("");
   const [payload, setPayload] = useState<SuggestPayload | null>(null);
   const [status, setStatus] = useState("idle");
+  const [sessionReady, setSessionReady] = useState(false);
   const [queryHistory, setQueryHistory] = useState<string[]>([]);
   const [usedSuggestions, setUsedSuggestions] = useState<string[]>([]);
   const socketRef = useRef<AgentSuggestSocket | null>(null);
@@ -38,6 +39,7 @@ export default function AgentDashboardPage() {
         router.replace("/agent/login");
         return;
       }
+      setSessionReady(true);
       listServices({ limit: 200 }).then((page) => setServices(page.items)).catch(console.error);
       socket = new AgentSuggestSocket({
       onMessage: (next) => {
@@ -127,7 +129,7 @@ export default function AgentDashboardPage() {
             }}
           />
           <CallerContextPanel context={context} onChange={setContext} services={services} />
-          <TemplatesLibrary serviceId={context.serviceId} />
+          {sessionReady && <TemplatesLibrary serviceId={context.serviceId} />}
           <AfterCallSummary service={serviceName} queries={queryHistory} suggestions={usedSuggestions} />
         </div>
       </div>

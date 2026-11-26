@@ -57,7 +57,10 @@ export default function PlaygroundPage() {
 
   return (
     <div className="space-y-4">
-      <h1 className="ek-page-title text-2xl">Playground (RAG vs no-RAG)</h1>
+      <h1 className="ek-page-title text-2xl">Playground</h1>
+      <p className="text-sm ek-text-muted">
+        E njëjta pyetje dy herë: një herë e kufizuar te shërbimi Pasaporta, një herë në gjithë katalogun.
+      </p>
       <Card>
         <CardContent className="space-y-2 pt-6">
           <Label>Pyetja</Label>
@@ -76,7 +79,7 @@ export default function PlaygroundPage() {
               <CardTitle>{run?.label ?? (idx === 0 ? "Me filtër" : "Pa filtër")}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-2">
-              <p className="text-xs text-muted-foreground">Citations: {run?.citations ?? 0}</p>
+              <p className="text-xs text-muted-foreground">Burime të cituara: {run?.citations ?? 0}</p>
               <pre className="whitespace-pre-wrap text-sm">
                 {run?.text || (busy ? "Po gjeneron..." : "—")}
               </pre>
