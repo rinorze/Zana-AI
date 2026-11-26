@@ -9,6 +9,7 @@ from sqlalchemy import func, select
 
 from app.config import get_settings
 from app.db.database import SessionLocal, init_db
+from app.middleware.auth import warn_if_default_secrets
 from app.routers.admin import router as admin_router
 from app.routers.agent import router as agent_router
 from app.routers.auth import router as auth_router
@@ -27,11 +28,28 @@ def seed_catalogue_if_empty() -> None:
         seed_main()
 
 
+async def index_catalogue_if_empty() -> None:
+    """Build the Chroma index on first boot. On a host without a persistent
+    disk (the free demo host) this runs after every restart. 20 services is a
+    few hundred chunks, so it takes seconds and costs a fraction of a cent."""
+    from app.rag import vectorstore
+    from scripts.index_catalogue import index_all
+
+    if vectorstore.count() == 0:
+        await index_all()
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    if settings.is_production:
+        problems = warn_if_default_secrets()
+        if problems:
+            raise RuntimeError("Refusing to start in production: " + " ".join(problems))
     init_db()
     if settings.auto_seed_catalogue:
         seed_catalogue_if_empty()
+    if settings.auto_index_catalogue:
+        await index_catalogue_if_empty()
     yield
 
 
@@ -44,7 +62,14 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[settings.frontend_url, "http://localhost:3000", "http://localhost:3001", "http://127.0.0.1:3000", "http://127.0.0.1:3001"],
+    # FRONTEND_URL may list several origins, comma-separated.
+    allow_origins=[
+        *(o.strip().rstrip("/") for o in settings.frontend_url.split(",") if o.strip()),
+        "http://localhost:3000",
+        "http://localhost:3001",
+        "http://127.0.0.1:3000",
+        "http://127.0.0.1:3001",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
