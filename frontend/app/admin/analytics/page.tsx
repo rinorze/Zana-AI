@@ -19,11 +19,14 @@ export default function AdminAnalyticsPage() {
   return (
     <div className="space-y-6">
       <h1 className="ek-page-title text-2xl">Analitika</h1>
+      <p className="text-sm ek-text-muted">
+        Në demon online, baza e të dhënave është e përkohshme: numrat fillojnë nga zero sa herë që serveri rifillon.
+      </p>
 
       <div className="grid gap-3 md:grid-cols-3">
         <Stat title="Pyetje totale" value={data.total_queries} />
-        <Stat title="Pa match" value={data.no_match_count} />
-        <Stat title="No-match rate" value={`${Math.round(data.no_match_rate * 100)}%`} />
+        <Stat title="Pa përgjigje në katalog" value={data.no_match_count} />
+        <Stat title="Përqindja pa përgjigje" value={`${Math.round(data.no_match_rate * 100)}%`} />
       </div>
 
       <div className="grid gap-3 md:grid-cols-2">
@@ -52,7 +55,7 @@ export default function AdminAnalyticsPage() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Pa match</CardTitle>
+            <CardTitle>Pyetjet pa përgjigje</CardTitle>
           </CardHeader>
           <CardContent>
             <table className="w-full text-sm">

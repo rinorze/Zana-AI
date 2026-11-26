@@ -108,7 +108,7 @@ export function FollowUps({ lastQuestion, answer, structured, onPick }: FollowUp
   if (suggestions.length === 0) return null;
   return (
     <div className="space-y-1.5 pt-2 border-t ek-border">
-      <p className="text-[10px] uppercase tracking-widest ek-text-muted font-bold">{t("follow_ups")}</p>
+      <p className="text-xs uppercase tracking-widest ek-text-muted font-bold">{t("follow_ups")}</p>
       <div className="flex flex-wrap gap-2">
         {suggestions.map((s) => (
           <button

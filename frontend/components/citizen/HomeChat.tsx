@@ -270,7 +270,7 @@ export function HomeChat() {
               </span>
               <span className="font-bold text-black">ZANA</span>
               {state.language && state.language === language && (
-                <span className="ek-tag uppercase text-[10px]">
+                <span className="ek-tag uppercase text-xs">
                   {state.language}
                 </span>
               )}
@@ -279,24 +279,24 @@ export function HomeChat() {
                   type="button"
                   onClick={() => setLanguage(state.language as typeof language)}
                   title={`Auto-detected ${state.language.toUpperCase()} — click to switch UI`}
-                  className="inline-flex items-center gap-1 rounded-full bg-yellow-50 text-yellow-900 px-2 py-0.5 text-[10px] font-bold border border-yellow-200 hover:bg-yellow-100"
+                  className="inline-flex items-center gap-1 rounded-full bg-yellow-50 text-yellow-900 px-2 py-0.5 text-xs font-bold border border-yellow-200 hover:bg-yellow-100"
                 >
                   <Globe className="h-3 w-3" aria-hidden="true" /> Auto: {state.language.toUpperCase()} → kalo në{" "}
                   {state.language.toUpperCase()}
                 </button>
               )}
               {state.grounded === true && (
-                <span className="inline-flex items-center gap-1 rounded-full bg-blue-50 text-blue-700 px-2 py-0.5 text-[10px] font-bold">
+                <span className="inline-flex items-center gap-1 rounded-full bg-blue-50 text-blue-700 px-2 py-0.5 text-xs font-bold">
                   <Check className="h-3 w-3" aria-hidden="true" /> {Math.round((state.confidence ?? 0) * 100)}% i bazuar
                 </span>
               )}
               {state.grounded === false && (
-                <span className="inline-flex items-center gap-1 rounded-full bg-yellow-50 text-yellow-800 px-2 py-0.5 text-[10px] font-bold">
+                <span className="inline-flex items-center gap-1 rounded-full bg-yellow-50 text-yellow-800 px-2 py-0.5 text-xs font-bold">
                   <AlertTriangle className="h-3 w-3" aria-hidden="true" /> Verifiko në eKosova
                 </span>
               )}
               {state.activeServiceName && (
-                <span className="inline-flex items-center gap-1 rounded-full bg-blue-50 text-blue-700 px-2 py-0.5 text-[10px] font-bold">
+                <span className="inline-flex items-center gap-1 rounded-full bg-blue-50 text-blue-700 px-2 py-0.5 text-xs font-bold">
                   <Folder className="h-3 w-3" aria-hidden="true" /> {state.activeServiceName}
                 </span>
               )}

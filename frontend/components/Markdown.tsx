@@ -113,7 +113,7 @@ function CitationChip({
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`Citimi ${marker}: ${citation.service_id}`}
-          className="inline-flex items-center align-baseline rounded-full bg-brand-light ek-text-brand text-[10px] font-bold px-1.5 py-0.5 ml-0.5 hover:bg-brand-soft transition-colors no-underline"
+          className="inline-flex items-center align-baseline rounded-full bg-brand-light ek-text-brand text-xs font-bold px-1.5 py-0.5 ml-0.5 hover:bg-brand-soft transition-colors no-underline"
         >
           {children}
         </a>
@@ -130,7 +130,7 @@ function CitationChip({
               [{marker}] {citation.service_id || "burim"}
             </span>
             {citation.language && (
-              <span className="uppercase text-[10px] ek-text-muted">{citation.language}</span>
+              <span className="uppercase text-xs ek-text-muted">{citation.language}</span>
             )}
           </div>
           {citation.snippet && (
