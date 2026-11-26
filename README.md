@@ -6,7 +6,7 @@ Ask *"Sa kushton pasaporta?"* and ZANA finds the official procedure, streams a s
 
 [![CI](https://github.com/rinorze/Zana-AI/actions/workflows/ci.yml/badge.svg)](https://github.com/rinorze/Zana-AI/actions/workflows/ci.yml)
 
-**Live demo:** https://zana-ai-platform.vercel.app. The backend runs on a free tier, so the first question after a quiet period can take about 30 seconds while it wakes up.
+**Live demo:** https://zana-ai-platform.vercel.app (API: https://zana-api.vercel.app/health). The demo runs on free tiers: Gemini 2.5 Flash for answers with Groq as fallback, Gemini embeddings and Groq Whisper. It allows 200 chat questions a day in total.
 
 <!-- Demo GIF goes here once the hosted demo is live. -->
 
@@ -44,7 +44,7 @@ flowchart LR
 
 1. **Rate limit.** Per-IP limits and a global daily cap protect the API budget (`app/middleware/rate_limit.py`).
 2. **Language.** The language is taken from the request or detected from the text (`app/llm/language.py`).
-3. **Retrieve.** The query is embedded with `text-embedding-3-small`. ChromaDB returns 15 candidate chunks filtered to that language. A keyword score ranks the same candidates a second way, and the two rankings are merged with Reciprocal Rank Fusion (k = 60) (`app/rag/retriever.py`).
+3. **Retrieve.** The query is embedded (`text-embedding-3-small` by default; the demo uses `gemini-embedding-001`). ChromaDB returns 15 candidate chunks filtered to that language. A keyword score ranks the same candidates a second way, and the two rankings are merged with Reciprocal Rank Fusion (k = 60) (`app/rag/retriever.py`).
 4. **Ground or refuse.** Chunks with a cosine distance above 0.45 are dropped. If nothing is left, ZANA streams a fixed "I don't have reliable information" line with the eKosova contact, and the LLM is never called.
 5. **Answer.** The top chunks go into the prompt as numbered sources. The answer streams over Server-Sent Events, and only the citations the model actually used are kept at the end.
 6. **Log.** The question, whether it was grounded, and the answer are stored for the admin analytics.
@@ -98,11 +98,19 @@ Or with Docker: `docker compose up --build`, then run the seed and index scripts
 
 ## Deploying the demo
 
-- **Backend:** `backend/Dockerfile.deploy` (Hugging Face Spaces on port 7860, or Render via `$PORT`). On every start it seeds the catalogue and rebuilds the index, so it needs no persistent disk. Set `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `JWT_SECRET`, `ADMIN_PASSWORD`, `AGENT_PASSWORD` and `FRONTEND_URL`.
+- **Backend (live demo):** Vercel, as one Python function. Chroma's native parts don't fit a function, so the demo sets `VECTOR_BACKEND=memory`: a small NumPy store loaded from an index file (`app/rag/memory_store.py`; on the 30 eval questions it returns the same results as Chroma).
+  ```bash
+  python -m scripts.seed && python -m scripts.index_catalogue  # with the demo's EMBEDDING_* settings
+  python -m scripts.export_index ../vector_index.npz
+  python -m scripts.stage_vercel ../zana-vercel ../vector_index.npz
+  cd ../zana-vercel && vercel deploy --prod
+  ```
+  Environment variables on the Vercel project: `GEMINI_API_KEY`, `GROQ_API_KEY`, `LLM_PROVIDER_CHAIN=gemini,groq`, `EMBEDDING_BASE_URL` / `EMBEDDING_API_KEY` / `EMBEDDING_MODEL=gemini-embedding-001`, `TRANSCRIBE_BASE_URL` / `TRANSCRIBE_API_KEY` / `TRANSCRIBE_MODEL=whisper-large-v3`, `RELEVANT_DISTANCE_MAX=0.33`, `VECTOR_BACKEND=memory`, `ENVIRONMENT=production`, `AUTO_SEED_CATALOGUE=true`, `DATABASE_URL=sqlite:////tmp/zana.db`, `CHROMA_PERSIST_DIR=/tmp/chroma`, `TRUST_PROXY_HEADERS=true`, `JWT_SECRET`, `ADMIN_PASSWORD`, `AGENT_PASSWORD`, `FRONTEND_URL`.
+- **Backend (container):** `backend/Dockerfile.deploy` runs anywhere that serves a container on `$PORT` (Render, Fly, a VPS). It seeds the catalogue and builds the index on start, so it needs no persistent disk. `scripts/deploy_hf_space.py` targets Hugging Face Docker Spaces, which now need a paid plan.
 - **Frontend:** Vercel, with `NEXT_PUBLIC_API_BASE` set to the backend URL. It's read at build time, so redeploy after changing it.
 - **Check it:** `python -m scripts.smoke_test https://<backend-url>` asks one Albanian and one English question and fails if either answer has no citations.
 
-Rate-limit counters live in memory. That suits a single-process demo; several instances would need a shared store such as Redis.
+Rate-limit counters live in memory, per instance. On serverless hosts each warm instance counts separately, so the daily cap is approximate; a shared store such as Redis would make it exact. Query logs live in `/tmp` on the demo and reset when an instance is recycled.
 
 ## Tests and CI
 
