@@ -127,27 +127,34 @@ def test_language_detect_cyrillic_serbian():
 
 @pytest.mark.asyncio
 async def test_chat_streams_tokens_and_logs(client: TestClient, test_db, monkeypatch):
-    async def fake_retrieve(query, top_k=5, where=None):  # noqa: ARG001
-        from app.rag.retriever import Chunk
+    async def fake_retrieve_hybrid(db, query, top_k=5, where=None, **_):  # noqa: ARG001
+        from app.rag.retriever import Chunk, RetrievalResult
 
-        return [
-            Chunk(
-                id="pasaporta::description::sq::0",
-                text="Pasaporta kushton 25 EUR dhe lëshohet brenda 10 ditësh.",
-                metadata={
-                    "service_id": "pasaporta",
-                    "language": "sq",
-                    "source_url": "https://ekosova.rks-gov.net/sherbimet/pasaporta",
-                },
-                distance=0.1,
-            )
-        ]
+        chunk = Chunk(
+            id="pasaporta::description::sq::0",
+            text="Pasaporta kushton 25 EUR dhe lëshohet brenda 10 ditësh.",
+            metadata={
+                "service_id": "pasaporta",
+                "language": "sq",
+                "source_url": "https://ekosova.rks-gov.net/sherbimet/pasaporta",
+            },
+            distance=0.1,
+        )
+        return RetrievalResult(
+            chunks=[chunk],
+            best_distance=chunk.distance,
+            confidence=chunk.confidence,
+            grounded=True,
+            method="hybrid",
+        )
 
     async def fake_stream(system, messages, max_tokens=1024, temperature=0.3, model=None):  # noqa: ARG001
         for token in ("Pasaporta ", "kushton ", "25 EUR."):
             yield token
 
-    monkeypatch.setattr(citizen_module, "retrieve", fake_retrieve)
+    # The chat route calls retrieve_hybrid, so that is what must be stubbed;
+    # stubbing retrieve() leaves the real OpenAI embedding call in place.
+    monkeypatch.setattr(citizen_module, "retrieve_hybrid", fake_retrieve_hybrid)
     monkeypatch.setattr(citizen_module.claude, "stream_complete", fake_stream)
 
     with client.stream(

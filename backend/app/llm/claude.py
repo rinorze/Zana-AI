@@ -158,12 +158,17 @@ async def _stream_openai_compatible(
     else:
         raise ValueError(f"Unsupported OpenAI-compatible provider: {provider}")
 
+    extra_body: dict[str, Any] = {}
+    if provider == "gemini" and settings.gemini_reasoning_effort:
+        extra_body["reasoning_effort"] = settings.gemini_reasoning_effort
+
     stream = await client.chat.completions.create(
         model=resolved_model,
         messages=_normalize_openai_messages(system, messages),
         max_tokens=max_tokens,
         temperature=temperature,
         stream=True,
+        extra_body=extra_body or None,
     )
     async for chunk in stream:
         token = chunk.choices[0].delta.content if chunk.choices else None
@@ -216,11 +221,16 @@ async def _complete_openai_compatible(
     else:
         raise ValueError(f"Unsupported OpenAI-compatible provider: {provider}")
 
+    extra_body: dict[str, Any] = {}
+    if provider == "gemini" and settings.gemini_reasoning_effort:
+        extra_body["reasoning_effort"] = settings.gemini_reasoning_effort
+
     response = await client.chat.completions.create(
         model=resolved_model,
         messages=_normalize_openai_messages(system, messages),
         max_tokens=max_tokens,
         temperature=temperature,
+        extra_body=extra_body or None,
     )
     return response.choices[0].message.content or ""
 

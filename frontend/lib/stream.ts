@@ -110,7 +110,13 @@ export async function* streamChat(request: ChatRequest, signal?: AbortSignal): A
   });
 
   if (!response.ok || !response.body) {
-    yield { type: "error", message: `HTTP ${response.status}` };
+    // 429 carries a readable, translated message from the rate limiter.
+    let message = `HTTP ${response.status}`;
+    if (response.status === 429) {
+      const body = (await response.json().catch(() => null)) as { detail?: unknown } | null;
+      if (typeof body?.detail === "string") message = body.detail;
+    }
+    yield { type: "error", message };
     return;
   }
 

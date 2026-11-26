@@ -1,0 +1,70 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  backend:
+    name: Backend tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: backend/requirements.txt
+      - run: pip install -r requirements.txt
+      # No API keys in CI: live LLM/embedding tests skip themselves.
+      - run: pytest -q
+
+  frontend:
+    name: Frontend typecheck, lint, build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    env:
+      NEXT_PUBLIC_API_BASE: http://localhost:8000
+      NEXT_TELEMETRY_DISABLED: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci
+      - run: npx tsc --noEmit
+      - run: npm run lint
+      - run: npm run build
+
+  deploy-image:
+    name: Demo image builds and boots
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -f backend/Dockerfile.deploy -t zana-demo backend
+      # Boots in production mode without API keys: the catalogue must seed and
+      # /health must answer, even though indexing cannot run.
+      - run: |
+          docker run -d --name zana -p 7860:7860 \
+            -e JWT_SECRET=ci-only-secret-0123456789abcdef0123456789abcdef \
+            -e ADMIN_PASSWORD=ci-admin -e AGENT_PASSWORD=ci-agent \
+            zana-demo
+          for i in $(seq 1 60); do
+            curl -fs localhost:7860/health && break
+            sleep 2
+          done
+          curl -fs localhost:7860/health | python3 -c "import json,sys; d=json.load(sys.stdin); print(d); assert d['status']=='ok' and d['services']>=20"
+      - if: failure()
+        run: docker logs zana

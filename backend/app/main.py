@@ -1,3 +1,5 @@
+import asyncio
+import logging
 from contextlib import asynccontextmanager
 from typing import Any
 
@@ -9,12 +11,14 @@ from sqlalchemy import func, select
 
 from app.config import get_settings
 from app.db.database import SessionLocal, init_db
+from app.middleware.auth import warn_if_default_secrets
 from app.routers.admin import router as admin_router
 from app.routers.agent import router as agent_router
 from app.routers.auth import router as auth_router
 from app.routers.citizen import router as citizen_router
 
 settings = get_settings()
+logger = logging.getLogger("zana")
 
 
 def seed_catalogue_if_empty() -> None:
@@ -27,12 +31,40 @@ def seed_catalogue_if_empty() -> None:
         seed_main()
 
 
+async def index_catalogue_if_empty() -> None:
+    """Build the Chroma index on first boot. On a host without a persistent
+    disk (the free demo host) this runs after every restart. 20 services is a
+    few hundred chunks, so it takes seconds and costs a fraction of a cent."""
+    from app.rag import vectorstore
+    from scripts.index_catalogue import index_all
+
+    if vectorstore.count() != 0:
+        return
+    try:
+        await index_all()
+    except Exception:
+        # Keep serving: the catalogue pages still work and chat falls back to
+        # its verified "I don't know" line. /health shows chroma_chunks=0.
+        logger.exception("Building the search index on startup failed")
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    if settings.is_production:
+        problems = warn_if_default_secrets()
+        if problems:
+            raise RuntimeError("Refusing to start in production: " + " ".join(problems))
     init_db()
     if settings.auto_seed_catalogue:
         seed_catalogue_if_empty()
+    index_task = None
+    if settings.auto_index_catalogue:
+        # In the background: on a free tier the index can take minutes to
+        # build, and the host expects the port to answer before that.
+        index_task = asyncio.create_task(index_catalogue_if_empty())
     yield
+    if index_task is not None and not index_task.done():
+        index_task.cancel()
 
 
 app = FastAPI(
@@ -44,7 +76,14 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[settings.frontend_url, "http://localhost:3000", "http://localhost:3001", "http://127.0.0.1:3000", "http://127.0.0.1:3001"],
+    # FRONTEND_URL may list several origins, comma-separated.
+    allow_origins=[
+        *(o.strip().rstrip("/") for o in settings.frontend_url.split(",") if o.strip()),
+        "http://localhost:3000",
+        "http://localhost:3001",
+        "http://127.0.0.1:3000",
+        "http://127.0.0.1:3001",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
