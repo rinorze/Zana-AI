@@ -1,3 +1,4 @@
+import logging
 from contextlib import asynccontextmanager
 from typing import Any
 
@@ -16,6 +17,7 @@ from app.routers.auth import router as auth_router
 from app.routers.citizen import router as citizen_router
 
 settings = get_settings()
+logger = logging.getLogger("zana")
 
 
 def seed_catalogue_if_empty() -> None:
@@ -35,8 +37,14 @@ async def index_catalogue_if_empty() -> None:
     from app.rag import vectorstore
     from scripts.index_catalogue import index_all
 
-    if vectorstore.count() == 0:
+    if vectorstore.count() != 0:
+        return
+    try:
         await index_all()
+    except Exception:
+        # Keep serving: the catalogue pages still work and chat falls back to
+        # its verified "I don't know" line. /health shows chroma_chunks=0.
+        logger.exception("Building the search index on startup failed")
 
 
 @asynccontextmanager

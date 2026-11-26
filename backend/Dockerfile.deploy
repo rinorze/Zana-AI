@@ -1,0 +1,33 @@
+# Image for the hosted public demo (Hugging Face Spaces or Render).
+# The local docker-compose setup keeps using ./Dockerfile, which also installs
+# Chromium for the admin URL scraper. The demo does not need it.
+FROM python:3.11-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1
+
+# Hugging Face runs containers as uid 1000, so the app files and the runtime
+# data folder must belong to that user.
+RUN useradd --create-home --uid 1000 app
+WORKDIR /app
+
+COPY requirements.txt ./
+RUN pip install --upgrade pip && pip install -r requirements.txt
+
+COPY --chown=app:app . .
+RUN mkdir -p /app/runtime && chown app:app /app/runtime
+USER app
+
+# The disk is not persistent on the free tiers. On every start the app seeds
+# the 20 services into SQLite and rebuilds the Chroma index (see app/main.py).
+ENV ENVIRONMENT=production \
+    AUTO_SEED_CATALOGUE=true \
+    AUTO_INDEX_CATALOGUE=true \
+    TRUST_PROXY_HEADERS=true \
+    DATABASE_URL=sqlite:////app/runtime/zana.db \
+    CHROMA_PERSIST_DIR=/app/runtime/chroma
+
+# Hugging Face expects port 7860; Render passes $PORT.
+EXPOSE 7860
+CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-7860} --proxy-headers --forwarded-allow-ips='*'"]

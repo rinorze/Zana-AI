@@ -5,3 +5,6 @@ chroma_data/
 *.db
 .env
 uploads/
+.venv*/
+.pytest_cache/
+tests/
