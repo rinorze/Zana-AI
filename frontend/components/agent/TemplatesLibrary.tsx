@@ -26,12 +26,15 @@ export function TemplatesLibrary({ serviceId }: { serviceId: string | null }) {
       <h2 className="ek-page-title text-sm flex items-center gap-2">
         <FileSpreadsheet className="h-4 w-4 ek-text-secondary" />
         Template-at
+        {templates.length > 0 && (
+          <span className="ml-auto text-xs font-normal ek-text-muted">{templates.length}</span>
+        )}
       </h2>
       {error && <p className="text-sm text-ek-danger">{error}</p>}
       {templates.length === 0 && !error && (
         <p className="text-sm ek-text-muted">Asnjë template për këtë shërbim.</p>
       )}
-      <div className="space-y-2">
+      <div className="space-y-2 max-h-[26rem] overflow-y-auto pr-1">
         {templates.map((t) => (
           <button
             key={t.id}
@@ -42,7 +45,7 @@ export function TemplatesLibrary({ serviceId }: { serviceId: string | null }) {
               setOpen(true);
             }}
           >
-            <p className="text-sm font-bold ek-text-brand">{t.scenario}</p>
+            <p className="text-sm font-bold ek-text-brand">{scenarioLabel(t.scenario)}</p>
             <p className="text-xs ek-text-muted line-clamp-2 mt-1">{pickLocalized(t.templates, language)}</p>
           </button>
         ))}
@@ -50,4 +53,10 @@ export function TemplatesLibrary({ serviceId }: { serviceId: string | null }) {
       <TemplateModal template={selected} open={open} onOpenChange={setOpen} language={language} />
     </section>
   );
+}
+
+/** "first_time_application" -> "First time application". */
+function scenarioLabel(scenario: string): string {
+  const words = scenario.replace(/_/g, " ").trim();
+  return words.charAt(0).toUpperCase() + words.slice(1);
 }
