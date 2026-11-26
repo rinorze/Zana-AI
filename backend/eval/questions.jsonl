@@ -1,0 +1,30 @@
+{"q": "Sa kushton pasaporta për të rritur?", "lang": "sq", "expected": "pasaporta"}
+{"q": "Çfarë dokumentesh më duhen për pasaportë për fëmijën?", "lang": "sq", "expected": "pasaporta"}
+{"q": "Ku mund ta nxjerr letërnjoftimin e parë kur mbush 16 vjeç?", "lang": "sq", "expected": "leternjoftim"}
+{"q": "Si ta marr certifikatën e lindjes online?", "lang": "sq", "expected": "certifikate-lindjeje"}
+{"q": "Më duhet certifikata e martesës për vizë, ku aplikoj?", "lang": "sq", "expected": "certifikate-martese"}
+{"q": "Si regjistrohet një SH.P.K. në ARBK?", "lang": "sq", "expected": "regjistrim-biznesi"}
+{"q": "Sa kushtojnë provimet për patentë shoferi?", "lang": "sq", "expected": "patente-shoferi"}
+{"q": "Më duhet vërtetim që nuk jam i dënuar për punë", "lang": "sq", "expected": "certifikate-padenimi"}
+{"q": "Si e marr ekstraktin e pronësisë për shtëpinë?", "lang": "sq", "expected": "ekstrakti-pronesise"}
+{"q": "Kur kam të drejtë për pension pleqërie?", "lang": "sq", "expected": "pension-pleqerise"}
+{"q": "Si ta legalizoj diplomën e marrë jashtë vendit?", "lang": "sq", "expected": "legalizim-diplome"}
+{"q": "Si e regjistroj veturën e blerë nga jashtë?", "lang": "sq", "expected": "regjistrim-automjeti"}
+{"q": "Si e marr numrin fiskal për biznes të ri?", "lang": "sq", "expected": "numri-fiskal"}
+{"q": "Kur duhet të regjistrohem për TVSH?", "lang": "sq", "expected": "regjistrim-tvsh"}
+{"q": "How much does a passport cost in Kosovo?", "lang": "en", "expected": "pasaporta"}
+{"q": "What do I need to renew my ID card?", "lang": "en", "expected": "leternjoftim"}
+{"q": "How do I get a death certificate for a family member?", "lang": "en", "expected": "certifikate-vdekjeje"}
+{"q": "I am a foreigner, how do I get a residence permit?", "lang": "en", "expected": "leje-qendrimi-huaj"}
+{"q": "How do I prove I am not married?", "lang": "en", "expected": "certifikate-gjendjes-martesore"}
+{"q": "Where do I get a birth registry extract?", "lang": "en", "expected": "ekstrakt-amze"}
+{"q": "How do I register for health insurance?", "lang": "en", "expected": "sigurim-shendetesor"}
+{"q": "How do I apply for a diplomatic visa?", "lang": "en", "expected": "aplikim-vize"}
+{"q": "Where do I get my personal identification number?", "lang": "en", "expected": "numri-personal"}
+{"q": "Koliko košta pasoš?", "lang": "sr", "expected": "pasaporta"}
+{"q": "Kako da dobijem vozačku dozvolu?", "lang": "sr", "expected": "patente-shoferi"}
+{"q": "Kako da registrujem firmu?", "lang": "sr", "expected": "regjistrim-biznesi"}
+{"q": "Ku mund të blej bileta për ndeshjen e futbollit?", "lang": "sq", "expected": null}
+{"q": "What is the best restaurant in Prizren?", "lang": "en", "expected": null}
+{"q": "Si ta gatuaj flijen?", "lang": "sq", "expected": null}
+{"q": "Who won the 2022 World Cup?", "lang": "en", "expected": null}
