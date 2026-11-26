@@ -43,6 +43,7 @@ class Row:
     rank: int | None  # 1-based rank of the expected service, None if absent
     grounded: bool
     confidence: float
+    best_distance: float  # closest chunk's cosine distance, for threshold tuning
 
 
 def unique_in_order(items: list[str]) -> list[str]:
@@ -90,11 +91,11 @@ def write_report(rows: list[Row], summary: dict, path: Path) -> None:
     ]
     for key in ("hit@1", f"hit@{TOP_K}", "mrr", "grounded", "refusal"):
         lines.append(f"| {key} | {summary[key]:.0%} |" if key != "mrr" else f"| MRR | {summary[key]:.3f} |")
-    lines += ["", "## Per question", "", "| Lang | Question | Expected | Rank | Grounded |", "|---|---|---|---|---|"]
+    lines += ["", "## Per question", "", "| Lang | Question | Expected | Rank | Grounded | Best distance |", "|---|---|---|---|---|---|"]
     for r in rows:
         expected = r.expected or "(off-topic)"
         rank = "–" if r.expected is None else (str(r.rank) if r.rank else "miss")
-        lines.append(f"| {r.lang} | {r.q} | {expected} | {rank} | {'yes' if r.grounded else 'no'} |")
+        lines.append(f"| {r.lang} | {r.q} | {expected} | {rank} | {'yes' if r.grounded else 'no'} | {r.best_distance:.3f} |")
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
@@ -124,6 +125,7 @@ async def run() -> int:
                     rank=rank_of(item["expected"], ranked),
                     grounded=result.grounded,
                     confidence=result.confidence,
+                    best_distance=round(result.best_distance, 3),
                 )
             )
 

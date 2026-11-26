@@ -18,12 +18,14 @@ from typing import Any, Iterable
 
 from sqlalchemy.orm import Session
 
+from app.config import get_settings
 from app.rag import vectorstore
 from app.rag.embedder import embed_text
 
 # Cosine distance threshold above which we treat a chunk as "not actually
-# relevant". Tuned empirically against the 20-service catalogue; lower numbers
-# are stricter. 0.45 keeps off-topic chunks from polluting the context window.
+# relevant". Lower numbers are stricter. 0.45 was tuned for OpenAI's
+# text-embedding-3-small; the live value comes from settings
+# (RELEVANT_DISTANCE_MAX) because each embedding model needs its own.
 RELEVANT_DISTANCE_MAX = 0.45
 
 # Rank-fusion constant; the standard RRF formula uses k≈60.
@@ -108,13 +110,15 @@ async def retrieve_with_confidence(
     query: str,
     top_k: int = 5,
     where: dict[str, Any] | None = None,
-    distance_max: float = RELEVANT_DISTANCE_MAX,
+    distance_max: float | None = None,
 ) -> RetrievalResult:
     """Vector search + drop chunks whose distance exceeds the threshold.
 
     `grounded=False` is the signal for upstream code to refuse to answer and
     serve the verified "I don't know" fallback line instead of hallucinating.
     """
+    if distance_max is None:
+        distance_max = get_settings().relevant_distance_max
     if not query.strip():
         return RetrievalResult.empty()
 
@@ -193,7 +197,7 @@ async def retrieve_hybrid(
     query: str,
     top_k: int = 5,
     where: dict[str, Any] | None = None,
-    distance_max: float = RELEVANT_DISTANCE_MAX,
+    distance_max: float | None = None,
 ) -> RetrievalResult:
     """Combine vector search with lexical keyword scoring + service-name boost.
 
@@ -204,6 +208,8 @@ async def retrieve_hybrid(
       4. Reciprocal-rank-fuse semantic + lexical rankings.
       5. Return the top-K with grounding metadata.
     """
+    if distance_max is None:
+        distance_max = get_settings().relevant_distance_max
     semantic = await retrieve(query, top_k=top_k * 3, where=where)
     if not semantic:
         return RetrievalResult.empty("hybrid")

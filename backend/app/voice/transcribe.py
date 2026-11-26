@@ -1,4 +1,4 @@
-"""Voice transcription via OpenAI Whisper.
+"""Voice transcription via Whisper (OpenAI, or any OpenAI-compatible host such as Groq).
 
 Used by the citizen voice input. Frontend POSTs an audio blob (webm/ogg/wav);
 backend forwards it to OpenAI's transcription endpoint and returns the text.
@@ -14,8 +14,6 @@ from openai import AsyncOpenAI, BadRequestError
 
 from app.config import get_settings
 
-WHISPER_MODEL = "whisper-1"
-
 _client: AsyncOpenAI | None = None
 
 
@@ -23,11 +21,13 @@ def _get_client() -> AsyncOpenAI:
     global _client
     if _client is None:
         settings = get_settings()
-        if not settings.openai_api_key:
+        api_key = settings.transcribe_api_key or settings.openai_api_key
+        if not api_key:
             raise RuntimeError(
-                "OPENAI_API_KEY is not set; cannot transcribe audio."
+                "No transcription API key: set OPENAI_API_KEY, or TRANSCRIBE_API_KEY "
+                "with TRANSCRIBE_BASE_URL."
             )
-        _client = AsyncOpenAI(api_key=settings.openai_api_key)
+        _client = AsyncOpenAI(api_key=api_key, base_url=settings.transcribe_base_url or None)
     return _client
 
 
@@ -43,7 +43,7 @@ async def transcribe_audio(
     client = _get_client()
 
     async def _call(use_language: str | None) -> str:
-        kwargs: dict = {"model": WHISPER_MODEL, "file": (filename, audio_bytes)}
+        kwargs: dict = {"model": get_settings().transcribe_model, "file": (filename, audio_bytes)}
         if use_language:
             kwargs["language"] = use_language
         response = await client.audio.transcriptions.create(**kwargs)

@@ -6,7 +6,7 @@ from scripts.eval_rag import Row, rank_of, summarize, unique_in_order
 
 def row(expected, ranked, grounded=True) -> Row:
     return Row(q="q", lang="sq", expected=expected, ranked_services=ranked,
-               rank=rank_of(expected, ranked), grounded=grounded, confidence=0.0)
+               rank=rank_of(expected, ranked), grounded=grounded, confidence=0.0, best_distance=0.0)
 
 
 def test_unique_in_order_keeps_first_occurrence():

@@ -1,3 +1,4 @@
+import asyncio
 import logging
 from contextlib import asynccontextmanager
 from typing import Any
@@ -56,9 +57,14 @@ async def lifespan(app: FastAPI):
     init_db()
     if settings.auto_seed_catalogue:
         seed_catalogue_if_empty()
+    index_task = None
     if settings.auto_index_catalogue:
-        await index_catalogue_if_empty()
+        # In the background: on a free tier the index can take minutes to
+        # build, and the host expects the port to answer before that.
+        index_task = asyncio.create_task(index_catalogue_if_empty())
     yield
+    if index_task is not None and not index_task.done():
+        index_task.cancel()
 
 
 app = FastAPI(
