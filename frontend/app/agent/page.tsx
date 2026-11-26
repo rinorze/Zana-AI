@@ -11,7 +11,8 @@ import { CallerContextPanel, type CallerContext } from "@/components/agent/Calle
 import { SmartSearchBar } from "@/components/agent/SmartSearchBar";
 import { SuggestionsPanel } from "@/components/agent/SuggestionsPanel";
 import { TemplatesLibrary } from "@/components/agent/TemplatesLibrary";
-import { clearToken, getRole, getToken, listServices, type ServiceListItem } from "@/lib/api";
+import { DemoBanner } from "@/components/DemoBanner";
+import { clearToken, ensureSession, listServices, type ServiceListItem } from "@/lib/api";
 import { useT } from "@/lib/i18n";
 import { AgentSuggestSocket, type SuggestPayload } from "@/lib/websocket";
 
@@ -28,24 +29,32 @@ export default function AgentDashboardPage() {
   const socketRef = useRef<AgentSuggestSocket | null>(null);
 
   useEffect(() => {
-    if (!getToken() || (getRole() !== "agent" && getRole() !== "admin")) {
-      router.replace("/agent/login");
-      return;
-    }
-    listServices({ limit: 200 }).then((page) => setServices(page.items)).catch(console.error);
-
-    const socket = new AgentSuggestSocket({
+    let socket: AgentSuggestSocket | null = null;
+    let cancelled = false;
+    // No login: open a read-only demo session if the backend allows it.
+    ensureSession("agent").then((ok) => {
+      if (cancelled) return;
+      if (!ok) {
+        router.replace("/agent/login");
+        return;
+      }
+      listServices({ limit: 200 }).then((page) => setServices(page.items)).catch(console.error);
+      socket = new AgentSuggestSocket({
       onMessage: (next) => {
         setPayload(next);
         if (next.suggestions?.length) {
           setUsedSuggestions((curr) => [...curr, ...next.suggestions.map((s) => s.text)].slice(-10));
         }
       },
-      onStatus: setStatus,
+        onStatus: setStatus,
+      });
+      socketRef.current = socket;
+      socket.connect();
     });
-    socketRef.current = socket;
-    socket.connect();
-    return () => socket.close();
+    return () => {
+      cancelled = true;
+      socket?.close();
+    };
   }, [router]);
 
   function handleDebounced(text: string) {
@@ -76,8 +85,6 @@ export default function AgentDashboardPage() {
         eyebrow={
           <span className="inline-flex items-center gap-2">
             <span className={"inline-block h-2 w-2 rounded-full " + statusColor} aria-hidden="true" />
-            <span className="uppercase tracking-wide text-[10px]">{status}</span>
-            <span className="opacity-60">·</span>
             <RadioTower className="h-3.5 w-3.5" />
             Co-Pilot
           </span>
@@ -93,7 +100,8 @@ export default function AgentDashboardPage() {
       />
 
       {/* How it works */}
-      <div className="container py-6">
+      <div className="container py-6 space-y-4">
+        <DemoBanner loginHref="/agent/login" />
         <HowItWorks />
       </div>
 

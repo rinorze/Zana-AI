@@ -72,6 +72,10 @@ class Settings(BaseSettings):
     auto_index_catalogue: bool = False
 
     # Public endpoint limits. See app/middleware/rate_limit.py.
+    # Public demo: visitors who are not logged in get an agent or admin session
+    # without a password. Demo sessions can look at everything but cannot change
+    # the catalogue (admin writes return 403). Off by default.
+    demo_access: bool = False
     rate_limit_enabled: bool = True
     trust_proxy_headers: bool = False
     chat_per_minute: int = 6
@@ -81,6 +85,9 @@ class Settings(BaseSettings):
     voice_per_minute: int = 3
     voice_per_ip_per_day: int = 20
     login_per_minute: int = 5
+    # Agent co-pilot calls (suggestions, personalise, summary) each cost an LLM call.
+    agent_per_minute: int = 12
+    agent_per_ip_per_day: int = 150
 
     @property
     def is_production(self) -> bool:

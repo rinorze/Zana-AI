@@ -42,6 +42,8 @@ def _limits_for(bucket: str) -> Limits:
         "search": Limits(s.search_per_minute),
         "voice": Limits(s.voice_per_minute, s.voice_per_ip_per_day),
         "login": Limits(s.login_per_minute),
+        # Shares the global daily cap with chat: both spend the same LLM quota.
+        "agent": Limits(s.agent_per_minute, s.agent_per_ip_per_day, s.chat_daily_cap),
     }
     return table[bucket]
 

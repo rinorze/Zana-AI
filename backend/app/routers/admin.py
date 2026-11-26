@@ -28,11 +28,15 @@ from app.ingestion import indexer
 from app.ingestion.docx_parser import parse_docx
 from app.ingestion.pdf_parser import parse_pdf
 from app.ingestion.scraper import scrape_url
-from app.middleware.auth import require_admin
+from app.middleware.auth import forbid_demo_writes, require_admin
 from app.rag import vectorstore
 from scripts.index_catalogue import _build_service_chunks  # noqa: PLC2701
 
-router = APIRouter(prefix="/api/admin", tags=["admin"], dependencies=[Depends(require_admin)])
+router = APIRouter(
+    prefix="/api/admin",
+    tags=["admin"],
+    dependencies=[Depends(require_admin), Depends(forbid_demo_writes)],
+)
 
 UPLOAD_DIR = Path(get_settings().chroma_persist_dir).parent / "uploads"
 UPLOAD_DIR.mkdir(parents=True, exist_ok=True)

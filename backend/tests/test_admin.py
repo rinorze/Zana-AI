@@ -138,3 +138,33 @@ def test_admin_analytics_returns_counts(client: TestClient, admin_db):
     assert body["total_queries"] >= 2
     assert body["no_match_count"] >= 1
     assert "by_language" in body
+
+
+# ---- Demo sessions: no password, read-only admin, off unless DEMO_ACCESS is set
+@pytest.fixture
+def demo_on(monkeypatch):
+    monkeypatch.setattr(get_settings(), "demo_access", True)
+
+
+def test_demo_login_is_off_by_default(client):
+    assert client.post("/api/auth/demo", json={"role": "admin"}).status_code == 404
+
+
+def test_demo_admin_can_read_but_not_write(client, demo_on):
+    body = client.post("/api/auth/demo", json={"role": "admin"}).json()
+    headers = {"Authorization": f"Bearer {body['access_token']}"}
+    assert body["role"] == "admin" and body["demo"] is True
+    assert client.get("/api/admin/services", headers=headers).status_code == 200
+    blocked = client.delete("/api/admin/services/pasaporta", headers=headers)
+    assert blocked.status_code == 403
+    assert "read-only" in blocked.json()["detail"]
+
+
+def test_demo_agent_cannot_open_admin(client, demo_on):
+    token = client.post("/api/auth/demo", json={"role": "agent"}).json()["access_token"]
+    response = client.get("/api/admin/services", headers={"Authorization": f"Bearer {token}"})
+    assert response.status_code == 403
+
+
+def test_http_suggest_needs_a_token(client):
+    assert client.post("/api/agent/suggest", json={"input": "pasaporta"}).status_code == 401

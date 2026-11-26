@@ -18,11 +18,13 @@ from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 
 from app.catalogue import crud
+from app.config import get_settings
 from app.db.database import get_db
 from app.llm import claude
 from app.llm.language import SUPPORTED, detect_language
 from app.llm.prompts import build_agent_system, build_summary_prompt, build_template_prompt
 from app.middleware.auth import ROLE_AGENT, authenticate_ws, require_agent
+from app.middleware.rate_limit import limiter, rate_limit
 from app.rag.retriever import retrieve
 
 router = APIRouter(tags=["agent"])
@@ -121,6 +123,12 @@ async def agent_suggest(websocket: WebSocket) -> None:
             return
         try:
             await asyncio.sleep(DEBOUNCE_MS / 1000)
+            # Same per-IP limits as the HTTP route: every suggestion is an LLM call.
+            if get_settings().rate_limit_enabled and limiter.check(
+                "agent", websocket.client.host if websocket.client else "unknown"
+            ):
+                await websocket.send_json({"suggestions": [], "error": "rate_limited"})
+                return
             result = await _generate_suggestions(text, payload.get("current_service"))
             await websocket.send_json(result)
         except asyncio.CancelledError:
@@ -144,6 +152,21 @@ async def agent_suggest(websocket: WebSocket) -> None:
 # ---------------------------------------------------------------- HTTP routes
 
 
+class SuggestRequest(BaseModel):
+    input: str = Field(..., max_length=2000)
+    current_service: str | None = None
+
+
+@router.post("/api/agent/suggest", dependencies=[Depends(rate_limit("agent"))])
+async def agent_suggest_http(req: SuggestRequest, _: dict = Depends(require_agent)) -> dict[str, Any]:
+    """Same suggestions as the WebSocket, over plain HTTP. Serverless hosts such
+    as Vercel do not support WebSockets, so the hosted demo uses this."""
+    text = req.input.strip()
+    if not text:
+        return {"suggestions": [], "reason": "empty_input"}
+    return await _generate_suggestions(text, req.current_service)
+
+
 class TemplatePersonalizeRequest(BaseModel):
     template_id: int | None = None
     template_text: str | None = None
@@ -156,7 +179,11 @@ class TemplatePersonalizeResponse(BaseModel):
     language: str
 
 
-@router.post("/api/agent/template/personalize", response_model=TemplatePersonalizeResponse)
+@router.post(
+    "/api/agent/template/personalize",
+    response_model=TemplatePersonalizeResponse,
+    dependencies=[Depends(rate_limit("agent"))],
+)
 async def template_personalize(
     req: TemplatePersonalizeRequest,
     db: Session = Depends(get_db),
@@ -199,7 +226,11 @@ class SummaryResponse(BaseModel):
     summary: str
 
 
-@router.post("/api/agent/summary", response_model=SummaryResponse)
+@router.post(
+    "/api/agent/summary",
+    response_model=SummaryResponse,
+    dependencies=[Depends(rate_limit("agent"))],
+)
 async def after_call_summary(
     req: SummaryRequest,
     _principal: dict = Depends(require_agent),
