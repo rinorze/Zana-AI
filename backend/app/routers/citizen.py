@@ -423,6 +423,15 @@ async def chat(req: ChatRequest, db: Session = Depends(get_db)) -> StreamingResp
     ]
     messages.append({"role": "user", "content": req.message})
 
+    # Read everything the stream needs from ORM objects *now*. The commit below
+    # expires them, and FastAPI closes the request session before a streamed
+    # body is sent, so touching them inside event_stream() would raise
+    # DetachedInstanceError and end every grounded answer with an error event.
+    active_service_id = structured_service.service_id if structured_service else None
+    active_service_name = (
+        _localized(structured_service.names_json, language) if structured_service else None
+    )
+
     # Persist intent immediately; we update the answer text after the stream finishes.
     log_entry = crud.log_query(
         db,
@@ -448,10 +457,8 @@ async def chat(req: ChatRequest, db: Session = Depends(get_db)) -> StreamingResp
                     "confidence": retrieval.confidence,
                     "method": retrieval.method,
                     "chunks": len(retrieval.chunks),
-                    "active_service_id": structured_service.service_id if structured_service else None,
-                    "active_service_name": _localized(structured_service.names_json, language)
-                    if structured_service
-                    else None,
+                    "active_service_id": active_service_id,
+                    "active_service_name": active_service_name,
                 },
             )
 
